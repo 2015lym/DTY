@@ -645,7 +645,6 @@
 		1D8326431DCEE2D7004F84B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8326421DCEE2D7004F84B6 /* QuartzCore.framework */; };
 		1D8326451DCEE2E7004F84B6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8326441DCEE2E7004F84B6 /* OpenGLES.framework */; };
 		1D8326471DCEE336004F84B6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8326461DCEE336004F84B6 /* libsqlite3.0.tbd */; };
-		1D8326491DCEE360004F84B6 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8326481DCEE360004F84B6 /* libstdc++.6.0.9.tbd */; };
 		1D83264B1DCEE3DF004F84B6 /* BaiduMapAPI_Cloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D83264A1DCEE3DF004F84B6 /* BaiduMapAPI_Cloud.framework */; };
 		1D83264D1DCEE3F5004F84B6 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D83264C1DCEE3F5004F84B6 /* BaiduMapAPI_Location.framework */; };
 		1D83264F1DCEE422004F84B6 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D83264E1DCEE422004F84B6 /* BaiduMapAPI_Utils.framework */; };
@@ -891,6 +890,8 @@
 		2A2984DC1E84E3B2001EF5A0 /* JHPieItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D31E84E3B2001EF5A0 /* JHPieItemsView.m */; };
 		2A2984DD1E84E3B2001EF5A0 /* JHShowInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D51E84E3B2001EF5A0 /* JHShowInfoView.m */; };
 		2A2984DE1E84E3B2001EF5A0 /* JHWaveChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */; };
+		38599596223F487A00DD80AF /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */; };
+		38599598223F5F9900DD80AF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599597223F5F9900DD80AF /* libstdc++.tbd */; };
 		3CF013311D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */; };
 		3CF0133E1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */; };
 		5C06B7BA1D4B44F200CC6229 /* line03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C06B7B71D4B44F200CC6229 /* line03.png */; };
@@ -1387,7 +1388,6 @@
 		1D1520201D7138A00074C6D9 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		1D1520311D7431870074C6D9 /* NoData.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoData.png; sourceTree = "<group>"; };
 		1D1520511D76BA240074C6D9 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
-		1D1520531D76BA420074C6D9 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		1D1520551D77FC570074C6D9 /* QQLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QQLogin.png; sourceTree = "<group>"; };
 		1D1520561D77FC570074C6D9 /* weixinLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixinLogin.png; sourceTree = "<group>"; };
 		1D1957D620467DC3009F96AD /* NSNumber+Zirkfied.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Zirkfied.h"; sourceTree = "<group>"; };
@@ -2368,7 +2368,6 @@
 		1D8326421DCEE2D7004F84B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1D8326441DCEE2E7004F84B6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1D8326461DCEE336004F84B6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		1D8326481DCEE360004F84B6 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		1D83264A1DCEE3DF004F84B6 /* BaiduMapAPI_Cloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Cloud.framework; sourceTree = "<group>"; };
 		1D83264C1DCEE3F5004F84B6 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
 		1D83264E1DCEE422004F84B6 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
@@ -2689,6 +2688,8 @@
 		2A2984D51E84E3B2001EF5A0 /* JHShowInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHShowInfoView.m; sourceTree = "<group>"; };
 		2A2984D61E84E3B2001EF5A0 /* JHWaveChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHWaveChart.h; sourceTree = "<group>"; };
 		2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHWaveChart.m; sourceTree = "<group>"; };
+		38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.6.0.9.tbd"; sourceTree = "<group>"; };
+		38599597223F5F9900DD80AF /* libstdc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.tbd"; sourceTree = "<group>"; };
 		3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_s.xib; sourceTree = "<group>"; };
 		3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_p.xib; sourceTree = "<group>"; };
 		5C06B7B71D4B44F200CC6229 /* line03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line03.png; sourceTree = "<group>"; };
@@ -3218,7 +3219,6 @@
 				5C767BEE1D1CFF69002011D7 /* CFNetwork.framework in Frameworks */,
 				1DF43EEF214F3FD10018B7A0 /* BMKLocationkit.framework in Frameworks */,
 				1D5C60A71E97310000726D70 /* UMMobClick.framework in Frameworks */,
-				1D8326491DCEE360004F84B6 /* libstdc++.6.0.9.tbd in Frameworks */,
 				1D83264D1DCEE3F5004F84B6 /* BaiduMapAPI_Location.framework in Frameworks */,
 				5C767BEA1D1CFF57002011D7 /* Security.framework in Frameworks */,
 				5C767BE61D1CFF45002011D7 /* CoreGraphics.framework in Frameworks */,
@@ -3232,6 +3232,7 @@
 				5CF3F3881D1D0E5B002F852A /* libresolv.9.dylib in Frameworks */,
 				5CF3F3861D1D0E35002F852A /* libsqlite3.dylib in Frameworks */,
 				1D3EC294212BF7460074E455 /* NVS.framework in Frameworks */,
+				38599598223F5F9900DD80AF /* libstdc++.tbd in Frameworks */,
 				1D83264B1DCEE3DF004F84B6 /* BaiduMapAPI_Cloud.framework in Frameworks */,
 				1D04A6201DD0043E00CFC9D0 /* BaiduMapAPI_Radar.framework in Frameworks */,
 				5CF3F3841D1D0E19002F852A /* libxml2.2.dylib in Frameworks */,
@@ -3254,6 +3255,7 @@
 				1D3EC299212BF7760074E455 /* NIMSDK.framework in Frameworks */,
 				1D83264F1DCEE422004F84B6 /* BaiduMapAPI_Utils.framework in Frameworks */,
 				5C767BC11D1CF96F002011D7 /* libopencore-amrwb.a in Frameworks */,
+				38599596223F487A00DD80AF /* libstdc++.6.0.9.tbd in Frameworks */,
 				5C767BC01D1CF96F002011D7 /* libopencore-amrnb.a in Frameworks */,
 				5CF3F37C1D1D075F002F852A /* SMS_SDK.framework in Frameworks */,
 				1D3EC297212BF7720074E455 /* NVS.framework in Frameworks */,
@@ -7265,6 +7267,8 @@
 		5C767BDA1D1CFEC4002011D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */,
+				38599597223F5F9900DD80AF /* libstdc++.tbd */,
 				1DE9118E2121596B00FC620B /* libc++.tbd */,
 				1DE9118C2121595F00FC620B /* VideoToolbox.framework */,
 				1DE9118A2121594500FC620B /* CoreMedia.framework */,
@@ -7277,7 +7281,6 @@
 				1D5C60411E960C8700726D70 /* libz.tbd */,
 				1D5C603F1E960B6300726D70 /* UserNotificationsUI.framework */,
 				1D5C603C1E9608DC00726D70 /* UserNotifications.framework */,
-				1D8326481DCEE360004F84B6 /* libstdc++.6.0.9.tbd */,
 				1D8326461DCEE336004F84B6 /* libsqlite3.0.tbd */,
 				1D8326441DCEE2E7004F84B6 /* OpenGLES.framework */,
 				1D8326421DCEE2D7004F84B6 /* QuartzCore.framework */,
@@ -7285,7 +7288,6 @@
 				1D83263C1DCECAAF004F84B6 /* BMKBaseComponent.h */,
 				1D1483E21D7908BD0044B4A7 /* libiconv.2.dylib */,
 				1D1483DB1D79086B0044B4A7 /* libstdc++.6.0.9.dylib */,
-				1D1520531D76BA420074C6D9 /* libstdc++.tbd */,
 				1D1520511D76BA240074C6D9 /* libiconv.tbd */,
 				1D2EB7651D54297400203166 /* CoreText.framework */,
 				5C792CDD1D3F452F003C3D1A /* MapKit.framework */,
@@ -8976,6 +8978,7 @@
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
@@ -9035,6 +9038,7 @@
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
