@@ -1,0 +1,150 @@
+//
+//  Sea_northeast_asia.pch
+//  Sea_northeast_asia
+//
+//  Created by SongQues on 16/6/24.
+//  Copyright © 2016年 SongQues. All rights reserved.
+//
+
+#ifndef Sea_northeast_asia_pch
+#define Sea_northeast_asia_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//#define NAV_BACKGROUNDCOLOR [UIColor colorWithRed:233.f/255.0 green:132.f/255.0 blue:0.f/255.0 alpha:1]
+#define NAV_BACKGROUNDCOLOR [UIColor colorWithRed:0.f/255.0 green:122.f/255.0 blue:255.f/255.0 alpha:1]
+#define __IOS6_S if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
+#define __IOS6_SE    }
+
+#define __IOS7_S if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+#define __IOS7_SE    }
+#define __IOS7_C    else {
+#define __IOS7_CE    }
+
+#define __IOS8_S if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8) {
+#define __IOS8_SE    }
+#define __IOS8_C    else {
+#define __IOS8_CE    }
+
+#define kMinProgress 0.0001
+#define bounds_width [[UIScreen mainScreen]bounds]
+#endif /* Sea_northeast_asia_pch */
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f \
+alpha:(a)]
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define UIColorRGB(r,g,b) ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1])
+#define GrayColor(a) [UIColor colorWithRed:a/255.0 green:a/255.0 blue:a/255.0 alpha:1]
+
+#define MessageResult @"服务器错误"
+#define MessageResult_login @"服务器错误(请检查网络连接状态或与管理员联系)！"
+#define SysDataError @"数据错误"
+#define MessagePushErr @"您没有此模块权限或通知设置没打开"
+#define MessageLocation @"定位未成功，请检查网络或定位设置是否开启！"
+//1常开
+//1.1
+#define Ksdby_api @"http://api.searchneasia.com/"
+
+////线上
+//#define Ksdby_api_2 @"http://appapi.dianti119.com/api/"
+////线上维保图片
+//#define Ksdby_api_Img @"http://appapi.dianti119.com"
+
+////内网
+//#define Ksdby_api_2 @"http://192.168.1.42:8080/api/"
+//#define Ksdby_api_Img @"http://192.168.1.42:8080"
+
+//内网
+#define Ksdby_api_2 @"http://192.168.1.125:8080/api/"
+//内网维保图片
+#define Ksdby_api_Img @"http://192.168.1.125:8080"
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define bugly_ID @"e0476b271a"
+
+//video
+#define RECORD_MAX_TIME 8.0           //最长录制时间
+#define TIMER_INTERVAL 0.05         //计时器刷新频率
+#define VIDEO_FOLDER @"videoFolder" //视频录制存放文件夹
+
+
+/*微信支付appId*/
+#define WX_AppID @"wxe9704bd8e0a2cc7f"
+#define URL_SECRET @"51dca053331a5b52df357f3bdea393ae"
+
+#define QQ_AppID @"1105662348"
+
+
+#pragma mark - 部门角色相关配置
+/// 软件开发公司角色
+#define SoftDeptRoleCode  @"SoftDeptRole";
+
+/// 12365角色
+#define AbcDeptRoleCode  @"12365DeptRole";
+
+/// 省质监角色
+#define ProvinDeptRoleCode  @"ProvinDeptRole";
+
+/// 市质监角色
+#define CityDeptRoleCode  @"CityDeptRole";
+
+/// 物业部门角色
+#define UseDeptRoleCode  @"UseDeptRole";
+
+/// 维保部门角色
+#define MaintDeptRoleCode  @"MaintDeptRole";
+
+/// 登记部门角色
+#define RegDeptRoleCode  @"RegDeptRole";
+
+/// 制造部门角色
+#define MadeDeptRoleCode  @"MadeDeptRole";
+
+/// 年检部门角色
+#define YearDeptRoleCode  @"YearDeptRole";
+
+/// 一级救援
+#define RescueLevel1  @"Rescue_Level1";
+
+/// 二级救援
+#define RescueLevel2  @"Rescue_Level3";
+
+/// 三级救援
+#define RescueLevel3  @"Rescue_Level3";
+
+/// 屏蔽原因
+#define ShieldingCauseCode  @"ShieldingCause";
+
+/// 提示信息
+#define MsgBack  @"您确定要退出吗？";
+
+
+#ifndef NIMEducationDemo_Prefix_pch
+#define NIMEducationDemo_Prefix_pch
+
+#ifdef __OBJC__
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
+#import "NIMKit.h"
+#import "NTESGlobalMacro.h"
+#import "CocoaLumberjack.h"
+#import "UIColor+Hex.h"
+#ifdef DEBUG
+static DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static DDLogLevel ddLogLevel = DDLogLevelInfo;
+#endif
+
+#define NTES_USE_CLEAR_BAR - (BOOL)useClearBar{return YES;}
+#define NTES_FORBID_INTERACTIVE_POP - (BOOL)forbidInteractivePop{return YES;}
+
+#endif
+#endif
+
+
+
+
+
