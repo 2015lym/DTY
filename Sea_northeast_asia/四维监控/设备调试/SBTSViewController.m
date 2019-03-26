@@ -159,17 +159,14 @@
 
 -(void)setWifi
 {
-if([CommonUseClass isWiFiOpened] && [[CommonUseClass getCurretWiFiSsid] isEqual:@"HD2000"])
-{
-    [self dismissWaitingAlert];
-    lab_wifi.text=@"Wifi:HD2000";
-    [self connectAction];
-}
-else
-{
-    lab_wifi.text=@"Wifi:";
-    [self showWaitingAlert:@"需要手动连接Wifi"];
-}
+    if([CommonUseClass isWiFiOpened] && [[CommonUseClass getCurretWiFiSsid] isEqual:@"HD2000"]) {
+        [self dismissWaitingAlert];
+        lab_wifi.text=@"Wifi:HD2000";
+        [self connectAction];
+    } else {
+        lab_wifi.text=@"Wifi:";
+        [self showWaitingAlert:@"需要手动连接Wifi"];
+    }
 }
 /////////////////////wifi
 //////////////////////////////UIAlertView

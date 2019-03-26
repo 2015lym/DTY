@@ -7558,6 +7558,9 @@
 						DevelopmentTeam = 73SB2P2KRB;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
