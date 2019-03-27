@@ -19,7 +19,8 @@
 #import "myBMKPointAnnotation.h"
 #import "WYXCClass.h"
 #import "WYXCListWebViewController.h"
-@interface WYXCSaveViewController : UITableViewController<UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ShopsCellDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
+
+@interface WYXCSaveViewController : UITableViewController<UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 
 {
     UILabel *nameLabel;

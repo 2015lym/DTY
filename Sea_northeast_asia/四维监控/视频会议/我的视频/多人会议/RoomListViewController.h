@@ -13,19 +13,19 @@
 #import <AVFoundation/AVFoundation.h>
 #import "NTESService.h"
 #import <NIMAVChat/NIMNetCallOption.h>
-
-@protocol NTESMeetingNetCallManagerDelegate <NSObject>
-
-@required
-
-- (void)onJoinMeetingFailed:(NSString *)name error:(NSError *)error;
-
-- (void)onMeetingConntectStatus:(BOOL)connected;
-
-- (void)onSetBypassStreamingEnabled:(BOOL)enabled error:(NSUInteger)code;
-
-
-@end
+#import "NTESMeetingNetCallManager.h"
+//@protocol NTESMeetingNetCallManagerDelegate <NSObject>
+//
+//@required
+//
+//- (void)onJoinMeetingFailed:(NSString *)name error:(NSError *)error;
+//
+//- (void)onMeetingConntectStatus:(BOOL)connected;
+//
+//- (void)onSetBypassStreamingEnabled:(BOOL)enabled error:(NSUInteger)code;
+//
+//
+//@end
 
 //@protocol NTESActorSelectViewDelegate <NSObject>
 //
@@ -44,7 +44,7 @@
 
 @property(nonatomic, readonly) BOOL isInMeeting;
 
-- (void)joinMeeting:(NSString *)name delegate:(id<NTESMeetingNetCallManagerDelegate>)delegate;
+//- (void)joinMeeting:(NSString *)name delegate:(id<NTESMeetingNetCallManagerDelegate>)delegate;
 
 - (void)leaveMeeting;
 

@@ -11,19 +11,20 @@
 #import <NIMAVChat/NIMNetCallOption.h>
 //记得导入这个框架
 #import <AVFoundation/AVFoundation.h>
+#import "NTESMeetingNetCallManager.h"
 
-@protocol NTESMeetingNetCallManagerDelegate <NSObject>
-
-@required
-
-- (void)onJoinMeetingFailed:(NSString *)name error:(NSError *)error;
-
-- (void)onMeetingConntectStatus:(BOOL)connected;
-
-- (void)onSetBypassStreamingEnabled:(BOOL)enabled error:(NSUInteger)code;
-
-
-@end
+//@protocol NTESMeetingNetCallManagerDelegate <NSObject>
+//
+//@required
+//
+//- (void)onJoinMeetingFailed:(NSString *)name error:(NSError *)error;
+//
+//- (void)onMeetingConntectStatus:(BOOL)connected;
+//
+//- (void)onSetBypassStreamingEnabled:(BOOL)enabled error:(NSUInteger)code;
+//
+//
+//@end
 
 
 

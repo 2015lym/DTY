@@ -18,7 +18,7 @@
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>
 #import "myBMKPointAnnotation.h"
 #import "XXNet.h"
-@interface SZQuestionCheckBox_WZH : UITableViewController<UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ShopsCellDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITableViewExViewDelegate>
+@interface SZQuestionCheckBox_WZH : UITableViewController<UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITableViewExViewDelegate>
 {
     UILabel *nameLabel;
     UILabel *ttLabel;

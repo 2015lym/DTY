@@ -10,6 +10,7 @@
 #import "MyControl.h"
 #import "CommonUseClass.h"
 #import "NFCSBNewViewController.h"
+#import "SZQuestionCell.h"
 @class SZConfigure;
 @import CoreNFC;
 #define BUTTON_WIDTH 30
@@ -24,15 +25,6 @@ typedef void(^selectOptionBack)(NSInteger index, NSDictionary *dict);
 
 typedef void(^selectTextFiledBack)(NSInteger index, NSString *text);
 typedef void(^selectNFCBack)(NSInteger index, NSString *text);
-
-@class SZQuestionCell;
-@protocol ShopsCellDelegate <NSObject>
-@optional
--(void)attentionButtonClick:(UIButton*)sender clickedWithData:(NSString *)celldata clickedWithPhoto:(NSString *)photo;
-@end
-
-
-
 
 @interface SZQuestionCell_WZH : UITableViewCell<UITextFieldDelegate>
 {NSString *guid;

@@ -12,6 +12,7 @@
 {
     NSString * strPhone;
 }
+@property (nonatomic, assign) BOOL isMonitoring;
 @end
 
 @implementation phoneInfoViewController
@@ -134,12 +135,19 @@
     //点击回拨
     UIButton *copyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [copyBtn setTitle:@"点击回拨" forState:UIControlStateNormal];
-    copyBtn.frame = CGRectMake(120, lastHeight, 60, 20);
+    copyBtn.frame = CGRectMake(100, lastHeight, 60, 20);
     copyBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [copyBtn addTarget:self action:@selector(copylinkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [copyBtn addTarget:self action:@selector(copylinkBtnClick) forControlEvents:UIControlEventTouchUpInside];
     copyBtn.backgroundColor = [UIColor whiteColor];
     [copyBtn setTitleColor:[CommonUseClass getSysColor] forState:UIControlStateNormal];
     [_viewBase addSubview:copyBtn];
+    
+    //点击回拨
+    UIButton *eyeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [eyeButton setBackgroundImage:[UIImage imageNamed:@"eye"] forState:UIControlStateNormal];
+    eyeButton.frame = CGRectMake(190, lastHeight, 20, 20);
+    [eyeButton addTarget:self action:@selector(noMonitoring) forControlEvents:UIControlEventTouchUpInside];
+    [_viewBase addSubview:eyeButton];
 }
 
 
@@ -293,22 +301,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-///////////////////////////////call back
-- (void)copylinkBtnClick:(UIButton *)sender {
+- (void)copylinkBtnClick{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _roomid=[CommonUseClass getUniqueStrByUUID];
+    _isMonitoring = YES;
+    [self createRoom];
+}
+
+- (void)noMonitoring {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _roomid=[CommonUseClass getUniqueStrByUUID];
+    _isMonitoring = NO;
     [self createRoom];
 }
 
@@ -347,7 +350,7 @@
     [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:_meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         
         
-        self. app.  meetingRoomNumber=_roomid;
+        self.app.meetingRoomNumber=_roomid;
     
         //1.
         [self getSchoolCourse2];
@@ -403,8 +406,10 @@
 {
     
     NSString *currUrl=[NSString stringWithFormat:@"NeteaseMi/AppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@",WYID,_warnModel.LiftId,_roomid];
-
-
+    
+    if (!_isMonitoring) {
+        currUrl=[NSString stringWithFormat:@"NeteaseMi/AppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@&isMonitoring=false",WYID,_warnModel.LiftId,_roomid];
+    }
 
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
