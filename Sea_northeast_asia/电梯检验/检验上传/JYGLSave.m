@@ -18,6 +18,7 @@
     UILabel *dtWeiBao_2;
     UILabel *dtdaima_2;
 }
+
 @end
 
 @implementation JYGLSave
@@ -345,7 +346,8 @@
     // 复制按钮
     UIButton *copyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [copyBtn setTitle:@"复制" forState:UIControlStateNormal];
-    copyBtn.frame = CGRectMake(SCREEN_WIDTH- 70, 100, 60, 20);
+    copyBtn.frame = CGRectMake(SCREEN_WIDTH- 50, 100, 40, 20);
+    copyBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     copyBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [copyBtn addTarget:self action:@selector(copylinkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     copyBtn.backgroundColor = [UIColor whiteColor];
@@ -361,8 +363,9 @@
     UILabel *dtdaima34 = [MyControl createLabelWithFrame:CGRectMake(40, 70, 80, 20) Font:14 Text:@"检验部门:"];
     [view_head3 addSubview:dtdaima34];
     
-    UILabel *dtdaima341 = [MyControl createLabelWithFrame:CGRectMake(SCREEN_WIDTH-70, 70, 60, 20) Font:14 Text:@"可切换"];
+    UILabel *dtdaima341 = [MyControl createLabelWithFrame:CGRectMake(SCREEN_WIDTH-50, 70, 50, 20) Font:14 Text:@"可切换"];
     dtdaima341.textColor=[CommonUseClass getSysColor];
+    dtdaima341.textAlignment = NSTextAlignmentRight;
     [view_head3 addSubview:dtdaima341];
     
     DectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -405,7 +408,7 @@
 }
 
 -(void)DectBtnClick:(UIButton*)btn{
-    [self showPop:0 ];
+    [self showPop:0 isDept:YES];
 }
 
 -(void)btnClick_update:(UIButton*)btn{
@@ -1051,8 +1054,7 @@
     [self hiddenPop];
 }
 
--(void)showPop:(long)tag
-{
+-(void)showPop:(long)tag isDept:(BOOL)isDept {
     //1.
     for(long i=view_Content_2.subviews.count-1;i>=0;i--)
     {
@@ -1064,12 +1066,18 @@
     int top=0;
     int width=view_Content_2.frame.size.width;
     
-    for (NSDictionary *dic in _DectList) {
 
-        [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"DeptName"] forName1:@"" forTag:[dic[@"DeptId"] intValue] forIcon:@""];
-        top=top+44;
+    if (isDept) {
+        for (NSDictionary *dic in _DectList) {
+            [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"DeptName"] forName1:@"" forTag:[dic[@"DeptId"] intValue] forIcon:@"" isDept:YES];
+            top=top+44;
+        }
+    } else {
+        for (NSDictionary *dic in _WorkFormList) {
+            [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"Name"] forName1:@"" forTag:[dic[@"Id"] intValue] forIcon:@"" isDept:NO];
+            top=top+44;
+        }
     }
-    
     
     view_Content_2.frame=CGRectMake(view_Content_2.frame.origin.x, view_Content_2.frame.origin.y, view_Content_2.frame.size.width, top+50);
     
@@ -1078,7 +1086,16 @@
     view_Content_back.hidden=false;
 }
 
-- (void)addButton_dept:(float)left forTop:(float)top forWidth:(float)width forHeight:(float)height forName:(NSString *)name  forName1:(NSString *)name1 forTag:(int)tag forIcon:(NSString*)imageName {
+- (void)showPop2:(UIButton *)btn {
+    [self hiddenPop];
+    UILabel *lab=[view_Content_2 viewWithTag:btn.tag+90000];
+    if(lab!=nil)
+        selectDect=lab.text;
+    _InspectDeptId = [NSString stringWithFormat:@"%ld", btn.tag];
+    [self showPop:0 isDept:NO];
+}
+
+- (void)addButton_dept:(float)left forTop:(float)top forWidth:(float)width forHeight:(float)height forName:(NSString *)name  forName1:(NSString *)name1 forTag:(int)tag forIcon:(NSString*)imageName isDept:(BOOL)isDept {
     UIView *view=[[UIView alloc]init];
     view.tag=10000+tag;
     view.frame=CGRectMake(left, top, width, height);
@@ -1096,9 +1113,16 @@
     line.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [view addSubview:line];
     
-    UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(btnClick_ReplaceTheElevator:) target:self];
-    btn_1.tag=tag;
-    [view addSubview:btn_1];
+
+    if (isDept) {
+        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(showPop2:) target:self];
+        btn_1.tag=tag;
+        [view addSubview:btn_1];
+    } else {
+        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(btnClick_ReplaceTheElevator:) target:self];
+        btn_1.tag=tag;
+        [view addSubview:btn_1];
+    }
 }
 
 
@@ -1107,25 +1131,21 @@
     view_Content_back.hidden=YES;
 }
 
-- (void)btnClick_ReplaceTheElevator:(UIButton *)btn
-{
+- (void)btnClick_ReplaceTheElevator:(UIButton *)btn {
     [self hiddenPop];
-    
-    UILabel *lab=[view_Content_2 viewWithTag:btn.tag+90000];
-    if(lab!=nil)
-        selectDect=lab.text;
-    [self setDect:btn.tag];
+    _workFormId = [NSString stringWithFormat:@"%ld", btn.tag];
+    [self setDect];
 }
 
--(void)setDect:(long)dectid
+-(void)setDect
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //GetInspectStepList
     NSString *url=@"Inspect/UpdateInspectDept";
     NSMutableDictionary *dicHeader = [[NSMutableDictionary alloc]init];
     [dicHeader setValue:InspectId forKey:@"ID"];
-    [dicHeader setValue:[NSString stringWithFormat:@"%ld", dectid] forKey:@"InspectDeptId"];
-   
+    [dicHeader setValue:_InspectDeptId forKey:@"InspectDeptId"];
+    [dicHeader setValue:_workFormId forKey:@"WorkForm"];
     
     [XXNet GetURL:url header:dicHeader parameters:nil succeed:^(NSDictionary *data) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];

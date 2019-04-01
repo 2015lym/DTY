@@ -16,6 +16,11 @@
     UILabel *dtWeiBao_2;
     UILabel *dtdaima_2;
 }
+
+@property (nonatomic, assign) NSInteger pageTag;
+@property (weak, nonatomic) NSString *InspectDeptId;
+//
+@property (nonatomic, copy) NSString *workFormId;
 @end
 
 @implementation JYTypeViewController
@@ -222,7 +227,7 @@
     [self goWB:btn.tag];
 }
 -(void)goWB:(long)tag{
-    
+    _pageTag = tag;
     for (NSDictionary *dic in arrayType) {
         if([[CommonUseClass FormatString:dic[@"ID"] ] isEqual:[NSString stringWithFormat:@"%ld",tag ]])
         {
@@ -244,7 +249,7 @@
     }
     else
     {
-    [self showPop:tag ];
+    [self showPop:tag isDept:YES];
     }
     
 
@@ -379,8 +384,7 @@
     [self hiddenPop];
 }
 
--(void)showPop:(long)tag
-{
+-(void)showPop:(long)tag isDept:(BOOL)isDept {
     //1.
     for(long i=view_Content_2.subviews.count-1;i>=0;i--)
     {
@@ -391,22 +395,31 @@
     //2.
     int top=0;
     int width=view_Content_2.frame.size.width;
-    
-    for (NSDictionary *dic in currdic[@"Dept"]) {
-      
-        [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"DeptName"] forName1:@"" forTag:[dic[@"DeptId"] intValue] forIcon:@""];
-        top=top+44;
+    if (isDept) {
+        for (NSDictionary *dic in currdic[@"Dept"]) {
+            [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"DeptName"] forName1:@"" forTag:[dic[@"DeptId"] intValue] forIcon:@"" isDept:YES];
+            top=top+44;
+        }
+    } else {
+        for (NSDictionary *dic in currdic[@"WorkForm"]) {
+            [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"Name"] forName1:@"" forTag:[dic[@"Id"] intValue] forIcon:@"" isDept:NO];
+            top=top+44;
+        }
     }
 
-  
     view_Content_2.frame=CGRectMake(view_Content_2.frame.origin.x, view_Content_2.frame.origin.y, view_Content_2.frame.size.width, top+10);
-    
     
     view_Content_2.hidden=false;
     view_Content_back.hidden=false;
 }
 
-- (void)addButton_dept:(float)left forTop:(float)top forWidth:(float)width forHeight:(float)height forName:(NSString *)name  forName1:(NSString *)name1 forTag:(int)tag forIcon:(NSString*)imageName {
+- (void)showPop2:(UIButton *)btn {
+    [self hiddenPop];
+    _InspectDeptId = [NSString stringWithFormat:@"%ld", btn.tag];
+    [self showPop:_pageTag isDept:NO];
+}
+
+- (void)addButton_dept:(float)left forTop:(float)top forWidth:(float)width forHeight:(float)height forName:(NSString *)name  forName1:(NSString *)name1 forTag:(int)tag forIcon:(NSString*)imageName isDept:(BOOL)isDept {
     UIView *view=[[UIView alloc]init];
     view.tag=10000+tag;
     view.frame=CGRectMake(left, top, width, height);
@@ -422,13 +435,15 @@
     UILabel *line = [MyControl createLabelWithFrame:CGRectMake(0, 43, width, 1) Font:14 Text:@""];
     line.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [view addSubview:line];
-    
-    UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(btnClick_ReplaceTheElevator:) target:self];
-//    [btn_1.layer setMasksToBounds:YES];
-//    [btn_1.layer setCornerRadius:5.0];
-//    [btn_1 setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-    btn_1.tag=tag;
-    [view addSubview:btn_1];
+    if (isDept) {
+        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(showPop2:) target:self];
+        btn_1.tag=tag;
+        [view addSubview:btn_1];
+    } else {
+        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(btnClick_ReplaceTheElevator:) target:self];
+        btn_1.tag=tag;
+        [view addSubview:btn_1];
+    }
 }
 
 
@@ -437,8 +452,13 @@
     view_Content_back.hidden=YES;
 }
 
-- (void)btnClick_ReplaceTheElevator:(UIButton *)btn
-{
+- (void)btnClick_ReplaceTheElevator:(UIButton *)btn {
+    [self hiddenPop];
+    _workFormId = [NSString stringWithFormat:@"%ld", btn.tag];
+    [self push];
+}
+
+- (void)push {
     if(Longitude==0 ||Latitude==0)
     {
         [CommonUseClass showAlter:MessageLocation];
@@ -450,10 +470,12 @@
         ctvc.Longitude=Longitude;
     ctvc.liftNum=_liftNum;
     ctvc.TypeCode=currdic[@"TypeCode"];
-    ctvc.InspectDeptId=[NSString stringWithFormat:@"%ld", btn.tag];
+    ctvc.InspectDeptId=_InspectDeptId;
+    ctvc.workFormId=_workFormId;
     ctvc.TypeId=currdic[@"ID"];
     ctvc.Title=currdic[@"TypeName"];
     ctvc.DectList=currdic[@"Dept"];
+    ctvc.WorkFormList = currdic[@"WorkForm"];
     [self.navigationController pushViewController:ctvc animated:YES];
     
 }

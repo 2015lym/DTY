@@ -78,6 +78,9 @@ typedef void(^CallBackBlcok) (NSURL *text);//1
 @property (weak, nonatomic) NSString *liftNum;
 @property (weak, nonatomic) NSString *TypeCode;
 @property (weak, nonatomic) NSString *InspectDeptId;
+//
+@property (nonatomic, copy) NSString *workFormId;
+
 @property (weak, nonatomic) NSString *TypeId;
 
 @property (weak, nonatomic) warningElevatorModel  *model;
@@ -92,4 +95,5 @@ typedef void(^CallBackBlcok) (NSURL *text);//1
 @property ( nonatomic) float Latitude;
 @property (nonatomic, strong) NSString *Title;
 @property (nonatomic, strong) NSArray *DectList;
+@property (nonatomic, strong) NSArray *WorkFormList;
 @end

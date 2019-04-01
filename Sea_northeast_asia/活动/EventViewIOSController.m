@@ -1884,7 +1884,7 @@ return status;
          [_locationManager startUpdatingLocation];
     }
     nTimeCount++;
-    NSLog(@"nTimeCount==%d", nTimeCount);
+//    NSLog(@"nTimeCount==%d", nTimeCount);
 }
 
 - (void)mapLocation0
