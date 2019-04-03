@@ -395,18 +395,23 @@
     //2.
     int top=0;
     int width=view_Content_2.frame.size.width;
+    NSArray *forArray;
     if (isDept) {
-        for (NSDictionary *dic in currdic[@"Dept"]) {
+        forArray = [NSArray arrayWithArray:currdic[@"Dept"]];
+        for (NSDictionary *dic in forArray) {
             [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"DeptName"] forName1:@"" forTag:[dic[@"DeptId"] intValue] forIcon:@"" isDept:YES];
             top=top+44;
         }
     } else {
-        for (NSDictionary *dic in currdic[@"WorkForm"]) {
+        forArray = [NSArray arrayWithArray:currdic[@"WorkForm"]];
+        for (NSDictionary *dic in forArray) {
             [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"Name"] forName1:@"" forTag:[dic[@"Id"] intValue] forIcon:@"" isDept:NO];
             top=top+44;
         }
     }
-
+    if (forArray.count == 0) {
+        return;
+    }
     view_Content_2.frame=CGRectMake(view_Content_2.frame.origin.x, view_Content_2.frame.origin.y, view_Content_2.frame.size.width, top+10);
     
     view_Content_2.hidden=false;

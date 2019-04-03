@@ -19,6 +19,9 @@
     UILabel *dtdaima_2;
 }
 
+
+@property (nonatomic, strong) UIButton *workFormButton;
+@property (nonatomic, copy) NSString *workFormName;
 @end
 
 @implementation JYGLSave
@@ -236,7 +239,7 @@
 }
 -(void)initWindow{
    // typeID=1;
-    headview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bounds_width.size.width, 270)];
+    headview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bounds_width.size.width, 300)];
     [self.view addSubview:headview];
     
     //1标题60
@@ -274,7 +277,7 @@
     [view_head1 addSubview:lab_head1];
     
     //2电梯编号86
-    UIView * view_head2=[[UIView alloc]initWithFrame:CGRectMake(0, 60, bounds_width.size.width, 60)];
+    UIView * view_head2=[[UIView alloc]initWithFrame:CGRectMake(0, 60, bounds_width.size.width, 90)];
     [headview addSubview:view_head2];
     
     UIImageView *img_head2=[MyControl createImageViewWithFrame:CGRectMake(0, 0, bounds_width.size.width, 86) imageName:@"wbdc_bg"];
@@ -302,7 +305,7 @@
     [view_head2 addSubview:_btn_WriteName];
     
     //3地址等69
-    UIView * view_head3=[[UIView alloc]initWithFrame:CGRectMake(0, 146, bounds_width.size.width, 119)];
+    UIView * view_head3=[[UIView alloc]initWithFrame:CGRectMake(0, 146, bounds_width.size.width, 149)];
     [headview addSubview:view_head3];
     
     
@@ -331,29 +334,7 @@
     dtWeiZhi_2 = [MyControl createLabelWithFrame:CGRectMake(110, 33, SCREEN_WIDTH- 120, 34) Font:14 Text:nil];
     dtWeiZhi_2.numberOfLines = 2;
     [view_head3 addSubview:dtWeiZhi_2];
-    
-    //33
-    UIImageView *img_head33=[MyControl createImageViewWithFrame:CGRectMake(10, 100, 20, 20) imageName:@"zhuce_code"];
-    [view_head3 addSubview:img_head33];
-    
-    
-    UILabel *dtdaima = [MyControl createLabelWithFrame:CGRectMake(40, 100, 80, 20) Font:14 Text:@"注册代码:"];
-    [view_head3 addSubview:dtdaima];
-    
-    dtdaima_2 = [MyControl createLabelWithFrame:CGRectMake(110, 100, SCREEN_WIDTH- 90, 20) Font:14 Text:nil];
-    [view_head3 addSubview:dtdaima_2];
-    
-    // 复制按钮
-    UIButton *copyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [copyBtn setTitle:@"复制" forState:UIControlStateNormal];
-    copyBtn.frame = CGRectMake(SCREEN_WIDTH- 50, 100, 40, 20);
-    copyBtn.titleLabel.textAlignment = NSTextAlignmentRight;
-    copyBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [copyBtn addTarget:self action:@selector(copylinkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    copyBtn.backgroundColor = [UIColor whiteColor];
-    [copyBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    
-    [view_head3 addSubview:copyBtn];
+
     
     //34
     UIImageView *img_head34=[MyControl createImageViewWithFrame:CGRectMake(10, 70, 20, 20) imageName:@"wyxc_detail"];
@@ -374,14 +355,58 @@
     DectBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     DectBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     //DectBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-    [DectBtn addTarget:self action:@selector(DectBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [DectBtn addTarget:self action:@selector(dectBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     //DectBtn.backgroundColor = [UIColor whiteColor];
     [DectBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [view_head3 addSubview:DectBtn];
     
+    //
+    UIImageView *img_head35=[MyControl createImageViewWithFrame:CGRectMake(10, 100, 20, 20) imageName:@"wyxc_detail"];
+    [view_head3 addSubview:img_head35];
+    
+    
+    UILabel *workFormLabel = [MyControl createLabelWithFrame:CGRectMake(40, 100, 80, 20) Font:14 Text:@"工作形式:"];
+    [view_head3 addSubview:workFormLabel];
+    
+    UILabel *changeLabel = [MyControl createLabelWithFrame:CGRectMake(SCREEN_WIDTH-50, 100, 50, 20) Font:14 Text:@"可切换"];
+    changeLabel.textColor=[CommonUseClass getSysColor];
+    changeLabel.textAlignment = NSTextAlignmentRight;
+    [view_head3 addSubview:changeLabel];
+    
+    _workFormButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_workFormButton setTitle:@"" forState:UIControlStateNormal];
+    _workFormButton.frame = CGRectMake(110, 100, SCREEN_WIDTH, 20);
+    _workFormButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    _workFormButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [_workFormButton addTarget:self action:@selector(workFOrmBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_workFormButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [view_head3 addSubview:_workFormButton];
+    
+    //33
+    UIImageView *img_head33=[MyControl createImageViewWithFrame:CGRectMake(10, 130, 20, 20) imageName:@"zhuce_code"];
+    [view_head3 addSubview:img_head33];
+    
+    
+    UILabel *dtdaima = [MyControl createLabelWithFrame:CGRectMake(40, 130, 80, 20) Font:14 Text:@"注册代码:"];
+    [view_head3 addSubview:dtdaima];
+    
+    dtdaima_2 = [MyControl createLabelWithFrame:CGRectMake(110, 130, SCREEN_WIDTH- 90, 20) Font:14 Text:nil];
+    [view_head3 addSubview:dtdaima_2];
+    
+    // 复制按钮
+    UIButton *copyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [copyBtn setTitle:@"复制" forState:UIControlStateNormal];
+    copyBtn.frame = CGRectMake(SCREEN_WIDTH- 50, 130, 40, 20);
+    copyBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    copyBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [copyBtn addTarget:self action:@selector(copylinkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    copyBtn.backgroundColor = [UIColor whiteColor];
+    [copyBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    
+    [view_head3 addSubview:copyBtn];
     
     //3
-    UILabel *dtLine = [MyControl createLabelWithFrame:CGRectMake(0, 265, bounds_width.size.width, 5) Font:14 Text:@""];
+    UILabel *dtLine = [MyControl createLabelWithFrame:CGRectMake(0, 295, bounds_width.size.width, 5) Font:14 Text:@""];
     dtLine.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [headview addSubview:dtLine];
     
@@ -407,8 +432,12 @@
     [self.view addSubview:Btn];
 }
 
--(void)DectBtnClick:(UIButton*)btn{
-    [self showPop:0 isDept:YES];
+-(void)dectBtnClick:(UIButton*)btn{
+    [self createSelectList:YES];
+}
+
+-(void)workFOrmBtnClick:(UIButton*)btn{
+    [self createSelectList:NO];
 }
 
 -(void)btnClick_update:(UIButton*)btn{
@@ -468,6 +497,7 @@
     [dicHeader setValue:_TypeCode forKey:@"TypeCode"];
     [dicHeader setValue:app.userInfo.UserID forKey:@"UserId"];
     [dicHeader setValue:_InspectDeptId forKey:@"InspectDeptId"];
+    [dicHeader setValue:_workFormId forKey:@"WorkForm"];
     [dicHeader setValue:_TypeId forKey:@"TypeId"];
     [dicHeader setValue:[NSString stringWithFormat:@"%f", _Longitude] forKey:@"MapX"];
     [dicHeader setValue:[NSString stringWithFormat:@"%f", _Latitude] forKey:@"MapY"];
@@ -485,7 +515,7 @@
             InspectId=[CommonUseClass FormatString: [dicInspect objectForKey:@"ID"]];
             dtWeiBao_2.text=[CommonUseClass getDateString: [dicInspect objectForKey:@"CreateTime"]];
             [DectBtn setTitle:[dicInspect objectForKey:@"DeptName"] forState:UIControlStateNormal];
-            
+            [self.workFormButton setTitle:[dicInspect objectForKey:@"Name"] forState:UIControlStateNormal];
             NSString *Sign=[CommonUseClass FormatString: [dicInspect objectForKey:@"Sign"]];
             if(![Sign isEqual:@""])
                 [_btn_WriteName setTitle:@"已签认" forState:UIControlStateNormal];
@@ -1049,24 +1079,19 @@
 }
 
 //点击空白-回收键盘
--(void)keyboard:(UITapGestureRecognizer*)tap
-{
+-(void)keyboard:(UITapGestureRecognizer*)tap {
     [self hiddenPop];
 }
 
--(void)showPop:(long)tag isDept:(BOOL)isDept {
+- (void)createSelectList:(BOOL)isDept {
     //1.
-    for(long i=view_Content_2.subviews.count-1;i>=0;i--)
-    {
+    for(long i=view_Content_2.subviews.count-1;i>=0;i--) {
         id object=view_Content_2.subviews[i];
-        [object removeFromSuperview ];
+        [object removeFromSuperview];
     }
-    
     //2.
     int top=0;
     int width=view_Content_2.frame.size.width;
-    
-
     if (isDept) {
         for (NSDictionary *dic in _DectList) {
             [self addButton_dept:0 forTop:top forWidth:width forHeight:44 forName:dic[@"DeptName"] forName1:@"" forTag:[dic[@"DeptId"] intValue] forIcon:@"" isDept:YES];
@@ -1084,15 +1109,6 @@
     
     view_Content_2.hidden=false;
     view_Content_back.hidden=false;
-}
-
-- (void)showPop2:(UIButton *)btn {
-    [self hiddenPop];
-    UILabel *lab=[view_Content_2 viewWithTag:btn.tag+90000];
-    if(lab!=nil)
-        selectDect=lab.text;
-    _InspectDeptId = [NSString stringWithFormat:@"%ld", btn.tag];
-    [self showPop:0 isDept:NO];
 }
 
 - (void)addButton_dept:(float)left forTop:(float)top forWidth:(float)width forHeight:(float)height forName:(NSString *)name  forName1:(NSString *)name1 forTag:(int)tag forIcon:(NSString*)imageName isDept:(BOOL)isDept {
@@ -1115,11 +1131,11 @@
     
 
     if (isDept) {
-        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(showPop2:) target:self];
+        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(setDect:) target:self];
         btn_1.tag=tag;
         [view addSubview:btn_1];
     } else {
-        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(btnClick_ReplaceTheElevator:) target:self];
+        UIButton *btn_1 = [MyControl createButtonWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 44) imageName:nil bgImageName:nil title:@"" SEL:@selector(setWorkForm:) target:self];
         btn_1.tag=tag;
         [view addSubview:btn_1];
     }
@@ -1131,27 +1147,55 @@
     view_Content_back.hidden=YES;
 }
 
-- (void)btnClick_ReplaceTheElevator:(UIButton *)btn {
+-(void)setDect:(UIButton *)btn {
     [self hiddenPop];
-    _workFormId = [NSString stringWithFormat:@"%ld", btn.tag];
-    [self setDect];
-}
-
--(void)setDect
-{
+    UILabel *lab=[view_Content_2 viewWithTag:btn.tag+90000];
+    if(lab!=nil)
+        selectDect=lab.text;
+    _InspectDeptId = [NSString stringWithFormat:@"%ld", btn.tag];
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //GetInspectStepList
     NSString *url=@"Inspect/UpdateInspectDept";
     NSMutableDictionary *dicHeader = [[NSMutableDictionary alloc]init];
     [dicHeader setValue:InspectId forKey:@"ID"];
     [dicHeader setValue:_InspectDeptId forKey:@"InspectDeptId"];
-    [dicHeader setValue:_workFormId forKey:@"WorkForm"];
     
     [XXNet GetURL:url header:dicHeader parameters:nil succeed:^(NSDictionary *data) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if ([data[@"Success"]intValue]) {
             [self performSelectorOnMainThread:@selector(dectResult:) withObject:data[@"Message"] waitUntilDone:YES];
              [DectBtn setTitle:selectDect forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self performSelectorOnMainThread:@selector(dectResult:) withObject:data[@"Message"] waitUntilDone:YES];
+        }
+        
+    } failure:^(NSError *error) {
+        
+        [self performSelectorOnMainThread:@selector(dectResult:) withObject:MessageResult waitUntilDone:YES];
+    }];
+}
+
+-(void)setWorkForm:(UIButton *)btn {
+    [self hiddenPop];
+    UILabel *lab=[view_Content_2 viewWithTag:btn.tag+90000];
+    if(lab!=nil) _workFormName = lab.text;
+    _workFormId = [NSString stringWithFormat:@"%ld", btn.tag];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //GetInspectStepList
+    NSString *url=@"Inspect/UpdateWorkForm";
+    NSMutableDictionary *dicHeader = [[NSMutableDictionary alloc]init];
+    [dicHeader setValue:InspectId forKey:@"ID"];
+    [dicHeader setValue:_workFormId forKey:@"WorkForm"];
+    
+    [XXNet GetURL:url header:dicHeader parameters:nil succeed:^(NSDictionary *data) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if ([data[@"Success"]intValue]) {
+            [self performSelectorOnMainThread:@selector(dectResult:) withObject:data[@"Message"] waitUntilDone:YES];
+            [self.workFormButton setTitle:self.workFormName forState:UIControlStateNormal];
         }
         else
         {
