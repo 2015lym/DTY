@@ -544,10 +544,6 @@
 		1D5EE2CD2179AB2D0015E495 /* PJGLSaveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EE2CC2179AB2D0015E495 /* PJGLSaveCell.m */; };
 		1D5EE2D52179AF280015E495 /* classLiftParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EE2D42179AF280015E495 /* classLiftParts.m */; };
 		1D5FE61221787CBD0016E41F /* PJGLSaveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D5FE61121787CBD0016E41F /* PJGLSaveCell.xib */; };
-		1D637538204D2E8000707B6F /* XFCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63752D204D2E7F00707B6F /* XFCameraButton.m */; };
-		1D637539204D2E8000707B6F /* XFCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63752F204D2E7F00707B6F /* XFCameraController.m */; };
-		1D63753A204D2E8000707B6F /* XFCameraController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D637530204D2E7F00707B6F /* XFCameraController.xib */; };
-		1D63753B204D2E8000707B6F /* XFPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D637533204D2E7F00707B6F /* XFPhotoLibraryManager.m */; };
 		1D63BBF82010395A00DBF15C /* yjfx_comprehensive.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63BBF32010395A00DBF15C /* yjfx_comprehensive.png */; };
 		1D63BBF92010395A00DBF15C /* yjfx_elevator.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63BBF42010395A00DBF15C /* yjfx_elevator.png */; };
 		1D63BBFA2010395A00DBF15C /* yjfx_maintenance.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63BBF52010395A00DBF15C /* yjfx_maintenance.png */; };
@@ -892,6 +888,10 @@
 		2A2984DE1E84E3B2001EF5A0 /* JHWaveChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */; };
 		38599596223F487A00DD80AF /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */; };
 		38599598223F5F9900DD80AF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599597223F5F9900DD80AF /* libstdc++.tbd */; };
+		38AB8B7F2254BCF80086E8EE /* XFCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB8B772254BCF80086E8EE /* XFCameraButton.m */; };
+		38AB8B802254BCF80086E8EE /* XFCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB8B792254BCF80086E8EE /* XFCameraController.m */; };
+		38AB8B812254BCF80086E8EE /* XFCameraController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38AB8B7A2254BCF80086E8EE /* XFCameraController.xib */; };
+		38AB8B822254BCF80086E8EE /* XFPhotoLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB8B7E2254BCF80086E8EE /* XFPhotoLibraryManager.m */; };
 		3CF013311D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */; };
 		3CF0133E1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */; };
 		5C06B7BA1D4B44F200CC6229 /* line03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C06B7B71D4B44F200CC6229 /* line03.png */; };
@@ -2223,13 +2223,6 @@
 		1D5EE2D32179AF280015E495 /* classLiftParts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = classLiftParts.h; sourceTree = "<group>"; };
 		1D5EE2D42179AF280015E495 /* classLiftParts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = classLiftParts.m; sourceTree = "<group>"; };
 		1D5FE61121787CBD0016E41F /* PJGLSaveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PJGLSaveCell.xib; sourceTree = "<group>"; };
-		1D63752C204D2E7F00707B6F /* XFCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCameraButton.h; sourceTree = "<group>"; };
-		1D63752D204D2E7F00707B6F /* XFCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCameraButton.m; sourceTree = "<group>"; };
-		1D63752E204D2E7F00707B6F /* XFCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCameraController.h; sourceTree = "<group>"; };
-		1D63752F204D2E7F00707B6F /* XFCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCameraController.m; sourceTree = "<group>"; };
-		1D637530204D2E7F00707B6F /* XFCameraController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XFCameraController.xib; sourceTree = "<group>"; };
-		1D637532204D2E7F00707B6F /* XFPhotoLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPhotoLibraryManager.h; sourceTree = "<group>"; };
-		1D637533204D2E7F00707B6F /* XFPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPhotoLibraryManager.m; sourceTree = "<group>"; };
 		1D63BBF32010395A00DBF15C /* yjfx_comprehensive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yjfx_comprehensive.png; sourceTree = "<group>"; };
 		1D63BBF42010395A00DBF15C /* yjfx_elevator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yjfx_elevator.png; sourceTree = "<group>"; };
 		1D63BBF52010395A00DBF15C /* yjfx_maintenance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yjfx_maintenance.png; sourceTree = "<group>"; };
@@ -2690,6 +2683,13 @@
 		2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHWaveChart.m; sourceTree = "<group>"; };
 		38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.6.0.9.tbd"; sourceTree = "<group>"; };
 		38599597223F5F9900DD80AF /* libstdc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.tbd"; sourceTree = "<group>"; };
+		38AB8B772254BCF80086E8EE /* XFCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCameraButton.m; sourceTree = "<group>"; };
+		38AB8B782254BCF80086E8EE /* XFCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCameraButton.h; sourceTree = "<group>"; };
+		38AB8B792254BCF80086E8EE /* XFCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCameraController.m; sourceTree = "<group>"; };
+		38AB8B7A2254BCF80086E8EE /* XFCameraController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XFCameraController.xib; sourceTree = "<group>"; };
+		38AB8B7B2254BCF80086E8EE /* XFCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCameraController.h; sourceTree = "<group>"; };
+		38AB8B7D2254BCF80086E8EE /* XFPhotoLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPhotoLibraryManager.h; sourceTree = "<group>"; };
+		38AB8B7E2254BCF80086E8EE /* XFPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPhotoLibraryManager.m; sourceTree = "<group>"; };
 		3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_s.xib; sourceTree = "<group>"; };
 		3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_p.xib; sourceTree = "<group>"; };
 		5C06B7B71D4B44F200CC6229 /* line03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line03.png; sourceTree = "<group>"; };
@@ -5333,39 +5333,10 @@
 		1D637529204D2E7F00707B6F /* 录制视频 */ = {
 			isa = PBXGroup;
 			children = (
-				1D63752A204D2E7F00707B6F /* XFAVFoundation */,
-				1D637531204D2E7F00707B6F /* XFPhotoLibraryManager */,
+				38AB8B752254BCF80086E8EE /* XFAVFoundation */,
+				38AB8B7C2254BCF80086E8EE /* XFPhotoLibraryManager */,
 			);
 			path = "录制视频";
-			sourceTree = "<group>";
-		};
-		1D63752A204D2E7F00707B6F /* XFAVFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				1D63752B204D2E7F00707B6F /* XFCameraButton */,
-				1D63752E204D2E7F00707B6F /* XFCameraController.h */,
-				1D63752F204D2E7F00707B6F /* XFCameraController.m */,
-				1D637530204D2E7F00707B6F /* XFCameraController.xib */,
-			);
-			path = XFAVFoundation;
-			sourceTree = "<group>";
-		};
-		1D63752B204D2E7F00707B6F /* XFCameraButton */ = {
-			isa = PBXGroup;
-			children = (
-				1D63752C204D2E7F00707B6F /* XFCameraButton.h */,
-				1D63752D204D2E7F00707B6F /* XFCameraButton.m */,
-			);
-			path = XFCameraButton;
-			sourceTree = "<group>";
-		};
-		1D637531204D2E7F00707B6F /* XFPhotoLibraryManager */ = {
-			isa = PBXGroup;
-			children = (
-				1D637532204D2E7F00707B6F /* XFPhotoLibraryManager.h */,
-				1D637533204D2E7F00707B6F /* XFPhotoLibraryManager.m */,
-			);
-			path = XFPhotoLibraryManager;
 			sourceTree = "<group>";
 		};
 		1D63BBEE2010309500DBF15C /* yjfx */ = {
@@ -6319,6 +6290,35 @@
 				2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */,
 			);
 			path = JHChart;
+			sourceTree = "<group>";
+		};
+		38AB8B752254BCF80086E8EE /* XFAVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				38AB8B762254BCF80086E8EE /* XFCameraButton */,
+				38AB8B7B2254BCF80086E8EE /* XFCameraController.h */,
+				38AB8B792254BCF80086E8EE /* XFCameraController.m */,
+				38AB8B7A2254BCF80086E8EE /* XFCameraController.xib */,
+			);
+			path = XFAVFoundation;
+			sourceTree = "<group>";
+		};
+		38AB8B762254BCF80086E8EE /* XFCameraButton */ = {
+			isa = PBXGroup;
+			children = (
+				38AB8B782254BCF80086E8EE /* XFCameraButton.h */,
+				38AB8B772254BCF80086E8EE /* XFCameraButton.m */,
+			);
+			path = XFCameraButton;
+			sourceTree = "<group>";
+		};
+		38AB8B7C2254BCF80086E8EE /* XFPhotoLibraryManager */ = {
+			isa = PBXGroup;
+			children = (
+				38AB8B7D2254BCF80086E8EE /* XFPhotoLibraryManager.h */,
+				38AB8B7E2254BCF80086E8EE /* XFPhotoLibraryManager.m */,
+			);
+			path = XFPhotoLibraryManager;
 			sourceTree = "<group>";
 		};
 		5C085CD21D41C10200F1B5A5 /* 左菜单 */ = {
@@ -7585,6 +7585,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -7867,6 +7868,7 @@
 				1D4D3D4A201B2716001343D1 /* ChangePasswordVC.xib in Resources */,
 				1D3F84E520048CAE0000ABBD /* wyxc_48dp.png in Resources */,
 				1D9E39AA1DE2CA670029DCDC /* RescueOmitViewController_s.xib in Resources */,
+				38AB8B812254BCF80086E8EE /* XFCameraController.xib in Resources */,
 				1D9E173B1FF483DE00C66934 /* dlxx_ts.png in Resources */,
 				5C7F64A01D3545F80024C8ED /* EventViewController.xib in Resources */,
 				1D4555DE1FFDC5B000213B8A /* dt_choice1.png in Resources */,
@@ -8042,7 +8044,6 @@
 				1D90B8F1215082A8005144A4 /* sbts_left_gra.png in Resources */,
 				1DCF60F82021675500081922 /* sound1.wav in Resources */,
 				2A148F181E836D0A00F73172 /* SBAZCell2.xib in Resources */,
-				1D63753A204D2E8000707B6F /* XFCameraController.xib in Resources */,
 				1DAAE85E1D46F0B800381054 /* PersonChangePWDViewController.xib in Resources */,
 				1D0FB5651E0CF15A00311C39 /* bjylw_48dp.png in Resources */,
 				1D63BC082010413900DBF15C /* ic_arrow_right.png in Resources */,
@@ -8234,6 +8235,7 @@
 				1D34C64E2125A05C00A800B1 /* NIMProgressHUD.m in Sources */,
 				1D34C5FE2125A05C00A800B1 /* rgb.fsh.c in Sources */,
 				1D19A5292021B7620002A27E /* ContactUSVC.m in Sources */,
+				38AB8B7F2254BCF80086E8EE /* XFCameraButton.m in Sources */,
 				1D34C6A02125A05D00A800B1 /* NIMSessionTextContentView.m in Sources */,
 				5CAF97F81D4A326F0056DB85 /* UIButton+AFNetworking.m in Sources */,
 				1D34C5CE2125A05C00A800B1 /* NTESWhiteboardDrawView.m in Sources */,
@@ -8283,6 +8285,7 @@
 				1D34C6922125A05D00A800B1 /* NIMImageContentConfig.m in Sources */,
 				1D0C7FC7200335AF00A21F3F /* XXNet.m in Sources */,
 				5C767BC21D1CF96F002011D7 /* VoiceConverter.mm in Sources */,
+				38AB8B802254BCF80086E8EE /* XFCameraController.m in Sources */,
 				5C767B781D1CF96F002011D7 /* MBProgressHUD+Add.m in Sources */,
 				5C767BB31D1CF96F002011D7 /* UIGridViewCell.m in Sources */,
 				1D34C5F72125A05C00A800B1 /* renderer_yuv420p.c in Sources */,
@@ -8362,7 +8365,6 @@
 				1D34C65B2125A05C00A800B1 /* NIMKitTimerHolder.m in Sources */,
 				5C767BBE1D1CF96F002011D7 /* amrFileCodec.mm in Sources */,
 				1DA0EFEC20FF0CA800A3A611 /* writeNameViewController.m in Sources */,
-				1D637539204D2E8000707B6F /* XFCameraController.m in Sources */,
 				5CAF97F61D4A326F0056DB85 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				1D67455D20F4ACB0002B1AB2 /* QRCodeViewController_WZH.m in Sources */,
 				1D34C5F02125A05C00A800B1 /* NTESActorSelectView.m in Sources */,
@@ -8487,6 +8489,7 @@
 				1DCCDA8B215DD00E00A6BD95 /* getStateAction.m in Sources */,
 				5C767BA91D1CF96F002011D7 /* FMTokenizers.m in Sources */,
 				5C767B771D1CF96F002011D7 /* MBPImageView.m in Sources */,
+				38AB8B822254BCF80086E8EE /* XFPhotoLibraryManager.m in Sources */,
 				1D59EDC4207AEE9E002758B4 /* DTWBWebViewController.m in Sources */,
 				5C767BAC1D1CF96F002011D7 /* FMDatabasePool.m in Sources */,
 				5C767B831D1CF96F002011D7 /* MLEmojiLabel.m in Sources */,
@@ -8735,7 +8738,6 @@
 				1D42AD75217ECA3C00D8BB4E /* DKBleDevInitInfo.m in Sources */,
 				1DB489DD200C7AC40011B009 /* TZTGViewController.m in Sources */,
 				1D34C5C72125A05C00A800B1 /* NTESDocDownloadManager.m in Sources */,
-				1D637538204D2E8000707B6F /* XFCameraButton.m in Sources */,
 				1D34C2781D48B57C001212E5 /* TADotView.m in Sources */,
 				1D3E61862043D67A00738587 /* XJGestureButton.m in Sources */,
 				1D67456520F4B114002B1AB2 /* SZQuestionCheckBox_WZH.m in Sources */,
@@ -8822,7 +8824,6 @@
 				5C12C0D81D20BE85001BDC4E /* ProblemTopView.m in Sources */,
 				1D3E61892043D67A00738587 /* SCYLayerAddition.m in Sources */,
 				1D42AD76217ECA3C00D8BB4E /* DKComByteManager.m in Sources */,
-				1D63753B204D2E8000707B6F /* XFPhotoLibraryManager.m in Sources */,
 				1D34C5E82125A05C00A800B1 /* NTESChatroomTextContentView.m in Sources */,
 				5C767B951D1CF96F002011D7 /* SDImageCache.m in Sources */,
 				1D19583C20467DC3009F96AD /* ZFGenericAxis.m in Sources */,

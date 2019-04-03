@@ -240,7 +240,6 @@
 -(void)initWindow{
    // typeID=1;
     headview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bounds_width.size.width, 300)];
-    [self.view addSubview:headview];
     
     //1标题60
     UIView * view_head1=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bounds_width.size.width, 60)];
@@ -421,11 +420,13 @@
     //行高
     CourseTableview.currHeight= 50;
     //tableView的frame
-    CourseTableview.tableView.frame = CGRectMake(0, CGRectGetMaxY(headview.frame), SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(headview.frame)-60);
+    CourseTableview.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-44);
     [self.view addSubview:CourseTableview.tableView];
+    CourseTableview._refreshHeaderView = nil;
+    CourseTableview.tableView.tableHeaderView = headview;
 //    CourseTableview.tableView.scrollEnabled=NO;
     
-    UIButton*  Btn = [MyControl createButtonWithFrame:CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60) imageName:nil bgImageName:nil title:@"一键离线传输" SEL:@selector(btnClick_update:) target:self];
+    UIButton*  Btn = [MyControl createButtonWithFrame:CGRectMake(0, SCREEN_HEIGHT-44, SCREEN_WIDTH, 44) imageName:nil bgImageName:nil title:@"一键离线传输" SEL:@selector(btnClick_update:) target:self];
     Btn.titleLabel.font = [UIFont systemFontOfSize:18];
     [Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     Btn.backgroundColor=[CommonUseClass getSysColor];
@@ -540,7 +541,7 @@
             [self showData];
             
             //5.
-//            [self getSchoolCourse1];
+            [self getSchoolCourse1];
         }
         
     } failure:^(NSError *error) {
@@ -572,58 +573,11 @@
             NSString *str_json = data [@"Data"];//InspectDetails"];
             NSDictionary *  dic = [str_json objectFromJSONString];
             
-             NSString * LiftNum_show =[_liftNum stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString * LiftNum_show =[_liftNum stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             dtBianHao_2.text=LiftNum_show;
             NSDictionary *dic_lift =[dic objectForKey:@"Lift"];
             dtWeiZhi_2.text=[dic_lift objectForKey:@"InstallationAddress"];
             dtdaima_2.text=[dic_lift objectForKey:@"CertificateNum"];
-            
-           
-//            NSArray *currArr=[dic objectForKey:@"InspectDetails"];
-//            NSMutableArray *newArr=[[NSMutableArray alloc]init];
-//
-//            int i=1;
-//            for (NSMutableDictionary *currdic in app.arrData) {
-//                NSMutableDictionary *newdic = [NSMutableDictionary dictionaryWithDictionary:currdic];
-//                [newdic setObject:[NSString stringWithFormat:@"%d",i] forKey:@"ID"];
-//                i++;
-//                [newdic setObject:@"" forKey:@"Remark"];
-//                [newdic setObject:@"" forKey:@"CreateTime1"];
-//                [newdic setObject:@"" forKey:@"UserName"];
-//                [newdic setObject:@"" forKey:@"PhotoUrl"];
-//                [newdic setObject:@"" forKey:@"VideoPath"];
-//                [newdic setObject:@"0" forKey:@"IsLock"];
-//                [newdic setObject:InspectId forKey:@"InspectId"];
-//                [newdic setObject:@"0" forKey:@"IsPassed"];
-//                [newdic setObject:[NSString stringWithFormat:@"%f", _Longitude] forKey:@"Longitude"];
-//                [newdic setObject:[NSString stringWithFormat:@"%f",_Latitude] forKey:@"Latitude"];
-//                [newdic setObject:@"0" forKey:@"IsOutLine"];
-//                for (NSMutableDictionary *currdic_value in currArr) {
-//
-//
-//                    if([[currdic_value objectForKey:@"StepId"] isEqual: [currdic objectForKey:@"StepId"] ])
-//                    {
-//
-//                        [newdic setObject:[currdic_value objectForKey:@"Remark"] forKey:@"Remark"];
-//                        [newdic setObject:[currdic_value objectForKey:@"CreateTime"] forKey:@"CreateTime1"];
-//                        [newdic setObject:[currdic_value objectForKey:@"UserName"] forKey:@"UserName"];
-//                        [newdic setObject:[currdic_value objectForKey:@"PhotoUrl"] forKey:@"PhotoUrl"];
-//                        [newdic setObject:[currdic_value objectForKey:@"VideoPath"] forKey:@"VideoPath"];
-//                        [newdic setObject:[currdic_value objectForKey:@"IsLock"] forKey:@"IsLock"];
-//                        [newdic setObject:[currdic_value objectForKey:@"InspectId"] forKey:@"InspectId"];
-//                        [newdic setObject:[currdic_value objectForKey:@"IsPassed"] forKey:@"IsPassed"];
-//                        [newdic setObject:[NSString stringWithFormat:@"%f",_Longitude] forKey:@"Longitude"];
-//                        [newdic setObject:[NSString stringWithFormat:@"%f",_Latitude] forKey:@"Latitude"];
-////                        [newdic setObject:[currdic_value objectForKey:@"InspectTemplateAttributeEntityList"] forKey:@"InspectTemplateAttributeEntityList"];
-//                        break;
-//                    }
-//
-//                }
-//                [newArr addObject:newdic];
-//            }
-//
-//            app.arrData=newArr;
-//            [self showData];
         }
         
     } failure:^(NSError *error) {

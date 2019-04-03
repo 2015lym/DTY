@@ -17,11 +17,13 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define SafeViewBottomHeight (kScreenHeight == 812.0 ? 34.0 : 0.0)
+#define iSiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 #define VIDEO_FILEPATH                                              @"video"
-#define TIMER_INTERVAL 0.01f                                        //定时器记录视频间隔
-#define VIDEO_RECORDER_MAX_TIME 300.0f                               //视频最大时长 (单位/秒)
-#define VIDEO_RECORDER_MIN_TIME 10.0f                                //最短视频时长 (单位/秒)
-#define START_VIDEO_ANIMATION_DURATION 0.3f                         //录制视频前的动画时间
+#define TIMER_INTERVAL 0.01f                                        // 定时器记录视频间隔
+#define VIDEO_RECORDER_MAX_TIME 180.0f                               // 视频最大时长 (单位/秒)
+#define VIDEO_RECORDER_MIN_TIME 1.0f                                // 最短视频时长 (单位/秒)
+#define START_VIDEO_ANIMATION_DURATION 0.3f                         // 录制视频前的动画时间
+#define DEFAULT_VIDEO_ZOOM_FACTOR 3.0f                              // 默认放大倍数
 
 typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
@@ -104,7 +106,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     [super viewDidLoad];
     
     // 隐藏状态栏
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    //    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [UIApplication sharedApplication].statusBarHidden = YES;
     
     _isFocusing = NO;
@@ -157,10 +159,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 {
     [super viewWillDisappear:animated];
     
-    [self setCaptureVideoPreviewLayerTransformWithScale:1.0f];
-    
     // 显示状态栏
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    //    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     [UIApplication sharedApplication].statusBarHidden = NO;
 }
 
@@ -271,9 +271,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     }
     else
     {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [weakSelf cropWithVideoUrlStr:weakSelf.videoURL start:0 end:weakSelf.currentVideoTimeLength completion:^(NSURL *outputURL, Float64 videoDuration, BOOL isSuccess) {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
             if (isSuccess)
             {
                 [XFPhotoLibraryManager saveVideoWithVideoUrl:outputURL andAssetCollectionName:nil withCompletion:^(NSURL *videoUrl, NSError *error) {
@@ -288,9 +287,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                         else
                         {
                             NSLog(@"保存视频成功!");
-                            
-//                            //test
-//                            [self saveVideo:videoUrl.absoluteString];
                             
                             // 获取视频的第一帧图片
                             UIImage *image = [weakSelf thumbnailImageRequestWithVideoUrl:videoUrl andTime:0.01f];
@@ -320,35 +316,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     }
 }
 
-- (void)saveVideo:(NSString *)videoPath{
-    
-    if (videoPath) {
-        NSURL *url = [NSURL URLWithString:videoPath];
-        BOOL compatible = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([url path]);
-        if (compatible)
-        {
-            //保存相册核心代码
-            UISaveVideoAtPathToSavedPhotosAlbum([url path], self, @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:), nil);
-        }
-    }
-}
-
-//保存视频完成之后的回调
-- (void) savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
-    if (error) {
-        NSLog(@"保存视频失败%@", error.localizedDescription);
-//        [self hideHUD];
-//        [self showHintMiddle:@"视频保存失败"];
-    }
-    else {
-        NSLog(@"保存视频成功");
-//        [self hideHUD];
-//        [self showHintMiddle:@"视频保存成功"];
-    }
-}
-
-
-
 #pragma mark - 懒加载
 - (AVCaptureSession *)captureSession
 {
@@ -369,7 +336,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 {
     if (!_videoQueue)
     {
-        _videoQueue = dispatch_get_main_queue();
+        _videoQueue = dispatch_queue_create("XFCameraController", DISPATCH_QUEUE_SERIAL); // dispatch_get_main_queue();
     }
     
     return _videoQueue;
@@ -477,6 +444,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 {
     self.captureStillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     NSDictionary *outputSettings = @{
+                                     //                                     AVVideoScalingModeKey:AVVideoScalingModeResizeAspect,
                                      AVVideoCodecKey:AVVideoCodecJPEG
                                      };
     [_captureStillImageOutput setOutputSettings:outputSettings];
@@ -591,15 +559,17 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //        [cameraButton configureTapCameraButtonEventWithBlock:^(UITapGestureRecognizer *tapGestureRecognizer) {
 //            [weakSelf takePhotos:tapGestureRecognizer];
 //        }];
-        // 配置拍摄方法
-        [cameraButton configureLongPressCameraButtonEventWithBlock:^(UILongPressGestureRecognizer *longPressGestureRecognizer) {
-            [weakSelf longPressCameraButtonFunc:longPressGestureRecognizer];
+//        // 配置拍摄方法
+//        [cameraButton configureLongPressCameraButtonEventWithBlock:^(UILongPressGestureRecognizer *longPressGestureRecognizer) {
+//            [weakSelf longPressCameraButtonFunc:longPressGestureRecognizer];
+//        }];
+        // 配置新拍摄方法
+        [cameraButton configureTapCameraButtonEventWithBlock:^(UITapGestureRecognizer *tapGestureRecognizer) {
+            [weakSelf clickVideoRecorder:tapGestureRecognizer];
         }];
     }
     [self.cameraButton setHidden:NO];
     [self.view bringSubviewToFront:self.cameraButton];
-    
-    [self setCaptureVideoPreviewLayerTransformWithScale:1.0f];
     
     // 对焦imageView
     [self.view bringSubviewToFront:self.focusImageView];
@@ -684,7 +654,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     //根据设备输出获得连接
     AVCaptureConnection *captureConnection = [self.captureStillImageOutput connectionWithMediaType:AVMediaTypeVideo];
     
-    [captureConnection setVideoScaleAndCropFactor:self.effectiveScale];
+//    [captureConnection setVideoScaleAndCropFactor:self.effectiveScale];
     
     //根据连接取得设备输出的数据
     [self.captureStillImageOutput captureStillImageAsynchronouslyFromConnection:captureConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
@@ -726,9 +696,11 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     {
         finalImage = [self rotateImage:image withOrientation:UIImageOrientationRight];
     }
+//    NSLog(@"image %@",NSStringFromCGSize(image.size));
+//    NSLog(@"finalImage %@",NSStringFromCGSize(finalImage.size));
     
     self.photoPreviewImageView = [[UIImageView alloc] init];
-    float videoRatio = finalImage.size.width / finalImage.size.height;
+    float videoRatio = finalImage.size.width / finalImage.size.height; //得到的图片 高/宽
     if (self.shootingOrientation == UIDeviceOrientationLandscapeRight || self.shootingOrientation == UIDeviceOrientationLandscapeLeft)
     {
         CGFloat height = kScreenWidth * videoRatio;
@@ -737,7 +709,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     }
     else
     {
-        [self.photoPreviewImageView setFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        [self.photoPreviewImageView setFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth*videoRatio)];
     }
     self.photoPreviewImageView.image = finalImage;
     
@@ -745,6 +717,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     self.photoPreviewContainerView.backgroundColor = [UIColor blackColor];
     [self.photoPreviewContainerView addSubview:self.photoPreviewImageView];
     [self.view addSubview:self.photoPreviewContainerView];
+    self.photoPreviewImageView.center = self.view.center;
     [self.view bringSubviewToFront:self.photoPreviewImageView];
     [self.view bringSubviewToFront:self.cancelButton];
     [self.view bringSubviewToFront:self.confirmButton];
@@ -801,6 +774,28 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
 }
 
+// 点击录制
+- (void)clickVideoRecorder:(UITapGestureRecognizer *)tapGestureRecognizer {
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus == AVAuthorizationStatusRestricted || authStatus ==AVAuthorizationStatusDenied)
+    {
+        return;
+    }
+    
+    //判断用户是否允许访问麦克风权限
+    authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+    if (authStatus == AVAuthorizationStatusRestricted || authStatus ==AVAuthorizationStatusDenied)
+    {
+        return;
+    }
+    _tipLabel.hidden = YES;
+    if (_isShooting) {
+        [self stopVideoRecorder];
+    } else {
+        [self startVideoRecorder];
+    }
+}
+
 /**
  *  开始录制视频
  */
@@ -809,8 +804,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     _isShooting = YES;
     
     [self stopUpdateAccelerometer];
-    
-    [self setCaptureVideoPreviewLayerTransformWithScale:1.0f];
     
     [self.cameraButton startShootAnimationWithDuration:START_VIDEO_ANIMATION_DURATION];
     
@@ -842,14 +835,14 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         __weak __typeof(self)weakSelf = self;
         if(_assetWriter && _assetWriter.status == AVAssetWriterStatusWriting)
         {
-            //        dispatch_async(self.videoQueue, ^{
-            [_assetWriter finishWritingWithCompletionHandler:^{
-                weakSelf.canWrite = NO;
-                weakSelf.assetWriter = nil;
-                weakSelf.assetWriterAudioInput = nil;
-                weakSelf.assetWriterVideoInput = nil;
-            }];
-            //        });
+//            dispatch_async(self.videoQueue, ^{
+                [_assetWriter finishWritingWithCompletionHandler:^{
+                    weakSelf.canWrite = NO;
+                    weakSelf.assetWriter = nil;
+                    weakSelf.assetWriterAudioInput = nil;
+                    weakSelf.assetWriterVideoInput = nil;
+                }];
+//            });
         }
         
         if (timeLength < VIDEO_RECORDER_MIN_TIME)
@@ -884,6 +877,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     self.assetWriter = [AVAssetWriter assetWriterWithURL:self.videoURL fileType:AVFileTypeMPEG4 error:nil];
     //写入视频大小
     NSInteger numPixels = kScreenWidth * kScreenHeight;
+    
     //每像素比特
     CGFloat bitsPerPixel = 12.0;
     NSInteger bitsPerSecond = numPixels * bitsPerPixel;
@@ -893,12 +887,18 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                                              AVVideoExpectedSourceFrameRateKey : @(15),
                                              AVVideoMaxKeyFrameIntervalKey : @(15),
                                              AVVideoProfileLevelKey : AVVideoProfileLevelH264BaselineAutoLevel };
-    
+    CGFloat width = kScreenHeight;
+    CGFloat height = kScreenWidth;
+    if (iSiPhoneX)
+    {
+        width = kScreenHeight - 146;
+        height = kScreenWidth;
+    }
     //视频属性
     self.videoCompressionSettings = @{ AVVideoCodecKey : AVVideoCodecH264,
+                                       AVVideoWidthKey : @(width * 2),
+                                       AVVideoHeightKey : @(height * 2),
                                        AVVideoScalingModeKey : AVVideoScalingModeResizeAspectFill,
-                                       AVVideoWidthKey : @(kScreenHeight * 2),
-                                       AVVideoHeightKey : @(kScreenWidth * 2),
                                        AVVideoCompressionPropertiesKey : compressionProperties };
     
     _assetWriterVideoInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:self.videoCompressionSettings];
@@ -1012,8 +1012,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 /**
  *  创建文件名
- *
- *  @param type 文件名类型
  */
 - (NSString *)createFileNamePrefix
 {
@@ -1101,6 +1099,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
     self.playerLayer.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    
     self.playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
     
     [self.videoPreviewContainerView.layer addSublayer:self.playerLayer];
@@ -1248,7 +1247,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     //获取视频总时长
     Float64 duration = CMTimeGetSeconds(asset.duration);
     
-    if (duration > 10)
+    if (duration > VIDEO_RECORDER_MAX_TIME)
     {
         duration = VIDEO_RECORDER_MAX_TIME;
     }
@@ -1264,14 +1263,13 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     {
         
         AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]
-                                               initWithAsset:asset presetName:AVAssetExportPresetLowQuality];//AVAssetExportPresetLowQuality
+                                               initWithAsset:asset presetName:AVAssetExportPresetPassthrough];
         
         NSURL *outputURL = outputFileUrl;
         
         exportSession.outputURL = outputURL;
-        exportSession.outputFileType =AVFileTypeQuickTimeMovie;// AVFileTypeMPEG4;
+        exportSession.outputFileType = AVFileTypeMPEG4;
         exportSession.shouldOptimizeForNetworkUse = YES;
-        
         
         CMTime start = CMTimeMakeWithSeconds(startTime, asset.duration.timescale);
         CMTime duration = CMTimeMakeWithSeconds(endTime - startTime,asset.duration.timescale);
@@ -1425,7 +1423,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                     }
                 }
             }
-            
 //            CFRelease(sampleBuffer);
         }
 //    });
@@ -1536,10 +1533,10 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
-    if (_isShooting)
-    {
-        return;
-    }
+//    if (_isShooting)
+//    {
+//        return;
+//    }
     
     BOOL allTouchesAreOnTheCaptureVideoPreviewLayer = YES;
     
@@ -1557,33 +1554,20 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
     if (allTouchesAreOnTheCaptureVideoPreviewLayer)
     {
-        self.effectiveScale = self.beginGestureScale * recognizer.scale;
-        if (self.effectiveScale < 1.0f)
+        CGFloat videoMaxZoomFactor = self.videoInput.device.activeFormat.videoMaxZoomFactor;
+        CGFloat maxScaleAndCropFactor = videoMaxZoomFactor<DEFAULT_VIDEO_ZOOM_FACTOR?videoMaxZoomFactor:DEFAULT_VIDEO_ZOOM_FACTOR;
+        CGFloat currentScale = self.beginGestureScale * recognizer.scale;
+        if ((currentScale > 1.0f) && (currentScale < maxScaleAndCropFactor))
         {
-            self.effectiveScale = 1.0f;
+            self.effectiveScale = self.beginGestureScale * recognizer.scale;
+            if ((self.effectiveScale < videoMaxZoomFactor) && (self.effectiveScale > 1.0f))
+            {
+                [self changeDeviceProperty:^(AVCaptureDevice *captureDevice) {
+                    [captureDevice rampToVideoZoomFactor:self.effectiveScale withRate:10.0f];
+                }];
+            }
         }
-        
-        //        NSLog(@"%f-------------->%f------------recognizerScale%f", self.effectiveScale, self.beginGestureScale, recognizer.scale);
-        
-        CGFloat imageMaxScaleAndCropFactor = [[self.captureStillImageOutput connectionWithMediaType:AVMediaTypeVideo] videoMaxScaleAndCropFactor];
-        
-        //        NSLog(@"%f", imageMaxScaleAndCropFactor);
-        if (self.effectiveScale > imageMaxScaleAndCropFactor)
-        {
-            self.effectiveScale = imageMaxScaleAndCropFactor;
-        }
-        
-        [self setCaptureVideoPreviewLayerTransformWithScale:self.effectiveScale];
     }
-}
-
-- (void)setCaptureVideoPreviewLayerTransformWithScale:(CGFloat)scale
-{
-    self.effectiveScale = scale;
-    [CATransaction begin];
-    [CATransaction setAnimationDuration:0.25f];      //时长最好低于 START_VIDEO_ANIMATION_DURATION
-    [self.captureVideoPreviewLayer setAffineTransform:CGAffineTransformMakeScale(scale, scale)];
-    [CATransaction commit];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -1613,9 +1597,10 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
          {
              double x = accelerometerData.acceleration.x;
              double y = accelerometerData.acceleration.y;
-             if (fabs(y) >= fabs(x))
+             if ((fabs(y) + 0.1f) >= fabs(x))
              {
-                 if (y >= 0)
+                 //                 NSLog(@"y:%lf", y);
+                 if (y >= 0.1f)
                  {
                      // Down
                      NSLog(@"Down");
@@ -1630,17 +1615,24 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
              }
              else
              {
-                 if (x >= 0)
+                 //                 NSLog(@"x:%lf", x);
+                 if (x >= 0.1f)
                  {
                      // Right
                      NSLog(@"Right");
                      _shootingOrientation = UIDeviceOrientationLandscapeRight;
                  }
-                 else
+                 else if (x <= 0.1f)
                  {
                      // Left
                      NSLog(@"Left");
                      _shootingOrientation = UIDeviceOrientationLandscapeLeft;
+                 }
+                 else
+                 {
+                     // Portrait
+                     NSLog(@"Portrait");
+                     _shootingOrientation = UIDeviceOrientationPortrait;
                  }
              }
          }];
@@ -1692,8 +1684,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             if ([[UIApplication sharedApplication] canOpenURL:url])
             {
                 [[UIApplication sharedApplication] openURL:url];
-                [weakSelf dismissViewControllerAnimated:YES completion:nil];
             }
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }];
         
         [alertController addAction:okAction];
@@ -1726,8 +1718,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             if ([[UIApplication sharedApplication] canOpenURL:url])
             {
                 [[UIApplication sharedApplication] openURL:url];
-                [weakSelf dismissViewControllerAnimated:YES completion:nil];
             }
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }];
         
         [alertController addAction:okAction];
@@ -1768,31 +1760,17 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                 if ([[UIApplication sharedApplication] canOpenURL:url])
                 {
                     [[UIApplication sharedApplication] openURL:url];
-                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 }
+                [weakSelf dismissViewControllerAnimated:YES completion:nil];
             }];
             
             [alertController addAction:okAction];
             [alertController addAction:setAction];
             
-            [self presentViewController:alertController animated:YES completion:nil];
+            [weakSelf presentViewController:alertController animated:YES completion:nil];
             
         }
     }];
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
