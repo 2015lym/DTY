@@ -694,12 +694,16 @@
     [defaults setObject:myArray forKey:@"Datajianyan"];
     [defaults synchronize];
     
-    [CommonUseClass showAlter:@"离线缓存成功！"];
     //2.
     NSMutableDictionary *newdic2 = [NSMutableDictionary dictionaryWithDictionary:warnmodel];
-    [newdic2 setObject:@"1" forKey:@"IsOutLine"];
-
+    if (status != 3) {
+        [newdic2 setObject:@"1" forKey:@"IsOutLine"];
+        [CommonUseClass showAlter:@"离线缓存成功！"];
+    } else {
+        [CommonUseClass showAlter:@"缓存成功！"];
+    }
     [self saveThisValue:newdic2];
+
     [self showoutLine];
     
 }

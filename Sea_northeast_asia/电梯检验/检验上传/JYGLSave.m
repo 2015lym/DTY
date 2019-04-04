@@ -731,28 +731,10 @@
         
         //2
         
-        if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsPhoto"]] isEqual:@"1"] )
-        {
-            if([warnmodel[@"have_online_phone"] isEqual:@"1"])
-            {
-                [self updatephone:warnmodel];
-            }
-            else
-            {
-                [self SubmitData:@"" forData:warnmodel];
-            }
-        }
-        else
-        {
-            NSString *url=[NSString stringWithFormat:@"%@", warnmodel[@"online_video_url"]];
-            if(![url  isEqual:@""])
-            {
-                [self updateVideo:warnmodel];
-            }
-            else
-            {
-                [self SubmitData:@"" forData:warnmodel];
-            }
+        if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsPhoto"]] isEqual:@"1"] ) {
+            [self updatephone:warnmodel];
+        } else {
+            [self updateVideo:warnmodel];
         }
     }
 }
@@ -760,50 +742,58 @@
 
 - (void)updatephone:(NSDictionary *)warnmodel
 {
-    NSData *data =warnmodel[@"online_phone"];
-    
-    [XXNet requestAFURL:UploadFileURL_Inspect parameters:nil imageData:data succeed:^(NSDictionary *data) {
-        //        NSLog(@"%@",data);
-        if ([data[@"Success"]intValue]) {
-            NSString *str_imgurl = data[@"Data"];
-            [self SubmitData:str_imgurl forData:warnmodel];
-        }
-    } failure:^(NSError *error) {
-        updata_currCount++;
-        updata_no =[NSString stringWithFormat:@"%@%@,", updata_no,warnmodel[@"ID"] ];
+    if (![[CommonUseClass FormatString: [warnmodel objectForKey:@"PhotoUrl"]] isEqual:@""]) {
+        [self SubmitData:[warnmodel objectForKey:@"PhotoUrl"] forData:warnmodel];
+    } else {
+        NSData *data =warnmodel[@"online_phone"];
         
-        [self performSelectorOnMainThread:@selector(saveOver) withObject:nil waitUntilDone:YES];
-    }];
+        [XXNet requestAFURL:UploadFileURL_Inspect parameters:nil imageData:data succeed:^(NSDictionary *data) {
+            //        NSLog(@"%@",data);
+            if ([data[@"Success"]intValue]) {
+                NSString *str_imgurl = data[@"Data"];
+                [self SubmitData:str_imgurl forData:warnmodel];
+            }
+        } failure:^(NSError *error) {
+            updata_currCount++;
+            updata_no =[NSString stringWithFormat:@"%@%@,", updata_no,warnmodel[@"ID"] ];
+            
+            [self performSelectorOnMainThread:@selector(saveOver) withObject:nil waitUntilDone:YES];
+        }];
+    }
 }
 
 - (void)updateVideo:(NSDictionary *)warnmodel
 {
-    NSString *urlstr=[NSString stringWithFormat:@"%@", warnmodel[@"online_video_url"]];
-    NSURL * url=[NSURL URLWithString:urlstr];
-    
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    if(data==nil)
-    {
-        updata_currCount++;
-        updata_no =[NSString stringWithFormat:@"%@%@,", updata_no,warnmodel[@"ID"] ];
-        [self saveOver];
-        return;
-    }
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    [dic setValue:@".mp4" forKey:@"fileName"];
-    
-    [XXNet requestAFURL:UploadFileURL_Inspect_ios parameters:dic imageData:data succeed:^(NSDictionary *data) {
-        if ([data[@"Success"]intValue]) {
-            NSString *str_imgurl = data[@"Data"];
-            [self SubmitData:str_imgurl forData:warnmodel];
-        }
-    } failure:^(NSError *error) {
-        updata_currCount++;
-        updata_no =[NSString stringWithFormat:@"%@%@,", updata_no,warnmodel[@"ID"] ];
+    if (![[CommonUseClass FormatString: [warnmodel objectForKey:@"VideoPath"]] isEqual:@""]) {
+        [self SubmitData:[warnmodel objectForKey:@"VideoPath"] forData:warnmodel];
+    } else {
+        NSString *urlstr=[NSString stringWithFormat:@"%@", warnmodel[@"online_video_url"]];
+        NSURL * url=[NSURL URLWithString:urlstr];
         
-        [self performSelectorOnMainThread:@selector(saveOver) withObject:nil waitUntilDone:YES];
-    }];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        if(data==nil)
+        {
+            updata_currCount++;
+            updata_no =[NSString stringWithFormat:@"%@%@,", updata_no,warnmodel[@"ID"] ];
+            [self saveOver];
+            return;
+        }
+        
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+        [dic setValue:@".mp4" forKey:@"fileName"];
+        
+        [XXNet requestAFURL:UploadFileURL_Inspect_ios parameters:dic imageData:data succeed:^(NSDictionary *data) {
+            if ([data[@"Success"]intValue]) {
+                NSString *str_imgurl = data[@"Data"];
+                [self SubmitData:str_imgurl forData:warnmodel];
+            }
+        } failure:^(NSError *error) {
+            updata_currCount++;
+            updata_no =[NSString stringWithFormat:@"%@%@,", updata_no,warnmodel[@"ID"] ];
+            
+            [self performSelectorOnMainThread:@selector(saveOver) withObject:nil waitUntilDone:YES];
+        }];
+    }
 }
 
 
