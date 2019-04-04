@@ -594,33 +594,6 @@
         return;
     }
     
-    //1
-    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsPhoto"]] isEqual:@"1"] )
-    {
-        if(warnmodel[@"have_this_phone"]!=nil
-           &&[[CommonUseClass FormatString: warnmodel[@"have_this_phone"]] isEqual:@"1"])
-        {
-        }
-        else
-        {
-            [CommonUseClass showAlter:@"请您先拍照！"];
-            return;
-        }
-    }
-    
-    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsVideo"]] isEqual:@"1"])
-    {
-        if([CommonUseClass FormatString: [warnmodel objectForKey:@"this_video_url"]] .length>0)
-        {
-            
-        }
-        else
-        {
-            [CommonUseClass showAlter:@"请您先录像！"];
-            return;
-        }
-    }
-    
     //InspectTemplateAttributeEntityList
     NSMutableArray *arrayOther=[warnmodel objectForKey:@"InspectTemplateAttributeEntityList"];
     if(![[CommonUseClass FormatString:[warnmodel objectForKey:@"InspectTemplateAttributeEntityList"]] isEqual:@""] &&arrayOther.count>0)
@@ -634,11 +607,34 @@
             }
         }
     }
-
     
-     [self thisSaveData];
-
-
+    //1
+    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsPhoto"]] isEqual:@"1"] )
+    {
+        if (warnmodel[@"have_this_phone"]!=nil
+           &&[[CommonUseClass FormatString: warnmodel[@"have_this_phone"]] isEqual:@"1"]) {
+            [self thisSaveData:1];
+        } else if ([warnmodel [@"IsOutLine"] isEqual:@"1"]) {
+            [self thisSaveData:2];
+        }  else if (![[CommonUseClass FormatString: [warnmodel objectForKey:@"PhotoUrl"]] isEqual:@""]) {
+            [self thisSaveData:3];
+        } else {
+            [CommonUseClass showAlter:@"请您先拍照！"];
+        }
+    }
+    
+    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsVideo"]] isEqual:@"1"])
+    {
+        if([CommonUseClass FormatString: [warnmodel objectForKey:@"this_video_url"]].length>0) {
+            [self thisSaveData:1];
+        } else if ([warnmodel [@"IsOutLine"] isEqual:@"1"]) {
+            [self thisSaveData:2];
+        }  else if (![[CommonUseClass FormatString: [warnmodel objectForKey:@"VideoPath"]] isEqual:@""]) {
+            [self thisSaveData:3];
+        } else {
+            [CommonUseClass showAlter:@"请您先录像！"];
+        }
+    }
 }
 
 -(void)deleteThisValue:(NSMutableArray *)array
@@ -653,59 +649,40 @@
     }
 }
 
--(void)thisSaveData{
+// 1本地 2离线 3服务器
+-(void)thisSaveData:(NSInteger)status {
     //1
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *array0 = [defaults objectForKey:@"Datajianyan"] ;
     NSMutableArray *array = [array0 mutableCopy];
-//    [defaults removeObjectForKey:@"Datajianyan"];
-//    [defaults synchronize];
     
     //2
-    if(array==nil)
-    {
-        array=[NSMutableArray new];
+    if(array==nil) {
+        array = [NSMutableArray new];
     }
     [self deleteThisValue:array];
-    
-    //2.1
-    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsPhoto"]] isEqual:@"1"] )
-    {
-        [warnmodel setObject:warnmodel[@"this_phone"] forKey:@"online_phone"];
-        [warnmodel setObject:warnmodel[@"have_this_phone"] forKey:@"have_online_phone"];
-        [warnmodel setObject:@"" forKey:@"this_phone"];
-        [warnmodel setObject:@"" forKey:@"have_this_phone"];
-    }
-    
-    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsVideo"]] isEqual:@"1"])
-    {
-        [warnmodel setObject:warnmodel[@"this_video_url"] forKey:@"online_video_url"];
-        [warnmodel setObject:@"" forKey:@"this_video_url"];
+    if (status == 1) {
+        [self setLocalData];
     }
     
     //2.2
     NSMutableDictionary *newdic=[NSMutableDictionary new];
     for (NSString *key in warnmodel) {
-        if([key isEqual:@"online_phone"]&&[warnmodel[@"have_online_phone"] isEqual:@"1"])
-        {
+        if([key isEqual:@"online_phone"]&&[warnmodel[@"have_online_phone"] isEqual:@"1"]) {
             NSData *imageData = UIImageJPEGRepresentation(warnmodel[key],0.5);
             [newdic setObject:imageData forKey:key];
-//             [newdic setObject:warnmodel[@"this_phone"] forKey:key];
-        }
-        else
-        {
+        } else {
             NSString * currV=[CommonUseClass FormatString:warnmodel[key]];
             [newdic setObject:currV forKey:key];
         }
     }
     [newdic setValue:[CommonUseClass FormatString: _labConcent.text] forKey:@"Remark"];
-        [newdic setValue:[NSString stringWithFormat:@"%f", self.app.Longitude_curr] forKey:@"MapX"];
-        [newdic setValue:[NSString stringWithFormat:@"%f", self.app.Latitude_curr] forKey:@"MapY"];
+    [newdic setValue:[NSString stringWithFormat:@"%f", self.app.Longitude_curr] forKey:@"MapX"];
+    [newdic setValue:[NSString stringWithFormat:@"%f", self.app.Latitude_curr] forKey:@"MapY"];
     [newdic setValue:[CommonUseClass getCurrentTimes] forKey:@"CreateTime"];
     
     NSArray *arraylist=warnmodel[@"InspectTemplateAttributeEntityList"];
-    if(![[CommonUseClass FormatString: warnmodel[@"InspectTemplateAttributeEntityList"]] isEqual:@""]&&arraylist.count>0)
-    {
+    if(![[CommonUseClass FormatString: warnmodel[@"InspectTemplateAttributeEntityList"]] isEqual:@""]&&arraylist.count>0) {
     NSString *strJson=[self toReadableJSONString:warnmodel[@"InspectTemplateAttributeEntityList"]];
      [newdic setValue:strJson forKey:@"TemplateAttributeJson"];
     }
@@ -725,6 +702,23 @@
     [self saveThisValue:newdic2];
     [self showoutLine];
     
+}
+
+- (void)setLocalData {
+    //2.1
+    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsPhoto"]] isEqual:@"1"] ) {
+        [warnmodel setObject:warnmodel[@"this_phone"] forKey:@"online_phone"];
+        [warnmodel setObject:warnmodel[@"have_this_phone"] forKey:@"have_online_phone"];
+        [warnmodel setObject:@"" forKey:@"this_phone"];
+        [warnmodel setObject:@"" forKey:@"have_this_phone"];
+    }
+    
+    if([[CommonUseClass FormatString: [warnmodel objectForKey:@"IsVideo"]] isEqual:@"1"]) {
+        [warnmodel setObject:warnmodel[@"this_video_url"] forKey:@"online_video_url"];
+        [warnmodel setObject:@"" forKey:@"this_video_url"];
+    }
+    
+
 }
 
 - (NSString *)toReadableJSONString:(NSArray *)array {
