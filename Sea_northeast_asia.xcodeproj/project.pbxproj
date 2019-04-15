@@ -3325,9 +3325,9 @@
 				1D04A6471DD1DC1D00CFC9D0 /* elevatorRescueView.h */,
 				1D04A6481DD1DC1D00CFC9D0 /* elevatorRescueView.m */,
 				1D04A64A1DD1EA4900CFC9D0 /* elevatorRescueView.xib */,
-				1D4927181DD1FBF1005663EA /* elevatorRescueTooBar.xib */,
 				1D49271E1DD1FC0A005663EA /* elevatorRescueTooBar.h */,
 				1D49271F1DD1FC0A005663EA /* elevatorRescueTooBar.m */,
+				1D4927181DD1FBF1005663EA /* elevatorRescueTooBar.xib */,
 			);
 			path = "报警电梯";
 			sourceTree = "<group>";
@@ -3454,9 +3454,9 @@
 				1D0B3B661DD4798B00F8C42C /* helpInfoViewController.h */,
 				1D0B3B671DD4798B00F8C42C /* helpInfoViewController.m */,
 				1D0B3B691DD479BD00F8C42C /* helpInfoViewController.xib */,
-				1D0891861DD9804C009B2F36 /* phoneInfoViewController.xib */,
 				1D0891881DD9805C009B2F36 /* phoneInfoViewController.h */,
 				1D0891891DD9805C009B2F36 /* phoneInfoViewController.m */,
+				1D0891861DD9804C009B2F36 /* phoneInfoViewController.xib */,
 			);
 			path = "救援和电话";
 			sourceTree = "<group>";
@@ -8940,7 +8940,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sea_northeast_asia/Sea_northeast_asia.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -9000,7 +9000,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sea_northeast_asia/Sea_northeast_asia.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

@@ -74,7 +74,11 @@ BOOL enableCustomMap;
 //@property (nonatomic,strong)CLLocationManager *locationManager;
 //@property (nonatomic,strong) BMKLocationService *service;//定位服务
 @property(nonatomic, strong) BMKLocationManager *locationManager;
+@property (nonatomic, assign) BOOL isMonitoring;
+@property (nonatomic, copy) NSString *roomid;
 
+@property (nonatomic, strong) UIButton *callBackButton;
+@property (nonatomic, strong) UIButton *seeButton;
 @end
 
 @implementation EventViewIOSController
@@ -492,6 +496,28 @@ BOOL enableCustomMap;
 
 // MARK:- 添加刷新按钮
 - (void) addbtnS  {
+    _callBackButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 157, 64, 27)];
+    _callBackButton.hidden = YES;
+    _callBackButton.layer.cornerRadius = 10;
+    _callBackButton.layer.masksToBounds = YES;
+    _callBackButton.backgroundColor = RGBACOLOR(0, 0, 0, 0.5);
+    _callBackButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_callBackButton setTitle:@"点击回拨" forState:UIControlStateNormal];
+    [_callBackButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_callBackButton addTarget:self action:@selector(copylinkBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_callBackButton];
+    
+    _seeButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 199, 64, 27)];
+    _seeButton.hidden = YES;
+    _seeButton.layer.cornerRadius = 10;
+    _seeButton.layer.masksToBounds = YES;
+    _seeButton.backgroundColor = RGBACOLOR(0, 0, 0, 0.5);
+    _seeButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_seeButton setTitle:@"点击监控" forState:UIControlStateNormal];
+    [_seeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_seeButton addTarget:self action:@selector(noMonitoring) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_seeButton];
+    
     //static dispatch_once_t onceToken=0;
     //dispatch_once(&onceToken, ^{
     UIButton *bbtn = [[UIButton alloc]init];
@@ -507,6 +533,142 @@ BOOL enableCustomMap;
 
     //});
 }
+
+
+- (void)copylinkBtnClick{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _roomid=[CommonUseClass getUniqueStrByUUID];
+    _isMonitoring = YES;
+    [self createRoom];
+}
+
+- (void)noMonitoring {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _roomid=[CommonUseClass getUniqueStrByUUID];
+    _isMonitoring = NO;
+    [self createRoom];
+}
+
+- (void)createRoom
+{
+    NIMNetCallVideoCaptureParam *param = [[NIMNetCallVideoCaptureParam alloc]init];
+    param.startWithCameraOn = YES;
+    
+    NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
+    //option.videoCrop = NIMNetCallVideoCrop4x3;
+    option.autoRotateRemoteVideo = NO;
+    option.serverRecordAudio     = [[NTESBundleSetting sharedConfig] serverRecordAudio];
+    option.serverRecordVideo     = [[NTESBundleSetting sharedConfig] serverRecordVideo];
+    option.preferredVideoEncoder = [[NTESBundleSetting sharedConfig] perferredVideoEncoder];
+    option.preferredVideoDecoder = [[NTESBundleSetting sharedConfig] perferredVideoDecoder];
+    option.videoMaxEncodeBitrate = [[NTESBundleSetting sharedConfig] videoMaxEncodeKbps] * 1000;
+    option.autoDeactivateAudioSession = [[NTESBundleSetting sharedConfig] autoDeactivateAudioSession];
+    option.audioDenoise = [[NTESBundleSetting sharedConfig] audioDenoise];
+    option.voiceDetect = [[NTESBundleSetting sharedConfig] voiceDetect];
+    option.preferHDAudio = [[NTESBundleSetting sharedConfig] preferHDAudio];
+    option.bypassStreamingMixMode = [[NTESBundleSetting sharedConfig] bypassVideoMixMode];
+    option.videoCaptureParam = param;
+    
+    
+    NIMNetCallMeeting* _meeting = [[NIMNetCallMeeting alloc] init];
+    _meeting.name = _roomid;
+    _meeting.type = NIMNetCallTypeVideo;
+    _meeting.actor = YES;
+    _meeting.ext = @"test extend meeting messge";
+    _meeting.option=option;
+    
+    //创建房间
+    [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:_meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
+        
+        
+        self.app.meetingRoomNumber=_roomid;
+        
+        //1.
+        [self getSchoolCourse2];
+        
+        
+    }];
+    
+}
+
+
+-(void)getSchoolCourse2
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *WYID = [defaults objectForKey:@"WYID"];
+    NSString *currUrl=[NSString stringWithFormat:@"NeteaseMi/AppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@",WYID,sendArr.LiftId,_roomid];
+    
+    if (!_isMonitoring) {
+        currUrl=[NSString stringWithFormat:@"NeteaseMi/AppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@&isMonitoring=false",WYID,sendArr.LiftId,_roomid];
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [XXNet GetURL:currUrl header:nil parameters:nil succeed:^(NSDictionary *data) {
+        
+        if ([data[@"Success"]intValue]) {
+            [self performSelectorOnMainThread:@selector(selectDataOk:) withObject:@"" waitUntilDone:YES];
+            //1.
+            NSString *attach=[data objectForKey:@"Data"];
+            attach = [attach stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+            NSData *data = [attach dataUsingEncoding:NSUTF8StringEncoding];
+            NSMutableArray *array = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            
+            self.app.meetingUsers=array;
+            self.app.meetingCreator=WYID;
+            
+            [self performSelectorOnMainThread:@selector(joinRoom) withObject:nil waitUntilDone:NO];
+        }
+        else
+        {
+            [self performSelectorOnMainThread:@selector(addRoomErr:) withObject:@"回拔失败！" waitUntilDone:YES];
+        }
+        
+    } failure:^(NSError *error) {
+        NSString *msg=[NSString stringWithFormat:@"回拔失败！%@",MessageResult];
+        [self performSelectorOnMainThread:@selector(addRoomErr:) withObject:msg waitUntilDone:YES];
+        
+    }];
+}
+-(void)joinRoom {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *WYID = [defaults objectForKey:@"WYID"];
+    NIMChatroomMember *userinfo = [[NIMChatroomMember alloc]init];
+    userinfo.userId = WYID;
+    
+    NIMChatroom *chatroom = [[NIMChatroom alloc]init];
+    chatroom.name = _roomid ;
+    chatroom.roomId = _roomid;
+    chatroom.creator=WYID;
+    
+    NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
+    request.roomId = chatroom.roomId;
+    [[NSUserDefaults standardUserDefaults] setObject:request.roomId forKey:@"cachedRoom"];
+
+    [[NTESMeetingManager sharedInstance] cacheMyInfo:userinfo roomId:request.roomId];
+    [[NTESMeetingRolesManager sharedInstance] startNewMeeting:userinfo withChatroom:chatroom newCreated:NO];
+    UINavigationController *nav = self.navigationController;
+    NTESMeetingViewController *vc = [[NTESMeetingViewController alloc] initWithChatroom:chatroom];
+    vc.charRoomName = _roomid;
+    vc.JSTXType = @"2";
+    vc.isCall=1;
+    [nav pushViewController:vc animated:NO];
+    NSMutableArray *vcs = [nav.viewControllers mutableCopy];
+    nav.viewControllers = vcs;
+ 
+}
+-(void)addRoomErr:(NSString *)msg
+{
+    self.app.meetingRoomNumber=@"";
+    [CommonUseClass showAlter:msg];
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+
+-(void)selectDataOk:(NSString *)msg
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+
 // MARK:- 添加刷新按钮调用方法
 - (void) updateDatas:(id)sender{
   
@@ -1467,11 +1629,12 @@ typedef enum
     _btnPhone.tag=1;
     [_btnPhone addTarget:self action:@selector(tongzhi_HelperOrPhone:) forControlEvents:UIControlEventTouchUpInside];
 }
--(void)showPointInfo :(bool)isShow{
+-(void)showPointInfo:(bool)isShow{
     eV.view.hidden=!isShow;
     viewOP.hidden=!isShow;
-    //eVToolBar.view.hidden=!isShow;
     eVToolBar.hidden=!isShow;
+    _callBackButton.hidden = !isShow;
+    _seeButton.hidden = !isShow;
     
 //    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:@"提示"
 //                                                  message:[NSString stringWithFormat:@"%f", bounds_width.size.height]

@@ -133,21 +133,21 @@
     [_viewBase addSubview:label];
 
     //点击回拨
-    UIButton *copyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [copyBtn setTitle:@"点击回拨" forState:UIControlStateNormal];
-    copyBtn.frame = CGRectMake(100, lastHeight, 60, 20);
-    copyBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [copyBtn addTarget:self action:@selector(copylinkBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    copyBtn.backgroundColor = [UIColor whiteColor];
-    [copyBtn setTitleColor:[CommonUseClass getSysColor] forState:UIControlStateNormal];
-    [_viewBase addSubview:copyBtn];
+//    UIButton *copyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [copyBtn setTitle:@"点击回拨" forState:UIControlStateNormal];
+//    copyBtn.frame = CGRectMake(100, lastHeight, 60, 20);
+//    copyBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+//    [copyBtn addTarget:self action:@selector(copylinkBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    copyBtn.backgroundColor = [UIColor whiteColor];
+//    [copyBtn setTitleColor:[CommonUseClass getSysColor] forState:UIControlStateNormal];
+//    [_viewBase addSubview:copyBtn];
     
     //点击回拨
-    UIButton *eyeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [eyeButton setBackgroundImage:[UIImage imageNamed:@"eye"] forState:UIControlStateNormal];
-    eyeButton.frame = CGRectMake(190, lastHeight, 20, 20);
-    [eyeButton addTarget:self action:@selector(noMonitoring) forControlEvents:UIControlEventTouchUpInside];
-    [_viewBase addSubview:eyeButton];
+//    UIButton *eyeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [eyeButton setBackgroundImage:[UIImage imageNamed:@"eye"] forState:UIControlStateNormal];
+//    eyeButton.frame = CGRectMake(190, lastHeight, 20, 20);
+//    [eyeButton addTarget:self action:@selector(noMonitoring) forControlEvents:UIControlEventTouchUpInside];
+//    [_viewBase addSubview:eyeButton];
 }
 
 
