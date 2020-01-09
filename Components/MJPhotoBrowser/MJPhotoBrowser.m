@@ -7,7 +7,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
-#import "SDWebImageManager+MJ.h"
+#import <SDWebImage/SDWebImage.h>
 #import "MJPhotoView.h"
 #import "MJPhotoToolbar.h"
 
@@ -253,7 +253,9 @@
     if (index > 0) {
         MJPhoto *photo = _photos[index - 1];
         if (photo.url!=nil) {
-            [SDWebImageManager downloadWithURL:photo.url];
+            [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:photo.url completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+                
+            }];
         }
         
     }
@@ -261,7 +263,9 @@
     if (index < _photos.count - 1) {
         MJPhoto *photo = _photos[index + 1];
         if (photo.url!=nil) {
-            [SDWebImageManager downloadWithURL:photo.url];
+            [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:photo.url completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+                
+            }];
         }
     }
 }

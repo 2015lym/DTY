@@ -1,0 +1,107 @@
+//
+//  Sea_northeast_asia.pch
+//  Sea_northeast_asia
+//
+//  Created by SongQues on 16/6/24.
+//  Copyright © 2016年 SongQues. All rights reserved.
+//
+
+#ifndef Sea_northeast_asia_pch
+#define Sea_northeast_asia_pch
+
+#define LBXScan_Define_Native  //下载了native模块
+#define LBXScan_Define_ZXing   //下载了ZXing模块
+#define LBXScan_Define_ZBar   //下载了ZBar模块
+#define LBXScan_Define_UI     //下载了界面模块
+
+#define NAV_BACKGROUNDCOLOR [UIColor colorWithRed:0.f/255.0 green:122.f/255.0 blue:255.f/255.0 alpha:1]
+#define __IOS6_S if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
+#define __IOS6_SE    }
+
+#define __IOS7_S if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+#define __IOS7_SE    }
+#define __IOS7_C    else {
+#define __IOS7_CE    }
+
+#define __IOS8_S if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8) {
+#define __IOS8_SE    }
+#define __IOS8_C    else {
+#define __IOS8_CE    }
+
+#define kMinProgress 0.0001
+#define bounds_width [[UIScreen mainScreen]bounds]
+#endif /* Sea_northeast_asia_pch */
+
+
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f \
+alpha:(a)]
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define UIColorRGB(r,g,b) ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1])
+#define GrayColor(a) [UIColor colorWithRed:a/255.0 green:a/255.0 blue:a/255.0 alpha:1]
+
+
+
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight 44.0
+#define kTabBarHeight [UITabBarController new].tabBar.bounds.size.height
+#define kTopHeight (kStatusBarHeight + kNavBarHeight) //64、88
+
+
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+
+//video
+#define RECORD_MAX_TIME 8.0           //最长录制时间
+#define TIMER_INTERVAL 0.05         //计时器刷新频率
+#define VIDEO_FOLDER @"videoFolder" //视频录制存放文件夹
+
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+
+
+#ifndef NIMEducationDemo_Prefix_pch
+#define NIMEducationDemo_Prefix_pch
+
+#ifdef __OBJC__
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
+#import "NIMKit.h"
+#import "NTESGlobalMacro.h"
+#import "CocoaLumberjack.h"
+#import "UIColor+Hex.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "YYModel.h"
+#import "MBProgressHUD+Add.h"
+
+#import "WebInterface.h"
+#import "UserService.h"
+#import "BaseConfig.h"
+#import "StringFunction.h"
+#import "HYBImageCliped.h"
+#import "BaseFunction.h"
+#import "FileFunction.h"
+
+#ifdef DEBUG
+static DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static DDLogLevel ddLogLevel = DDLogLevelInfo;
+#endif
+
+#define NTES_USE_CLEAR_BAR - (BOOL)useClearBar{return YES;}
+#define NTES_FORBID_INTERACTIVE_POP - (BOOL)forbidInteractivePop{return YES;}
+
+#endif
+#endif
+
+
+
+
+
