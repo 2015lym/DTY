@@ -2143,10 +2143,10 @@ return status;
          
          NSString *str_result=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
          NSDictionary* dic_result=[str_result objectFromJSONString];
-         NSLog(@"dic_result==%@",dic_result);
+         DLog(@"dic_result==%@",dic_result);
          
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         NSLog(@"error:%@",[error userInfo] );
+         DLog(@"error:%@",[error userInfo] );
      }];
 }
 

@@ -34,7 +34,7 @@
     [self show:error icon:@"error.png" view:view];
 }
 
-+ (void)showSuccess:(NSString *)success toView:(UIView *)view
++ (void) showSuccess:(NSString *)success toView:(UIView *)view
 {
     [self show:success icon:@"success.png" view:view];
 }

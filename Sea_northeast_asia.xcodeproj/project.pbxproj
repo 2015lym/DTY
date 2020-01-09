@@ -888,6 +888,7 @@
 		2A2984DE1E84E3B2001EF5A0 /* JHWaveChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */; };
 		38599596223F487A00DD80AF /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */; };
 		38599598223F5F9900DD80AF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599597223F5F9900DD80AF /* libstdc++.tbd */; };
+		3892D8E1228E88780056E4D8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3892D8E0228E88780056E4D8 /* BaseViewController.m */; };
 		38AB8B7F2254BCF80086E8EE /* XFCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB8B772254BCF80086E8EE /* XFCameraButton.m */; };
 		38AB8B802254BCF80086E8EE /* XFCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AB8B792254BCF80086E8EE /* XFCameraController.m */; };
 		38AB8B812254BCF80086E8EE /* XFCameraController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38AB8B7A2254BCF80086E8EE /* XFCameraController.xib */; };
@@ -2681,8 +2682,11 @@
 		2A2984D51E84E3B2001EF5A0 /* JHShowInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHShowInfoView.m; sourceTree = "<group>"; };
 		2A2984D61E84E3B2001EF5A0 /* JHWaveChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHWaveChart.h; sourceTree = "<group>"; };
 		2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHWaveChart.m; sourceTree = "<group>"; };
+		381C41C823C5C08D00B77CB2 /* BaseConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseConfig.h; sourceTree = "<group>"; };
 		38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.6.0.9.tbd"; sourceTree = "<group>"; };
 		38599597223F5F9900DD80AF /* libstdc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.tbd"; sourceTree = "<group>"; };
+		3892D8DF228E88780056E4D8 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		3892D8E0228E88780056E4D8 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		38AB8B772254BCF80086E8EE /* XFCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCameraButton.m; sourceTree = "<group>"; };
 		38AB8B782254BCF80086E8EE /* XFCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCameraButton.h; sourceTree = "<group>"; };
 		38AB8B792254BCF80086E8EE /* XFCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCameraController.m; sourceTree = "<group>"; };
@@ -2690,6 +2694,7 @@
 		38AB8B7B2254BCF80086E8EE /* XFCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCameraController.h; sourceTree = "<group>"; };
 		38AB8B7D2254BCF80086E8EE /* XFPhotoLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPhotoLibraryManager.h; sourceTree = "<group>"; };
 		38AB8B7E2254BCF80086E8EE /* XFPhotoLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPhotoLibraryManager.m; sourceTree = "<group>"; };
+		38D200B523C5C48E002636FA /* WebInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebInterface.h; sourceTree = "<group>"; };
 		3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_s.xib; sourceTree = "<group>"; };
 		3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_p.xib; sourceTree = "<group>"; };
 		5C06B7B71D4B44F200CC6229 /* line03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line03.png; sourceTree = "<group>"; };
@@ -6292,6 +6297,25 @@
 			path = JHChart;
 			sourceTree = "<group>";
 		};
+		381C41C623C5BF7000B77CB2 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5C767BD91D1CFA2B002011D7 /* Sea_northeast_asia.pch */,
+				381C41C823C5C08D00B77CB2 /* BaseConfig.h */,
+				38D200B523C5C48E002636FA /* WebInterface.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		3892D8DA228E88620056E4D8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3892D8DF228E88780056E4D8 /* BaseViewController.h */,
+				3892D8E0228E88780056E4D8 /* BaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		38AB8B752254BCF80086E8EE /* XFAVFoundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -6623,6 +6647,8 @@
 		5C767A471D1CD587002011D7 = {
 			isa = PBXGroup;
 			children = (
+				3892D8DA228E88620056E4D8 /* Base */,
+				381C41C623C5BF7000B77CB2 /* Config */,
 				1D3EC290212BF7460074E455 /* NIM_iOS_SDK */,
 				5C767A6B1D1CF96F002011D7 /* Components */,
 				5C767A521D1CD587002011D7 /* Sea_northeast_asia */,
@@ -6677,7 +6703,6 @@
 			children = (
 				1D0891C71DDD7FF4009B2F36 /* SinodomSQLite.sqlite */,
 				5C767A541D1CD587002011D7 /* main.m */,
-				5C767BD91D1CFA2B002011D7 /* Sea_northeast_asia.pch */,
 				1D1A4A482137E5E200A40054 /* nim_strip_archs.sh */,
 			);
 			name = "Supporting Files";
@@ -8474,6 +8499,7 @@
 				1D0C7FC32003153600A21F3F /* RepairRecordCell.m in Sources */,
 				1D34C5CC2125A05C00A800B1 /* NTESWhiteboardCommand.m in Sources */,
 				5C767B6D1D1CF96F002011D7 /* EGOCache.m in Sources */,
+				3892D8E1228E88780056E4D8 /* BaseViewController.m in Sources */,
 				1D34C5FB2125A05C00A800B1 /* yuv444p10le.fsh.c in Sources */,
 				1D04A6361DD15A4E00CFC9D0 /* warningElevatorLift.m in Sources */,
 				5CEF6CDC1D3DC76D0044F8F0 /* JSONKit.m in Sources */,
@@ -8941,6 +8967,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sea_northeast_asia/Sea_northeast_asia.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -8961,7 +8988,8 @@
 					"$(PROJECT_DIR)/NIM_iOS_SDK",
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ ",
 				);
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sea_northeast_asia/Sea_northeast_asia.pch";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Config/Sea_northeast_asia.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sea_northeast_asia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -9001,6 +9029,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sea_northeast_asia/Sea_northeast_asia.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -9021,7 +9050,8 @@
 					"$(PROJECT_DIR)/NIM_iOS_SDK",
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ ",
 				);
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sea_northeast_asia/Sea_northeast_asia.pch";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Config/Sea_northeast_asia.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Sea_northeast_asia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

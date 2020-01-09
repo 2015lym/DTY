@@ -12,7 +12,9 @@
 #import "SBTSModel.h"
 
 #import "AppDelegate.h"
-@interface SBTSViewController : UIViewController<UIAlertViewDelegate>
+#import "BaseViewController.h"
+
+@interface SBTSViewController : BaseViewController<UIAlertViewDelegate>
 {
     NSData *data_old;
     

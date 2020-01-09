@@ -10,8 +10,7 @@
 #import "MyControl.h"
 #import "CommonUseClass.h"
 #import "GCDAsyncSocket.h"
-@interface SBTSViewController ()<GCDAsyncSocketDelegate>
-{
+@interface SBTSViewController ()<GCDAsyncSocketDelegate> {
     UILabel *text_show;
     UIView *view1;
     UIView *view2;
@@ -23,29 +22,21 @@
 
 @implementation SBTSViewController
 
--(void)viewWillAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     
     [self setWifi];
 }
 
-- (void)dealloc{
-    
-    
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     if (nil != link) {
         [link invalidate];
         link = nil;
     }
 }
 
-- (void)btnClick_stop:(UIButton *)btn
-{
+- (void)btnClick_stop:(UIButton *)btn {
     [CommonUseClass showAlter:@"设备调试完成，请手动连接其他网络！"];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -54,7 +45,7 @@
     [super viewDidLoad];
     self.navigationItem.title=@"设备调试";
     self.view.backgroundColor=[UIColor whiteColor];
-     self.app=(AppDelegate*)[UIApplication sharedApplication].delegate;
+    self.app=(AppDelegate*)[UIApplication sharedApplication].delegate;
     // Do any additional setup after loading the view.
     sbtsModel=[[SBTSModel alloc]init];
     [self initWindow];
@@ -70,20 +61,20 @@
     UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
     [self.view addGestureRecognizer:tapGesturRecognizer];
     
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tongzhi_warn:) name:@"tongzhi_sbts" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tongzhi_warn:) name:@"tongzhi_sbts" object:nil];
     
 }
 
--(void)tapAction:(id)tap
-{
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+-(void)tapAction:(id)tap {
+    [self hideProgress];
 }
-- (void)tongzhi_warn:(NSNotification *)text{
+
+- (void)tongzhi_warn:(NSNotification *)text {
     [self setWifi];
 }
 
 
--(void)addTab{
+-(void)addTab {
     long left=(SCREEN_WIDTH/2-80)/2;
     UIButton *dyzjBtn = [MyControl createButtonWithFrame:CGRectMake(left, 50, 80, 35) imageName:nil bgImageName:nil title:@"设备调试" SEL:@selector(changeParkClick:) target:self];
     [dyzjBtn setTitleColor:[CommonUseClass getSysColor] forState:UIControlStateNormal];
@@ -103,24 +94,24 @@
     
     //2.
     tabCurrent=0;
-//    CourseTableview.PageIndex=1;
-//    [self getSchoolCourse];
+    //    CourseTableview.PageIndex=1;
+    //    [self getSchoolCourse];
 }
 
 - (IBAction)changeParkClick:(id)sender {
-     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [self hideProgress];
     UIButton *btn=(UIButton *)sender;
     
     long left=(SCREEN_WIDTH/2-80)/2;
     switch (btn.tag) {
-        case 0:
+        case 0: {
             tabCurrent=0;
             line.frame=CGRectMake(left+20, 34+50, 40, 1);
             view2.hidden=YES;
             view1.hidden=NO;
             break;
-        case 1:
-        {
+        }
+        case 1: {
             tabCurrent=1;
             line.frame=CGRectMake(bounds_width.size.width/2+left+20, 34+50, 40, 1);
             view2.hidden=NO;
@@ -129,24 +120,22 @@
             //e2
             NSData *data=[sbtsModel getE2];
             [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        }
+            [self showProgress];
             break;
-            
+        }
         default:
             break;
     }
 }
 
 /////////////////////wifi
--(void)goWifi
-{
-//    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"prefs:root=WIFI"]]) {
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
-//    } else {
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"App-Prefs:root=WIFI"]];
-//    }
-
+-(void)goWifi {
+    //    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"prefs:root=WIFI"]]) {
+    //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
+    //    } else {
+    //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"App-Prefs:root=WIFI"]];
+    //    }
+    
     NSURL * url=[NSURL URLWithString:UIApplicationOpenSettingsURLString];
     
     if([[UIApplication sharedApplication] canOpenURL:url]) {
@@ -154,7 +143,7 @@
         NSURL*url =[NSURL URLWithString:UIApplicationOpenSettingsURLString];           [[UIApplication sharedApplication] openURL:url];
         
     }
-
+    
 }
 
 -(void)setWifi
@@ -199,7 +188,7 @@
     }
     else
     {
-    [self goWifi];
+        [self goWifi];
     }
 }
 
@@ -209,26 +198,20 @@
 - (void)connectAction
 {
     // 链接服务器
-    if (!self.connected)
-    {
+    if (!self.connected) {
         self.clientSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
         NSLog(@"开始连接%@",self.clientSocket);
         
         NSError *error = nil;
         self.connected = [self.clientSocket connectToHost:@"192.168.4.1" onPort:5000 viaInterface:nil withTimeout:-1 error:&error];
         
-        if(self.connected)
-        {
+        if(self.connected) {
             //[self showMessageWithStr:@"客户端尝试连接"];
-        }
-        else
-        {
+        } else {
             self.connected = NO;
             [MBProgressHUD showSuccess:@"通信未建立" toView:nil];
         }
-    }
-    else
-    {
+    } else {
         [MBProgressHUD showSuccess:@"通信已建立" toView:nil];
         [self getCommond:1];
     }
@@ -258,7 +241,7 @@
     NSData * appUserId=[sbtsModel getByteForInt:self.app.userInfo.UserID];
     NSData *data=[sbtsModel getE1:appUserId];
     [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showProgress];
 }
 
 /**
@@ -279,15 +262,19 @@
 
 
 // 发送数据
-- (IBAction)sendMessageAction:(id)sender
-{
+- (IBAction)sendMessageAction:(id)sender {
+    if (self.isShow) {
+        return;
+    }
+    DLog(@"发送数据-");
     UIButton *btn=(UIButton *)sender;
     NSData *data=[self getCommond:btn.tag];
     
     // withTimeout -1 : 无穷大,一直等
     // tag : 消息标记
     [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showProgress];
+    
 }
 
 /**
@@ -297,9 +284,10 @@
  @param data 读取到的数据
  @param tag 当前读取的标记
  */
-- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
-{
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+    DLog(@"读取数据");
+    [self hideProgress];
+    
     // 读取到服务器数据值后,能再次读取
     [self.clientSocket readDataWithTimeout:- 1 tag:0];
     
@@ -345,18 +333,18 @@
             
             
             
-//             &&testByte[0]==0xaa) {
-//                [self showReturnData:mutableData];
-//            }
-//            else
-//            {
-//                [MBProgressHUD showError:@"错误数据" toView:nil];
-//            }
+            //             &&testByte[0]==0xaa) {
+            //                [self showReturnData:mutableData];
+            //            }
+            //            else
+            //            {
+            //                [MBProgressHUD showError:@"错误数据" toView:nil];
+            //            }
         }
         
-         data_old=data;
+        data_old=data;
     }
-   
+    
     
 }
 
@@ -383,9 +371,7 @@
             else
             {lab_auth.text=@"未授权";}
         }
-    }
-    else if (testByte[0]==0xe2)
-    {
+    } else if (testByte[0]==0xe2) {
         if(data.length<2)return;
         
         if(testByte[1]==0x00)
@@ -433,19 +419,15 @@
             NSData * data_dz=[data subdataWithRange:NSMakeRange(32, 60)];
             NSString *str_dz = [[NSString alloc] initWithData:data_dz encoding:NSUTF8StringEncoding];
             lab_dz.text=str_dz;
-        }
-        else if(testByte[1]==0x01)
-        {
+        } else if(testByte[1]==0x01) {
             if(data.length<93)
                 return;
             
             NSData * appUserId=[sbtsModel getByteForInt:self.app.userInfo.UserID];
             NSData *data=[sbtsModel getE2_1:appUserId forzcCode:tf_zcCode.text forType:0x02];
             [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        }
-        else if(testByte[1]==0x02)
-        {
+            [self showProgress];
+        } else if(testByte[1]==0x02) {
             if(data.length<4)
                 return;
             
@@ -482,16 +464,14 @@
                 [CommonUseClass showAlter:@"该注册码已绑定其他设备"];
             }
         }
-    }
-    else if (testByte[0]==0xe3)
-    {
+    } else if (testByte[0]==0xe3) {
         if(data.length>2)
         {
             if(testByte[1]==0x00)
             {
-               [CommonUseClass showAlter:@"操作成功"];
-               if( [wbState_state isEqual:@"sk"])
-                   lab_wbState.text=@"维保已开始，谢谢！";
+                [CommonUseClass showAlter:@"操作成功"];
+                if( [wbState_state isEqual:@"sk"])
+                    lab_wbState.text=@"维保已开始，谢谢！";
                 else
                     lab_wbState.text=@"维保已结束，谢谢！";
             }
@@ -546,12 +526,12 @@
 }
 
 -(void)showReturnData:(NSData *)datas{
-
+    
     Byte *testByte = (Byte *)[datas bytes];
-     if (testByte[0]!=0xaa) {
-         [MBProgressHUD showError:@"错误数据" toView:nil];
-         return;
-     }
+    if (testByte[0]!=0xaa) {
+        [MBProgressHUD showError:@"错误数据" toView:nil];
+        return;
+    }
     //1.clear
     [self clearLine];
     link.paused=YES;
@@ -628,7 +608,7 @@
 
 -(NSString *) getString:(Byte )byte {
     NSString *str;
-     Byte  bytes[] ={byte};
+    Byte  bytes[] ={byte};
     NSData *data=[[NSData alloc] initWithBytes:bytes length:1];
     if (byte==0xff) {
         str = @"■";
@@ -639,7 +619,7 @@
     } else if (byte==0x01) {
         str = @"↓";
     } else {
-    str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
     return str;
 }
@@ -707,7 +687,7 @@
     NSData * appUserId=[sbtsModel getByteForInt:self.app.userInfo.UserID];
     NSData *data=[sbtsModel getE2_1:appUserId forzcCode:tf_zcCode.text forType:0x01];
     [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showProgress];
 }
 - (IBAction)sbbdWBKSClick:(id)sender {
     //e3
@@ -715,7 +695,7 @@
     NSData * appUserId=[sbtsModel getByteForInt:self.app.userInfo.UserID];
     NSData *data=[sbtsModel getE3:appUserId forType:0x01];
     [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showProgress];
     
 }
 - (IBAction)sbbdWBJSClick:(id)sender {
@@ -724,7 +704,7 @@
     NSData * appUserId=[sbtsModel getByteForInt:self.app.userInfo.UserID];
     NSData *data=[sbtsModel getE3:appUserId forType:0x02];
     [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showProgress];
     
 }
 
@@ -790,7 +770,7 @@
     
     UIButton * btn_js=[MyControl createButtonWithFrame:CGRectMake(40+currwidth, top2, currwidth, 35) imageName:nil bgImageName:nil title:@"维保结束" SEL:@selector(sbbdWBJSClick:) target:self];
     [btn_js setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-     btn_js .backgroundColor=[CommonUseClass getSysColor];
+    btn_js .backgroundColor=[CommonUseClass getSysColor];
     [view2 addSubview:btn_js];
     btn_js.layer.masksToBounds = YES;
     btn_js.layer.cornerRadius = 4;
@@ -815,9 +795,9 @@
     
     UIImageView *img=[MyControl createImageViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150) imageName:@"sbts_backgoup"];
     [view1 addSubview:img];
-//    text_show=[[UILabel alloc ]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
+    //    text_show=[[UILabel alloc ]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
     //    text_show.backgroundColor=[UIColor lightGrayColor];
-//    [view1 addSubview:text_show];
+    //    [view1 addSubview:text_show];
     
     int top=150+10;
     float width=SCREEN_WIDTH/2;
