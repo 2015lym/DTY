@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "appDelegate.h"
 #import "videoMainViewController.h"
 #import "PhysicalUnionWebVC.h"
 
 
 @interface SWJKViewController : UIViewControllerEx
-@property (nonatomic,strong) AppDelegate *app;
+
 @end

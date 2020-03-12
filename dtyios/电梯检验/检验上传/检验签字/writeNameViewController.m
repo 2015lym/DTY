@@ -15,7 +15,7 @@
 #import "DTWBDetailClass.h"
 #import "DTWBStepClass.h"
 #import "DTWBUserClass.h"
-#import "BJTSignView.h"
+#import "DTY_BJTSignView.h"
 #import "XXNet.h"
 //屏幕宽高
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -35,7 +35,7 @@
     
     NSDictionary *dicWB;
 }
-@property(nonatomic,strong) BJTSignView *signView;
+@property(nonatomic,strong) DTY_BJTSignView *signView;
 
 @end
 
@@ -58,7 +58,7 @@
     _requestWhere=[[RequestWhere alloc]init];
     app=(AppDelegate*)[UIApplication sharedApplication].delegate;
     
-   
+    
     [self LoadUI];
     
     _view_pop = [[UIView alloc]init];
@@ -69,17 +69,17 @@
     //    _view_pop .backgroundColor=[UIColor colorWithRed:235.f/255.f green:235.f/255.f blue:235.f/255.f alpha:0];
     [self.view addSubview:_view_pop];
     
-//    //    UITapGestureRecognizer
-//    UITapGestureRecognizer*tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Actiondo:)];
-//    tapGesture.delegate=self;
-//    [_view_pop addGestureRecognizer:tapGesture];
+    //    //    UITapGestureRecognizer
+    //    UITapGestureRecognizer*tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Actiondo:)];
+    //    tapGesture.delegate=self;
+    //    [_view_pop addGestureRecognizer:tapGesture];
     
     _view_Content = [[UIView alloc]init];
     _view_Content.frame=CGRectMake(10, 20, SCREEN_WIDTH-20,SCREEN_HEIGHT/3);
     _view_Content.hidden = YES;
     [_view_pop addSubview:_view_Content];
     [self CloseAllClassIfication];
-   
+    
 }
 - (void)LoadUI {
     self.view.backgroundColor=[UIColor whiteColor];
@@ -88,16 +88,16 @@
     shi_labDetail.userInteractionEnabled=YES;
     shi_labDetail.textColor = [UIColor blackColor];
     shi_labDetail.backgroundColor = [UIColor whiteColor];
-//    shi_labBtn = [MyControl createButtonWithFrame:CGRectMake(0, 0, shi_labDetail.frame.size.width, 40) imageName:nil bgImageName:nil title:nil SEL:@selector(labBtnClick:) target:self];
-//    shi_labBtn.tag = 200;
-//    [shi_labDetail addSubview:shi_labBtn];
+    //    shi_labBtn = [MyControl createButtonWithFrame:CGRectMake(0, 0, shi_labDetail.frame.size.width, 40) imageName:nil bgImageName:nil title:nil SEL:@selector(labBtnClick:) target:self];
+    //    shi_labBtn.tag = 200;
+    //    [shi_labDetail addSubview:shi_labBtn];
     [self.view addSubview:shi_labDetail];
     shi_lab = [MyControl createLabelWithFrame:CGRectMake(0, 40, bounds_width.size.width, 1) Font:14 Text:@""];
     shi_lab.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:shi_lab];
     
-//    UIImageView *uiimg=[MyControl createImageViewWithFrame:CGRectMake(bounds_width.size.width-40, 10, 20, 20) imageName:@"ic_arrow_right.png"];
-//    [self.view addSubview:uiimg];
+    //    UIImageView *uiimg=[MyControl createImageViewWithFrame:CGRectMake(bounds_width.size.width-40, 10, 20, 20) imageName:@"ic_arrow_right.png"];
+    //    [self.view addSubview:uiimg];
     
     UIView *viewSign = [[UIView alloc]initWithFrame:CGRectMake(0,41 , SCREEN_WIDTH, 270)];//SCREEN_HEIGHT-220-64
     viewSign.backgroundColor = [UIColor whiteColor];
@@ -118,7 +118,7 @@
     backView.layer.borderColor = GrayColor(234).CGColor;
     backView.layer.borderWidth = 1;
     backView.backgroundColor = [UIColor whiteColor];
-    self.signView = [[BJTSignView alloc] initWithFrame:backView.bounds];
+    self.signView = [[DTY_BJTSignView alloc] initWithFrame:backView.bounds];
     [backView addSubview:self.signView];
     
     UIButton *btn2 = [[UIButton alloc]initWithFrame:CGRectMake(0, viewSign.frame.size.height-40, SCREEN_WIDTH, 40)];
@@ -224,36 +224,34 @@
     {
         if (view_ification_02!=nil) {
             [UIView animateWithDuration:0.5 animations:^{
-                CGRect rect=view_ification_02.frame;
+                CGRect rect=self->view_ification_02.frame;
                 rect.size.height=0;
-                view_ification_02.frame=rect;
+                self->view_ification_02.frame=rect;
             } completion:^(BOOL finished) {
-                [view_ification_02 removeFromSuperview];
-                view_ification_02=nil;
+                [self->view_ification_02 removeFromSuperview];
+                self->view_ification_02=nil;
             }];
         }
     }
     
 }
 
--(void)Cell_OnClick:(id)Content typeView:(UIView *)typeView
-{
-    ClassIfication *currClass=(ClassIfication *)typeView;
+-(void)Cell_OnClick:(id)Content typeView:(UIView *)typeView {
     if(typeView ==view_ification_02)
     {
-            shi_labDetail.text=[Content objectForKey:@"tagName"];
-            shi_labDetail.tag=[[Content objectForKey:@"tagId"] intValue];
+        shi_labDetail.text=[Content objectForKey:@"tagName"];
+        shi_labDetail.tag=[[Content objectForKey:@"tagId"] intValue];
         type=[Content objectForKey:@"tagId"];
-      
+        
         
         if (view_ification_02!=nil) {
             [UIView animateWithDuration:0.5 animations:^{
-                CGRect rect=view_ification_02.frame;
+                CGRect rect=self->view_ification_02.frame;
                 rect.size.height=0;
-                view_ification_02.frame=rect;
+                self->view_ification_02.frame=rect;
             } completion:^(BOOL finished) {
-                [view_ification_02 removeFromSuperview];
-                view_ification_02=nil;
+                [self->view_ification_02 removeFromSuperview];
+                self->view_ification_02=nil;
             }];
         }
         
@@ -293,12 +291,12 @@
     rect.origin.y=0;
     if (view_ification_02!=nil) {//
         [UIView animateWithDuration:0.5 animations:^{
-            CGRect rect=view_ification_02.frame;
+            CGRect rect=self->view_ification_02.frame;
             rect.size.height=0;
-            view_ification_02.frame=rect;
+            self->view_ification_02.frame=rect;
         } completion:^(BOOL finished) {
-            [view_ification_02 removeFromSuperview];
-            view_ification_02=nil;
+            [self->view_ification_02 removeFromSuperview];
+            self->view_ification_02=nil;
         }];
     }
     else{
@@ -313,9 +311,9 @@
         view_ification_02.frame=rect;
         [_view_Content addSubview:view_ification_02];
         [UIView animateWithDuration:0.5 animations:^{
-            CGRect rect=_view_Content.frame;
+            CGRect rect=self->_view_Content.frame;
             rect.origin.y=0;
-            view_ification_02.frame=rect;
+            self->view_ification_02.frame=rect;
         } completion:^(BOOL finished) {
             
         }];

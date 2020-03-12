@@ -11,15 +11,15 @@
 #ifndef WebInterface_h
 #define WebInterface_h
 
-//// 老旧电梯线下
-//static NSString * const old_base = @"http://192.168.1.125:8060/";
-//// 老旧电梯api线下
-//static NSString * const old_base_api = @"http://192.168.1.125:8060/api/";
+// 老旧电梯线下
+static NSString * const old_base = @"http://192.168.1.125:8060/";
+// 老旧电梯api线下
+static NSString * const old_base_api = @"http://192.168.1.125:8060/api/";
 
-// 老旧电梯
-static NSString * const old_base = @"http://123.57.164.210:8060/";
-// 老旧电梯api
-static NSString * const old_base_api = @"http://123.57.164.210:8060/api/";
+//// 老旧电梯
+//static NSString * const old_base = @"http://123.57.164.210:8060/";
+//// 老旧电梯api
+//static NSString * const old_base_api = @"http://123.57.164.210:8060/api/";
 
 /* 登录 */
 static NSString * const account_login = @"Account/Login";

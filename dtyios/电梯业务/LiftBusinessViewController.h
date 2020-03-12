@@ -16,7 +16,7 @@
 #import "Util.h"
 #import "WYXCListWebViewController.h"
 #import "NFCListViewController.h"
-#import "appDelegate.h"
+#import "AppDelegate.h"
 #import "WXJLListWebViewController.h"
 #import "WZHMainViewController.h"
 @interface LiftBusinessViewController : UIViewControllerEx

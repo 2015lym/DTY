@@ -20,7 +20,10 @@
 
 @end
 
-@implementation LiftBusinessViewController
+@implementation
+
+
+LiftBusinessViewController
 @synthesize app;
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;// NO;

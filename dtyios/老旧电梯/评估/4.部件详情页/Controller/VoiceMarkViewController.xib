@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VoiceMarkViewController">
+            <connections>
+                <outlet property="okButton" destination="SdB-Lk-By8" id="VBc-nD-pbf"/>
+                <outlet property="resetButton" destination="jiZ-Z5-bx2" id="Bgs-Pg-p0C"/>
+                <outlet property="timeLabel" destination="P2x-wH-7mJ" id="nSk-J0-Ddw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5R-SH-eRN">
+                    <rect key="frame" x="155.5" y="553" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="BkT-7z-zfA"/>
+                        <constraint firstAttribute="width" constant="64" id="nMN-IO-Awv"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="备注-开始录音"/>
+                    <connections>
+                        <action selector="startOrStopAction:" destination="-1" eventType="touchUpInside" id="EKC-ER-jbI"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2x-wH-7mJ">
+                    <rect key="frame" x="173.5" y="517" width="28" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiZ-Z5-bx2">
+                    <rect key="frame" x="52.5" y="570" width="63" height="30"/>
+                    <state key="normal" title="    重录    "/>
+                    <connections>
+                        <action selector="resetAction:" destination="-1" eventType="touchUpInside" id="VoK-xC-y9P"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdB-Lk-By8">
+                    <rect key="frame" x="259.5" y="570" width="63" height="30"/>
+                    <state key="normal" title="    确定    "/>
+                    <connections>
+                        <action selector="okAction:" destination="-1" eventType="touchUpInside" id="uSw-OP-CIH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.1529411765" green="0.1647058824" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="j5R-SH-eRN" secondAttribute="bottom" constant="50" id="7IN-on-I8U"/>
+                <constraint firstItem="P2x-wH-7mJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Efc-cj-bzG"/>
+                <constraint firstItem="j5R-SH-eRN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F3o-jw-fqW"/>
+                <constraint firstItem="j5R-SH-eRN" firstAttribute="leading" secondItem="jiZ-Z5-bx2" secondAttribute="trailing" constant="40" id="LIi-KY-kj6"/>
+                <constraint firstItem="SdB-Lk-By8" firstAttribute="centerY" secondItem="j5R-SH-eRN" secondAttribute="centerY" id="f8V-fN-8jf"/>
+                <constraint firstItem="jiZ-Z5-bx2" firstAttribute="centerY" secondItem="j5R-SH-eRN" secondAttribute="centerY" id="hgE-rk-KvF"/>
+                <constraint firstItem="SdB-Lk-By8" firstAttribute="leading" secondItem="j5R-SH-eRN" secondAttribute="trailing" constant="40" id="hjZ-0q-kSL"/>
+                <constraint firstItem="j5R-SH-eRN" firstAttribute="top" secondItem="P2x-wH-7mJ" secondAttribute="bottom" constant="15" id="qmN-KQ-MaN"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="备注-开始录音" width="64" height="64"/>
+    </resources>
+</document>

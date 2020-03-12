@@ -20,25 +20,16 @@
 @implementation SWJKViewController
 @synthesize app;
 -(void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = YES;// NO;
+    self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     app=(AppDelegate*)[UIApplication sharedApplication].delegate;
-    UIView *V1=[[UIView alloc]init];
-    V1.frame=CGRectMake(0, 0, bounds_width.size.width, 66);
-    V1.backgroundColor=[UIColor colorWithHexString:@"#3574fa"];
-    [self.view addSubview:V1];
+    self.navigationItem.title = @"智慧电梯管理平台";
     
-    UILabel *lab=[MyControl createLabelWithFrame:CGRectMake(0, 10, bounds_width.size.width, 56) Font:18 Text:@"智慧电梯管理平台"];
-    lab.backgroundColor=[UIColor colorWithHexString:@"#3574fa"];
-    lab.textColor=[UIColor whiteColor];
-    lab.textAlignment=NSTextAlignmentCenter;
-    [self.view addSubview: lab];
-    
-    int oldHeight=66;
-    int defaltHeight=66;
+    int oldHeight=0;
+    int defaltHeight=0;
     
     
     float height=(bounds_width.size.height-48-66)/5;

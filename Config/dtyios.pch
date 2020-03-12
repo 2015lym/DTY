@@ -88,6 +88,7 @@ alpha:(a)]
 #import "HYBImageCliped.h"
 #import "BaseFunction.h"
 #import "FileFunction.h"
+#import "NetRequest.h"
 
 #ifdef DEBUG
 static DDLogLevel ddLogLevel = DDLogLevelVerbose;

@@ -16,7 +16,7 @@
 #import "HQDrawingView.h"
 #import "warningElevatorModel.h"
 
-@interface writeNameViewController : UIViewControllerEx<UITableViewExViewDelegate,ClassIficationDelegate,CourseHearViewDelegate>
+@interface writeNameViewController : UIViewControllerEx<UITableViewExViewDelegate,ClassIficationDelegate>
 {
     ClassIfication *view_ification_02;
     UIView *_view_pop;

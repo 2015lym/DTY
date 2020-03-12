@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="Task_RemarkTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="399.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="施工备注信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOz-jL-F84">
+                        <rect key="frame" x="15" y="15" width="104" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUy-6c-yZO">
+                        <rect key="frame" x="0.0" y="334.5" width="320" height="65"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-z0-qhH">
+                                <rect key="frame" x="15" y="15" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="L9a-ks-lFq"/>
+                                    <constraint firstAttribute="height" constant="35" id="Ylg-Dr-e5B"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="老旧电梯-图片"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mL4-ya-d7N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cC9-y9-kox">
+                                <rect key="frame" x="65" y="15" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="2yC-40-pSh"/>
+                                    <constraint firstAttribute="width" constant="35" id="yOE-Rr-mEC"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="老旧电梯-视频"/>
+                                <connections>
+                                    <action selector="takeVideo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jfP-uA-Shu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26l-RV-1QF">
+                                <rect key="frame" x="115" y="15" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="MnC-dK-Y0G"/>
+                                    <constraint firstAttribute="height" constant="35" id="eBC-A9-SHG"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="老旧电梯-语音"/>
+                                <connections>
+                                    <action selector="takeVoice:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gEB-gV-kFW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="1Ul-Ba-aTF"/>
+                            <constraint firstItem="1S1-z0-qhH" firstAttribute="centerY" secondItem="vUy-6c-yZO" secondAttribute="centerY" id="6Ib-MQ-sqv"/>
+                            <constraint firstItem="1S1-z0-qhH" firstAttribute="leading" secondItem="vUy-6c-yZO" secondAttribute="leading" constant="15" id="QnL-dL-eY4"/>
+                            <constraint firstItem="cC9-y9-kox" firstAttribute="leading" secondItem="1S1-z0-qhH" secondAttribute="trailing" constant="15" id="Zdc-IQ-2fP"/>
+                            <constraint firstItem="cC9-y9-kox" firstAttribute="centerY" secondItem="vUy-6c-yZO" secondAttribute="centerY" id="dOM-gX-tZ0"/>
+                            <constraint firstItem="26l-RV-1QF" firstAttribute="leading" secondItem="cC9-y9-kox" secondAttribute="trailing" constant="15" id="nEb-0m-CEC"/>
+                            <constraint firstItem="26l-RV-1QF" firstAttribute="centerY" secondItem="vUy-6c-yZO" secondAttribute="centerY" id="vR7-Qu-UMc"/>
+                        </constraints>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IQY-gu-yTZ">
+                        <rect key="frame" x="15" y="51" width="290" height="189"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzM-ah-Gie">
+                        <rect key="frame" x="15" y="240" width="290" height="94.5"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GiT-cb-a5x">
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="94.5"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GiT-cb-a5x" firstAttribute="top" secondItem="bzM-ah-Gie" secondAttribute="top" id="IXy-7J-1dX"/>
+                            <constraint firstItem="GiT-cb-a5x" firstAttribute="leading" secondItem="bzM-ah-Gie" secondAttribute="leading" id="IqY-aD-2jR"/>
+                            <constraint firstAttribute="trailing" secondItem="GiT-cb-a5x" secondAttribute="trailing" id="Pov-Vv-J3a"/>
+                            <constraint firstAttribute="bottom" secondItem="GiT-cb-a5x" secondAttribute="bottom" id="xZd-DT-pAU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bzM-ah-Gie" secondAttribute="trailing" constant="15" id="2gP-Q7-Gzp"/>
+                    <constraint firstItem="IQY-gu-yTZ" firstAttribute="height" secondItem="bzM-ah-Gie" secondAttribute="height" multiplier="2" id="3M6-Zx-VaM"/>
+                    <constraint firstItem="vUy-6c-yZO" firstAttribute="top" secondItem="bzM-ah-Gie" secondAttribute="bottom" id="4Qd-bD-afQ"/>
+                    <constraint firstItem="LOz-jL-F84" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7Ko-dw-Ms0"/>
+                    <constraint firstItem="bzM-ah-Gie" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="FZG-ER-I8t"/>
+                    <constraint firstAttribute="bottom" secondItem="vUy-6c-yZO" secondAttribute="bottom" id="Fzv-TJ-K9u"/>
+                    <constraint firstItem="IQY-gu-yTZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="XaM-82-mIM"/>
+                    <constraint firstItem="LOz-jL-F84" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ZlI-fi-jOE"/>
+                    <constraint firstAttribute="trailing" secondItem="IQY-gu-yTZ" secondAttribute="trailing" constant="15" id="aRm-jI-cHr"/>
+                    <constraint firstItem="IQY-gu-yTZ" firstAttribute="top" secondItem="LOz-jL-F84" secondAttribute="bottom" constant="15" id="alh-6i-0lx"/>
+                    <constraint firstItem="bzM-ah-Gie" firstAttribute="top" secondItem="IQY-gu-yTZ" secondAttribute="bottom" id="blS-rc-lPN"/>
+                    <constraint firstItem="vUy-6c-yZO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fUL-sa-4bC"/>
+                    <constraint firstAttribute="trailing" secondItem="vUy-6c-yZO" secondAttribute="trailing" id="kIi-qY-HhU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="scrollBackView" destination="bzM-ah-Gie" id="vBW-zt-nY0"/>
+                <outlet property="scrollView" destination="GiT-cb-a5x" id="1dM-Qd-Nhc"/>
+                <outlet property="textView" destination="IQY-gu-yTZ" id="ubD-5z-6F1"/>
+                <outlet property="toolBar" destination="vUy-6c-yZO" id="310-NJ-FML"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="134.59821428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="老旧电梯-图片" width="28" height="28"/>
+        <image name="老旧电梯-视频" width="28" height="28"/>
+        <image name="老旧电梯-语音" width="28" height="28"/>
+    </resources>
+</document>

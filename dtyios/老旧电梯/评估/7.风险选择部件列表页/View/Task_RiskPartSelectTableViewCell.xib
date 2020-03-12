@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="Task_RiskPartSelectTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="机房承重梁部分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxZ-em-yJ8">
+                        <rect key="frame" x="15" y="39.5" width="121.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdh-WZ-dhj">
+                        <rect key="frame" x="263" y="37.5" width="42" height="25"/>
+                        <color key="backgroundColor" red="0.28235294117647058" green="0.54117647058823526" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="TmY-EM-2Zw"/>
+                            <constraint firstAttribute="width" constant="42" id="bzB-DL-ZRr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="选择">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="selectAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bCN-6Z-NCm"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGd-mb-qYT">
+                        <rect key="frame" x="206" y="37.5" width="42" height="25"/>
+                        <color key="backgroundColor" red="0.28235294117647058" green="0.54117647058823526" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="QiD-UA-3Gf"/>
+                            <constraint firstAttribute="width" constant="42" id="l6F-1l-e7d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="修改">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="changeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hzm-ic-86U"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hc4-uQ-IYb">
+                        <rect key="frame" x="263" y="37.5" width="42" height="25"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="EZL-GG-3gD"/>
+                            <constraint firstAttribute="height" constant="25" id="QHn-j3-ols"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="删除">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="j6G-X6-7bW"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zGd-mb-qYT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2Cf-Q8-QQH"/>
+                    <constraint firstItem="YxZ-em-yJ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="4SU-c2-Y2B"/>
+                    <constraint firstAttribute="trailing" secondItem="Hc4-uQ-IYb" secondAttribute="trailing" constant="15" id="AKE-vg-nFs"/>
+                    <constraint firstItem="Hc4-uQ-IYb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HeA-S2-Umy"/>
+                    <constraint firstItem="YxZ-em-yJ8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="I0r-rA-w6x"/>
+                    <constraint firstItem="Zdh-WZ-dhj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="T1X-AF-NRF"/>
+                    <constraint firstAttribute="trailing" secondItem="Zdh-WZ-dhj" secondAttribute="trailing" constant="15" id="k8o-Vt-0hh"/>
+                    <constraint firstItem="Zdh-WZ-dhj" firstAttribute="leading" secondItem="zGd-mb-qYT" secondAttribute="trailing" constant="15" id="oXJ-8E-zjA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="changeButton" destination="zGd-mb-qYT" id="htt-8y-xvp"/>
+                <outlet property="deleteButton" destination="Hc4-uQ-IYb" id="D0C-p0-MCx"/>
+                <outlet property="selectButton" destination="Zdh-WZ-dhj" id="RJd-bn-hnm"/>
+                <outlet property="titleLabel" destination="YxZ-em-yJ8" id="8hF-OG-w1d"/>
+                <outlet property="titleLabelLeading" destination="4SU-c2-Y2B" id="Q8q-mp-FKz"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

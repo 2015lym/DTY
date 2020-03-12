@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="Examine_ProjectListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="286" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一体机" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdA-dN-dDq">
+                        <rect key="frame" x="15" y="16.5" width="164" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已填写" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geM-tg-VR0">
+                        <rect key="frame" x="240" y="16.5" width="46" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="Xz3-Ve-shX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWY-gf-oVF">
+                        <rect key="frame" x="194" y="10.5" width="31" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="31" id="GrJ-q5-6C7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="清空"/>
+                        <connections>
+                            <action selector="clearAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="AB8-rV-dxa"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SWY-gf-oVF" firstAttribute="leading" secondItem="ZdA-dN-dDq" secondAttribute="trailing" constant="15" id="9Bg-UD-sST"/>
+                    <constraint firstItem="geM-tg-VR0" firstAttribute="leading" secondItem="SWY-gf-oVF" secondAttribute="trailing" constant="15" id="9CR-Li-LUU"/>
+                    <constraint firstItem="geM-tg-VR0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Lvw-aN-Ql0"/>
+                    <constraint firstItem="SWY-gf-oVF" firstAttribute="centerY" secondItem="geM-tg-VR0" secondAttribute="centerY" id="bNG-d4-GWq"/>
+                    <constraint firstAttribute="trailing" secondItem="geM-tg-VR0" secondAttribute="trailing" id="pNS-tf-sHg"/>
+                    <constraint firstItem="ZdA-dN-dDq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="pdt-qI-sh1"/>
+                    <constraint firstItem="ZdA-dN-dDq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qbq-6F-Ynn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="clearButton" destination="SWY-gf-oVF" id="KVF-da-CIH"/>
+                <outlet property="completeLabel" destination="geM-tg-VR0" id="zLq-Os-3ew"/>
+                <outlet property="titleLabel" destination="ZdA-dN-dDq" id="vIL-2M-uhQ"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

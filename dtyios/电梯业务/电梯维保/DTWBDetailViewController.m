@@ -15,7 +15,7 @@
 #import "DTWBDetailClass.h"
 #import "DTWBStepClass.h"
 #import "DTWBUserClass.h"
-#import "BJTSignView.h"
+#import "DTY_BJTSignView.h"
 #import "XXNet.h"
 //屏幕宽高
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -35,7 +35,7 @@
     
     NSDictionary *dicWB;
 }
-@property(nonatomic,strong) BJTSignView *signView;
+@property(nonatomic,strong) DTY_BJTSignView *signView;
 @end
 
 @implementation DTWBDetailViewController
@@ -117,7 +117,7 @@
     backView.layer.borderColor = GrayColor(234).CGColor;
     backView.layer.borderWidth = 1;
     backView.backgroundColor = [UIColor whiteColor];
-    self.signView = [[BJTSignView alloc] initWithFrame:backView.bounds];
+    self.signView = [[DTY_BJTSignView alloc] initWithFrame:backView.bounds];
     [backView addSubview:self.signView];
     
     UIButton *btn2 = [[UIButton alloc]initWithFrame:CGRectMake(0, viewSign.frame.size.height-40, SCREEN_WIDTH, 40)];

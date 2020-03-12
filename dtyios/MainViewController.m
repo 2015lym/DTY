@@ -21,6 +21,8 @@
 #import "PersonController.h"
 #import "AboutViewController.h"
 #import "MessageCenterViewController.h"
+#import "WorkTableViewController.h"
+
 @interface MainViewController ()
 {}
 @property (nonatomic,strong)EventViewIOSController *EventVC;
@@ -90,16 +92,14 @@
 
     _EventVC=[EventViewIOSController sharedLoadData];    
     
-    
-    LiftBusinessViewController *ConvenienceVC=[[LiftBusinessViewController alloc] initWithNibName:@"LiftBusinessViewController_s" bundle:nil];
-   
+    WorkTableViewController *vc = [WorkTableViewController new];
     
     SWJKViewController *Homeview
     =[[SWJKViewController alloc]init];
     
     myViewController *interactionVC=[[myViewController alloc] initWithNibName:@"myViewController_s"  bundle:nil];
     
-    self.viewControllers=@[_EventVC,ConvenienceVC,Homeview,interactionVC];
+    self.viewControllers=@[_EventVC,vc,Homeview,interactionVC];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"TabBar1" owner:self options:nil];
