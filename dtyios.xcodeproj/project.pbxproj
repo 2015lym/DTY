@@ -1076,6 +1076,8 @@
 		388F212D23D039150063DDB7 /* WorkCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388F212623D039150063DDB7 /* WorkCollectionView.m */; };
 		388F212E23D039150063DDB7 /* WorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388F212723D039150063DDB7 /* WorkCollectionViewCell.xib */; };
 		3892D8E1228E88780056E4D8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3892D8E0228E88780056E4D8 /* BaseViewController.m */; };
+		389D5050243EB1D700609103 /* SXTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 389D504F243EB1D700609103 /* SXTView.m */; };
+		389D5052243EB1F300609103 /* SXTView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389D5051243EB1F300609103 /* SXTView.xib */; };
 		3CF013311D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */; };
 		3CF0133E1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */; };
 		5C06B7BA1D4B44F200CC6229 /* line03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C06B7B71D4B44F200CC6229 /* line03.png */; };
@@ -1455,9 +1457,9 @@
 		1D0C7FCC20036CF600A21F3F /* RepairRecordDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepairRecordDetailVC.h; sourceTree = "<group>"; };
 		1D0C7FCD20036CF600A21F3F /* RepairRecordDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepairRecordDetailVC.m; sourceTree = "<group>"; };
 		1D0D99E1213FA5B600882895 /* SBTSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBTSViewController.h; sourceTree = "<group>"; };
-		1D0D99E2213FA5B600882895 /* SBTSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBTSViewController.m; sourceTree = "<group>"; };
+		1D0D99E2213FA5B600882895 /* SBTSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBTSViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		1D0FB53A1E06BB0400311C39 /* handleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handleDetailViewController.h; sourceTree = "<group>"; };
-		1D0FB53B1E06BB0400311C39 /* handleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = handleDetailViewController.m; sourceTree = "<group>"; };
+		1D0FB53B1E06BB0400311C39 /* handleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = handleDetailViewController.m; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		1D0FB5411E06BB1800311C39 /* handleDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = handleDetailViewController.xib; sourceTree = "<group>"; };
 		1D0FB5591E0CB24700311C39 /* CommonUseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUseClass.h; sourceTree = "<group>"; };
 		1D0FB55A1E0CB24700311C39 /* CommonUseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUseClass.m; sourceTree = "<group>"; };
@@ -2459,7 +2461,7 @@
 		1D93980A1E01304500A7669C /* complainDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = complainDetailViewController.xib; sourceTree = "<group>"; };
 		1D9398491E0241F800A7669C /* handleRecordeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = handleRecordeCell.xib; sourceTree = "<group>"; };
 		1D93984B1E02421F00A7669C /* handleRecordeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = handleRecordeCell.h; sourceTree = "<group>"; };
-		1D93984C1E02421F00A7669C /* handleRecordeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = handleRecordeCell.m; sourceTree = "<group>"; };
+		1D93984C1E02421F00A7669C /* handleRecordeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = handleRecordeCell.m; sourceTree = "<group>"; wrapsLines = 1; };
 		1D93C4B921B11B2100691FBD /* showPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = showPicViewController.h; sourceTree = "<group>"; };
 		1D93C4BA21B11B2100691FBD /* showPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = showPicViewController.m; sourceTree = "<group>"; };
 		1D9B2B9D1D45B0710098A073 /* PersonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonController.xib; sourceTree = "<group>"; };
@@ -3113,6 +3115,9 @@
 		388F212723D039150063DDB7 /* WorkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		3892D8DF228E88780056E4D8 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3892D8E0228E88780056E4D8 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		389D504E243EB1D700609103 /* SXTView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTView.h; sourceTree = "<group>"; };
+		389D504F243EB1D700609103 /* SXTView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTView.m; sourceTree = "<group>"; };
+		389D5051243EB1F300609103 /* SXTView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTView.xib; sourceTree = "<group>"; };
 		38D200B523C5C48E002636FA /* WebInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebInterface.h; sourceTree = "<group>"; };
 		3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_s.xib; sourceTree = "<group>"; };
 		3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_p.xib; sourceTree = "<group>"; };
@@ -3805,6 +3810,9 @@
 				1D0D99E2213FA5B600882895 /* SBTSViewController.m */,
 				1DF32808216C83CE00780AEB /* SBTSModel.h */,
 				1DF32809216C83CE00780AEB /* SBTSModel.m */,
+				389D504E243EB1D700609103 /* SXTView.h */,
+				389D504F243EB1D700609103 /* SXTView.m */,
+				389D5051243EB1F300609103 /* SXTView.xib */,
 			);
 			path = "设备调试";
 			sourceTree = "<group>";
@@ -6760,10 +6768,10 @@
 			isa = PBXGroup;
 			children = (
 				3873DD6D23CC032D00EC5220 /* Task_WorkListViewController.h */,
-				3873DD6C23CC032D00EC5220 /* Task_WorkViewController.m */,
-				3873DD6A23CC032D00EC5220 /* Task_WorkViewController.h */,
 				3873DD6923CC032D00EC5220 /* Task_WorkListViewController.m */,
 				3873DD6B23CC032D00EC5220 /* Task_WorkListViewController.xib */,
+				3873DD6A23CC032D00EC5220 /* Task_WorkViewController.h */,
+				3873DD6C23CC032D00EC5220 /* Task_WorkViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6990,8 +6998,8 @@
 		3873DDB023CC032D00EC5220 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3873DDB123CC032D00EC5220 /* Env_WorkListViewController.m */,
 				3873DDB223CC032D00EC5220 /* Env_WorkListViewController.h */,
+				3873DDB123CC032D00EC5220 /* Env_WorkListViewController.m */,
 				3873DDB323CC032D00EC5220 /* Env_WorkListViewController.xib */,
 			);
 			path = Controller;
@@ -7535,9 +7543,9 @@
 		3873DE5123CC032E00EC5220 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3873DE5223CC032E00EC5220 /* Old_WorkDetailViewController.xib */,
-				3873DE5323CC032E00EC5220 /* Old_WorkDetailViewController.m */,
 				3873DE5423CC032E00EC5220 /* Old_WorkDetailViewController.h */,
+				3873DE5323CC032E00EC5220 /* Old_WorkDetailViewController.m */,
+				3873DE5223CC032E00EC5220 /* Old_WorkDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -9456,6 +9464,7 @@
 				5CDDAF5B1D530C110093ACFB /* refreshAnimation_6.png in Resources */,
 				3873DF9F23CC087B00EC5220 /* SignViewController.xib in Resources */,
 				3873DEA423CC032E00EC5220 /* Task_SubmitViewController.xib in Resources */,
+				389D5052243EB1F300609103 /* SXTView.xib in Resources */,
 				1D9B2BCB1D45BCB30098A073 /* PersonController_s.xib in Resources */,
 				5C5176DD1D38B5DA00284AB1 /* button01@2x.png in Resources */,
 				1DEBB995203FE88800921EB1 /* TabBar_dtjy.xib in Resources */,
@@ -9972,6 +9981,7 @@
 				1D34C6072125A05C00A800B1 /* NTESChatroomMessageDataProvider.m in Sources */,
 				1D93984D1E02421F00A7669C /* handleRecordeCell.m in Sources */,
 				1D34C5C82125A05C00A800B1 /* NTESWhiteboardCmdHandler.m in Sources */,
+				389D5050243EB1D700609103 /* SXTView.m in Sources */,
 				5C767B7B1D1CF96F002011D7 /* MLKMenuPopover.m in Sources */,
 				1D40512A1D5D73420034033C /* EventCourseViewController.m in Sources */,
 				1D34C6262125A05C00A800B1 /* NTESUserUtil.m in Sources */,
@@ -10595,6 +10605,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.34;
 				DEVELOPMENT_TEAM = 73SB2P2KRB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -10634,6 +10645,7 @@
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.33;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -10664,6 +10676,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.34;
 				DEVELOPMENT_TEAM = 73SB2P2KRB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -10703,6 +10716,7 @@
 					"$(PROJECT_DIR)/NIM_iOS_SDK/NIMAVChat\\ /Libs",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.33;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",

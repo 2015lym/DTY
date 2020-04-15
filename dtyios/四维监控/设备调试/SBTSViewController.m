@@ -10,14 +10,20 @@
 #import "MyControl.h"
 #import "CommonUseClass.h"
 #import "GCDAsyncSocket.h"
-@interface SBTSViewController ()<GCDAsyncSocketDelegate> {
+#import <SGPagingView/SGPagingView.h>
+#import "SXTView.h"
+
+@interface SBTSViewController ()<GCDAsyncSocketDelegate,SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate, SxtviewDelegate>{
     UILabel *text_show;
     UIView *view1;
     UIView *view2;
 }
+@property (nonatomic, strong) SGPageTitleView *pageTitleView;
+@property (nonatomic, strong) SGPageContentCollectionView *pageContentCollectionView;
 // 客户端socket
 @property (strong, nonatomic) GCDAsyncSocket *clientSocket;
 @property (nonatomic, assign) BOOL connected;
+@property (nonatomic, strong) SXTView *sxtView;
 @end
 
 @implementation SBTSViewController
@@ -48,6 +54,8 @@
     self.app=(AppDelegate*)[UIApplication sharedApplication].delegate;
     // Do any additional setup after loading the view.
     sbtsModel=[[SBTSModel alloc]init];
+    _sxtView = [[[NSBundle mainBundle] loadNibNamed:@"SXTView" owner:self options:nil] lastObject];
+    _sxtView.delegate = self;
     [self initWindow];
     
     UIButton *right_BarButoon_Item=[[UIButton alloc] init];
@@ -65,67 +73,52 @@
     
 }
 
+- (void)configPageView {
+    NSArray *titleArr = @[@"设备调试", @"摄像头", @"电梯绑定"];
+    SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
+    configure.indicatorToBottomDistance = 3;
+    configure.titleFont = [UIFont systemFontOfSize:14];
+    configure.titleColor = [UIColor lightGrayColor];
+    configure.titleSelectedColor = [UIColor colorWithHexString:@"#004E9E"];
+    configure.indicatorHeight = 3.0;
+    configure.indicatorCornerRadius = 5;
+    configure.indicatorColor = [UIColor colorWithHexString:@"#004E9E"];
+    _pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 40)
+                                                    delegate:self titleNames:titleArr configure:configure];
+    _pageTitleView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_pageTitleView];
+    _pageTitleView.selectedIndex = 0;
+}
+
+
+#pragma mark - 头部视图 delegate
+- (void)pageTitleView:(SGPageTitleView *)pageTitleView selectedIndex:(NSInteger)selectedIndex {
+    if (selectedIndex == 0) {
+        view2.hidden=YES;
+        view1.hidden=NO;
+        _sxtView.hidden = YES;
+    } else if (selectedIndex == 1) {
+        view2.hidden=YES;
+        view1.hidden=YES;
+        _sxtView.hidden = NO;
+    } else if (selectedIndex == 2) {
+        view2.hidden=NO;
+        view1.hidden=YES;
+        _sxtView.hidden = YES;
+    }
+}
+
+- (void)pageContentCollectionView:(SGPageContentCollectionView *)pageContentCollectionView progress:(CGFloat)progress originalIndex:(NSInteger)originalIndex targetIndex:(NSInteger)targetIndex {
+    [self.pageTitleView setPageTitleViewWithProgress:progress originalIndex:originalIndex targetIndex:targetIndex];
+}
+
+
 -(void)tapAction:(id)tap {
     [self hideProgress];
 }
 
 - (void)tongzhi_warn:(NSNotification *)text {
     [self setWifi];
-}
-
-
--(void)addTab {
-    long left=(SCREEN_WIDTH/2-80)/2;
-    UIButton *dyzjBtn = [MyControl createButtonWithFrame:CGRectMake(left, 50, 80, 35) imageName:nil bgImageName:nil title:@"设备调试" SEL:@selector(changeParkClick:) target:self];
-    [dyzjBtn setTitleColor:[CommonUseClass getSysColor] forState:UIControlStateNormal];
-    dyzjBtn.tag=0;
-    [self .view addSubview:dyzjBtn];
-    
-    
-    UIButton *dyzjBtn_1 = [MyControl createButtonWithFrame:CGRectMake(left+bounds_width.size.width/2, 50, 80, 35) imageName:nil bgImageName:nil title:@"电梯绑定" SEL:@selector(changeParkClick:) target:self];
-    [dyzjBtn_1 setTitleColor:[CommonUseClass getSysColor] forState:UIControlStateNormal];
-    dyzjBtn_1.tag=1;
-    [self .view addSubview:dyzjBtn_1];
-    
-    line = [[UILabel alloc]init];
-    line.frame=CGRectMake(left+20,34+50, 40, 1);
-    line.backgroundColor=[CommonUseClass getSysColor] ;
-    [self .view addSubview:line];
-    
-    //2.
-    tabCurrent=0;
-    //    CourseTableview.PageIndex=1;
-    //    [self getSchoolCourse];
-}
-
-- (IBAction)changeParkClick:(id)sender {
-    [self hideProgress];
-    UIButton *btn=(UIButton *)sender;
-    
-    long left=(SCREEN_WIDTH/2-80)/2;
-    switch (btn.tag) {
-        case 0: {
-            tabCurrent=0;
-            line.frame=CGRectMake(left+20, 34+50, 40, 1);
-            view2.hidden=YES;
-            view1.hidden=NO;
-            break;
-        }
-        case 1: {
-            tabCurrent=1;
-            line.frame=CGRectMake(bounds_width.size.width/2+left+20, 34+50, 40, 1);
-            view2.hidden=NO;
-            view1.hidden=YES;
-            
-            //e2
-            NSData *data=[sbtsModel getE2];
-            [self.clientSocket writeData:data withTimeout:- 1 tag:0];
-            [self showProgress];
-            break;
-        }
-        default:
-            break;
-    }
 }
 
 /////////////////////wifi
@@ -262,7 +255,7 @@
 
 
 // 发送数据
-- (IBAction)sendMessageAction:(id)sender {
+- (void)sendMessageAction:(id)sender {
     if (self.isShow) {
         return;
     }
@@ -286,46 +279,41 @@
  */
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     DLog(@"读取数据");
+
     [self hideProgress];
     
     // 读取到服务器数据值后,能再次读取
     [self.clientSocket readDataWithTimeout:- 1 tag:0];
     
     //sbbind
-    if(data.length>1)
-    {
+    if(data.length > 1) {
         Byte *testByte = (Byte *)[data bytes];
         if (testByte[0]==0xe1||testByte[0]==0xe2||testByte[0]==0xe3) {
             [self getsbandReturn:data];
             return;
         }
-    }
-    else
-    {
+        if (testByte[0] == 0xe4) {
+            [self getSxtRetuan:data];
+        }
+    } else {
         return;
     }
     
     //sbts
-    if(data.length==36)
-    {
+    if(data.length==36) {
         //NSData * adata=[data subdataWithRange:NSMakeRange(1, 32)];
         [self showReturnData:data];
-    }
-    else
-    {
-        if(data.length>1)
-        {
+    } else {
+        if(data.length>1) {
             NSMutableData *mutableData =[NSMutableData dataWithData:data_old];
             [mutableData appendData:(NSData *)data];
             Byte *testByte = (Byte *)[mutableData bytes];
             
             Byte newbyte[36];
-            if (mutableData.length>=36)
-            {
+            if (mutableData.length>=36) {
                 newbyte[0]=0xe3;
                 for (long i=mutableData.length-1; i>=0; i--) {
-                    if(testByte[i]==0xaa)
-                    {
+                    if(testByte[i]==0xaa) {
                         
                     }
                 }
@@ -341,7 +329,6 @@
             //                [MBProgressHUD showError:@"错误数据" toView:nil];
             //            }
         }
-        
         data_old=data;
     }
     
@@ -465,18 +452,16 @@
             }
         }
     } else if (testByte[0]==0xe3) {
-        if(data.length>2)
-        {
-            if(testByte[1]==0x00)
-            {
+        if(data.length>2) {
+            if(testByte[1]==0x00) {
                 [CommonUseClass showAlter:@"操作成功"];
                 if( [wbState_state isEqual:@"sk"])
                     lab_wbState.text=@"维保已开始，谢谢！";
                 else
                     lab_wbState.text=@"维保已结束，谢谢！";
+            } else {
+                [CommonUseClass showAlter:@"操作失败"];
             }
-            else
-            {[CommonUseClass showAlter:@"操作失败"];}
         }
     }
 }
@@ -708,7 +693,7 @@
     
 }
 
--(void)initWindow{
+-(void)initWindow {
     
     //1.top
     UIView * viewTop=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
@@ -737,10 +722,14 @@
     [viewTop addSubview:lab_auth];
     
     //2.tab
-    [self addTab];
+//    [self addTab];
+    [self configPageView];
+    
+    _sxtView.frame = CGRectMake(0, 80, SCREEN_WIDTH, SCREEN_HEIGHT-80);
+    [self.view addSubview:_sxtView];
     
     //2.0
-    view2=[MyControl createViewWithFrame:CGRectMake(0,CGRectGetMaxY(line.frame), SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(line.frame)) backColor:[UIColor whiteColor]];
+    view2=[MyControl createViewWithFrame:CGRectMake(0,80, SCREEN_WIDTH, SCREEN_HEIGHT-80) backColor:[UIColor whiteColor]];
     [self.view addSubview:view2];
     
     int top2=0;
@@ -789,7 +778,7 @@
     lab_wbState.textAlignment=NSTextAlignmentCenter;
     
     //2.1
-    view1=[MyControl createViewWithFrame:CGRectMake(0,CGRectGetMaxY(line.frame), SCREEN_WIDTH, SCREEN_HEIGHT-CGRectGetMaxY(line.frame)) backColor:[UIColor whiteColor]];
+    view1=[MyControl createViewWithFrame:CGRectMake(0,80, SCREEN_WIDTH, SCREEN_HEIGHT-80) backColor:[UIColor whiteColor]];
     [self.view addSubview:view1];
     
     
@@ -1289,5 +1278,87 @@
     line_31.hidden=YES;
     line_32.hidden=YES;
 }
+
+
+- (void)sxtSearchDelegate {
+    NSLog(@"1");
+    NSData * appUserId = [sbtsModel getByteForInt:self.app.userInfo.UserID];
+    NSData *data = [sbtsModel getE4:appUserId];
+    
+    [self.clientSocket writeData:data withTimeout:- 1 tag:0];
+    [self showProgress];
+}
+
+- (void)sxtSubmitDelegate {
+    NSData * appUserId = [sbtsModel getByteForInt:self.app.userInfo.UserID];
+    if ([_sxtView.selectTypeBtn.titleLabel.text isEqualToString:@"网络"]) {
+        if (_sxtView.textField.text.length == 0) {
+            [self showInfo:@"请填写地址"];
+        } else {
+            NSData *data = [sbtsModel getE5:appUserId andAddress:_sxtView.textField.text];
+            [self.clientSocket writeData:data withTimeout:- 1 tag:0];
+            [self showProgress];
+        }
+    } else {
+        NSData *data = [sbtsModel getSimE5:appUserId];
+        [self.clientSocket writeData:data withTimeout:- 1 tag:0];
+        [self showProgress];
+    }
+}
+
+- (void)getSxtRetuan:(NSData *)data {
+    Byte *testByte = (Byte *)[data bytes];
+    if (testByte[0] == 0xe4) {
+        Byte lengthByte[1] = {};
+        lengthByte[0] = testByte[3];
+        NSData *lengthData = [[NSData alloc] initWithBytes:lengthByte length:1];
+        NSInteger length = [[self transformCharateristicValueFromData:lengthData] integerValue];
+        
+        NSString *address = @"";
+        for (NSInteger i=0; i<length; i++) {
+            Byte tempByte[1] = {};
+            tempByte[0] = testByte[i+4];
+            NSData *addressData = [[NSData alloc] initWithBytes:tempByte length:1];
+            address = [NSString stringWithFormat:@"%@%@", address, [self stringFromHexString:[self transformCharateristicValueFromData:addressData]]];
+        }
+        self.sxtView.textField.text = address;
+        NSLog(@"%@", address);
+    }
+}
+
+- (NSString *)transformCharateristicValueFromData:(NSData *)dataValue{
+    if (!dataValue || [dataValue length] == 0) {
+        return @"";
+    }
+    NSMutableString *destStr = [[NSMutableString alloc]initWithCapacity:[dataValue length]];
+    
+    [dataValue enumerateByteRangesUsingBlock:^(const void * _Nonnull bytes, NSRange byteRange, BOOL * _Nonnull stop) {
+        unsigned char *dataBytes = (unsigned char *)bytes;
+        for (int i = 0; i < byteRange.length; i++) {
+            NSString *hexStr = [NSString stringWithFormat:@"%x",(dataBytes[i]) & 0xff];
+            if ([hexStr length] == 2) {
+                [destStr appendString:hexStr];
+            }else{
+                [destStr appendFormat:@"0%@",hexStr];
+            }
+        }
+    }];
+    return destStr;
+}
+
+- (NSString *)stringFromHexString:(NSString *)hexString {
+    char *myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
+    bzero(myBuffer, [hexString length] / 2 + 1);
+    for (int i = 0; i < [hexString length] - 1; i += 2) {
+        unsigned int anInt;
+        NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
+        NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        [scanner scanHexInt:&anInt];
+        myBuffer[i / 2] = (char)anInt;
+    }
+    NSString *unicodeString = [NSString stringWithCString:myBuffer encoding:4];
+    return unicodeString;
+}
+
 
 @end

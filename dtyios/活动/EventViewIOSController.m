@@ -700,7 +700,7 @@ BOOL enableCustomMap;
     
     [[AFAppDotNetAPIClient sharedClient].requestSerializer setValue:[NSString stringWithFormat:@"%@",app.userInfo.UserID] forHTTPHeaderField:@"UserId"];
     [[AFAppDotNetAPIClient sharedClient].requestSerializer setValue:[NSString stringWithFormat:@"%i",1] forHTTPHeaderField:@"PageIndex"];
-    [[AFAppDotNetAPIClient sharedClient].requestSerializer setValue:@"20" forHTTPHeaderField:@"PageSize"];
+    [[AFAppDotNetAPIClient sharedClient].requestSerializer setValue:@"4120" forHTTPHeaderField:@"PageSize"];
     
     [[AFAppDotNetAPIClient sharedClient]
      GET:@"Task/GetTaskList"

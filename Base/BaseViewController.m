@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "SVProgressHUD.h"
 
 @interface BaseViewController ()
 
@@ -36,8 +36,20 @@
 - (void)hideProgress {
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        _isShow = NO;
+        self.isShow = NO;
     });
+}
+
+
+- (void)showSuccess:(NSString *)string {
+    [SVProgressHUD isVisible];
+    [SVProgressHUD showSuccessWithStatus:string];
+    [SVProgressHUD dismissWithDelay:1];
+}
+
+- (void)showInfo:(NSString *)string {
+    [SVProgressHUD showInfoWithStatus:string];
+    [SVProgressHUD dismissWithDelay:1];
 }
 
 @end

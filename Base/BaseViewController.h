@@ -13,5 +13,9 @@
 @property (nonatomic, assign) BOOL isShow;
 - (void)showProgress;
 - (void)hideProgress;
+// 成功提示
+- (void)showSuccess:(NSString *)string;
 
+// 普通、失败提示
+- (void)showInfo:(NSString *)string;
 @end

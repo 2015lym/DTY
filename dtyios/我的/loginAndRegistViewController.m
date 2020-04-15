@@ -188,7 +188,7 @@
     NSString *json_state=[dic_state JSONString];
     [dic_args setObject:json_state forKey:@"LoginInfo"];
     
-     NSString *string = [@"LoginInfo/Login?UserName=" stringByAppendingString:_lblusername.text];
+     NSString *string = [@"LoginInfo/Login?UserName=" stringByAppendingString:_lblusername.te.0xt];
     string = [string stringByAppendingString:@"&PassWord="];
     string = [string stringByAppendingString:_lblpassword.text];
     

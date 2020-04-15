@@ -14,4 +14,8 @@
 -(NSData *)getE2;
 -(NSData *)getE2_1:(NSData *)data forzcCode:(NSString  *)zcCode  forType :(Byte)type;
 -(NSData *)getE3:(NSData *)data forType:(Byte)type;
+
+-(NSData *)getE4:(NSData *)data;
+-(NSData *)getE5:(NSData *)data andAddress:(NSString *)address;
+-(NSData *)getSimE5:(NSData *)data;
 @end

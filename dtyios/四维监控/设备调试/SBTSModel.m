@@ -188,4 +188,106 @@
     NSData *data0 = [[NSData alloc] initWithBytes:src_e1 length:7];
     return data0;
 }
+
+//生成指令E4
+-(NSData *)getE4:(NSData *)data {
+    Byte *appUserId=(Byte *)[data bytes];
+    
+    //1.
+    Byte src_e1[6];
+    src_e1[0]=0xe4;
+    src_e1[1]=0x00;
+    src_e1[2]=appUserId[0];
+    src_e1[3]=appUserId[1];
+    src_e1[4]=appUserId[2];
+    src_e1[5]=appUserId[3];
+    Byte byhh=[self YHH:src_e1 forLenght:6];
+    
+    //2.
+    Byte src_new[7];
+    src_new[0]=src_e1[0];
+    src_new[1]=src_e1[1];
+    src_new[2]=src_e1[2];
+    src_new[3]=src_e1[3];
+    src_new[4]=src_e1[4];
+    src_new[5]=src_e1[5];
+    src_new[6]=byhh;
+    
+    
+    NSData *data0 = [[NSData alloc] initWithBytes:src_new length:7];
+    return data0;
+}
+
+//生成指令E5
+-(NSData *)getE5:(NSData *)data andAddress:(NSString *)address {
+    Byte *appUserId=(Byte *)[data bytes];
+    
+    Byte addressByte[address.length];
+    for (int i=0; i<address.length; i++) {
+        NSString *str = [address substringWithRange:NSMakeRange(i, 1)];
+        NSLog(@"%@", str);
+        int asciiCode = [str characterAtIndex:0];
+        addressByte[i] = (Byte)asciiCode;
+    }
+    
+
+    
+    int byteLength = 4 + (int)address.length + 4;
+    Byte myByte[byteLength];
+    myByte[0] = 0xe5;
+    myByte[1] = 0x00;
+    myByte[2] = 0x01;
+    myByte[3] = (Byte)address.length;
+    for (int i=0; i<address.length; i++) {
+        myByte[i+4] = addressByte[i];
+    }
+    myByte[address.length + 4] = appUserId[0];
+    myByte[address.length + 5] = appUserId[1];
+    myByte[address.length + 6] = appUserId[2];
+    myByte[address.length + 7] = appUserId[3];
+    // 异或和
+    Byte byhh = [self YHH:myByte forLenght:byteLength];
+    
+    
+    Byte newByte[byteLength + 1];
+    for (int i=0; i<byteLength; i++) {
+        newByte[i] = myByte[i];
+    }
+    newByte[byteLength] = byhh;
+    
+    
+    NSData *data0 = [[NSData alloc] initWithBytes:newByte length:byteLength + 1];
+    return data0;
+}
+
+- (NSData *)getSimE5:(NSData *)data {
+    Byte *appUserId=(Byte *)[data bytes];
+    
+    Byte myByte[8];
+    myByte[0] = 0xe5;
+    myByte[1] = 0x00;
+    myByte[2] = 0x00;
+    myByte[3] = 0x00;
+    myByte[4] = appUserId[0];
+    myByte[5] = appUserId[1];
+    myByte[6] = appUserId[2];
+    myByte[7] = appUserId[3];
+    
+    Byte byhh=[self YHH:myByte forLenght:8];
+    
+    Byte src_new[9];
+    src_new[0]=myByte[0];
+    src_new[1]=myByte[1];
+    src_new[2]=myByte[2];
+    src_new[3]=myByte[3];
+    src_new[4]=myByte[4];
+    src_new[5]=myByte[5];
+    src_new[6]=myByte[6];
+    src_new[7]=myByte[7];
+    src_new[8]=byhh;
+    
+    NSData *data0 = [[NSData alloc] initWithBytes:src_new length:9];
+    return data0;
+}
+
 @end

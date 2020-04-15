@@ -18,8 +18,7 @@
 {
     NSData *data_old;
     
-    UILabel *line;
-    int tabCurrent;
+    
     UIAlertView *waittingAlert;
     
     UILabel *lab_wifi;
