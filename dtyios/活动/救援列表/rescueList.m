@@ -124,7 +124,7 @@ UIButton *iClickBtn ;
     
     
     [ctvc setUrl:srt_url];
-    [_delegate SchoolCoursePush:ctvc];
+    [_delegate SchoolCourse:ctvc];
     */
 }
 

@@ -187,7 +187,21 @@
     }
 _view_pop.hidden=false;
 }
-
++ (NSString *)jsonToString:(id)json {
+    if(json==nil){
+        return nil;
+    }
+    NSOutputStream *outstream=[NSOutputStream outputStreamToMemory];
+    [outstream open];
+    [NSJSONSerialization writeJSONObject:json toStream:outstream options:0 error:nil];
+    NSData *data=[outstream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+    NSMutableString *str=[[NSMutableString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSRange range;
+    range.length = str.length;
+    range.location = 0;
+    [str replaceOccurrencesOfString:@"\\/" withString:@"/" options:NSLiteralSearch range:range];
+    return str;
+}
 -(NSMutableArray *)Link_Database_status :(NSString *)type
 {
     fmdDB=[FMDatabase databaseWithPath: [[NSBundle mainBundle] pathForResource:@"SinodomSQLite" ofType:@"sqlite"]];

@@ -40,11 +40,8 @@
     if([warnmodel.StatusName isEqual:@"<null>"])_labStatus.text=@"";
     _labAddr.text=[warnmodel.Lift.AddressPath stringByAppendingString:warnmodel.Lift.InstallationAddress];
     //2.1CreateTime 并且 计算totalTime
-    NSArray *Time = [warnmodel.CreateTime componentsSeparatedByString:@"."];
-    NSArray *cTime = [[Time objectAtIndex:0] componentsSeparatedByString:@"T"];
-    
     _labTotalTime.text=[warnmodel.TotalLossTime stringByAppendingString:@"分钟"];
-    _labDate.text=[NSString stringWithFormat:@"%@ %@", [cTime objectAtIndex:0],[cTime objectAtIndex:1] ];
+    _labDate.text=[warnmodel.CreateTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
    
     
     

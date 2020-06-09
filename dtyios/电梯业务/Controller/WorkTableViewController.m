@@ -17,6 +17,7 @@
 /* 电梯业务 */
 #import "AloneWBListVC.h"
 #import "DTWBWebViewController.h"
+#import "New_Elevator_MaintenanceViewController.h"
 
 #import "WXJLListWebViewController.h"
 #import "JYGLViewController.h"
@@ -157,10 +158,12 @@
                 AloneWBListVC *awblist = [[AloneWBListVC alloc]init];
                 [self.navigationController pushViewController:awblist animated:YES];
             } else {
-                DTWBWebViewController *physical = [[DTWBWebViewController alloc]init];
-                physical.web_url=@"/WebApp/Maintenance/Index?userid=";
-                physical.web_title=@"电梯维保";
-                [self.navigationController pushViewController:physical animated:YES];
+//                DTWBWebViewController *physical = [[DTWBWebViewController alloc]init];
+//                physical.web_url=@"/WebApp/Maintenance/Index?userid=";
+//                physical.web_title=@"电梯维保";
+//                [self.navigationController pushViewController:physical animated:YES];
+                New_Elevator_MaintenanceViewController *vc = [New_Elevator_MaintenanceViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             
         } else if(indexPath.item == 1) {

@@ -55,12 +55,7 @@
     
     //2.1 CreateTime 并且计算 totalTime
     //上面的日期
-    NSArray *Time = [warnmodel.CreateTime componentsSeparatedByString:@"."];
-    NSArray *cTime = [[Time objectAtIndex:0] componentsSeparatedByString:@"T"];
-    if(![[cTime objectAtIndex:0] isEqual:@"<null>"]&&![[cTime objectAtIndex:0] isEqual:@""])
-        _labDate.text=[NSString stringWithFormat:@"%@ %@",  [cTime objectAtIndex:0], [cTime objectAtIndex:1]];
-    else
-        _labDate.text=@"";
+    _labDate.text = [warnmodel.CreateTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     
     UIImageView *img=[[UIImageView alloc]init];
     img.image=[UIImage imageNamed:@"Data_time"];

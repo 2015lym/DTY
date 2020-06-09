@@ -852,7 +852,15 @@
 		2A2984DC1E84E3B2001EF5A0 /* JHPieItemsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D31E84E3B2001EF5A0 /* JHPieItemsView.m */; };
 		2A2984DD1E84E3B2001EF5A0 /* JHShowInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D51E84E3B2001EF5A0 /* JHShowInfoView.m */; };
 		2A2984DE1E84E3B2001EF5A0 /* JHWaveChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */; };
-		38599596223F487A00DD80AF /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */; };
+		382C1F2E2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382C1F2C2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m */; };
+		382C1F2F2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382C1F2D2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib */; };
+		384B31EA2488DFC700B31537 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 384B31E92488DFC600B31537 /* libstdc++.tbd */; };
+		384B31EC2488DFCE00B31537 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 384B31EB2488DFCE00B31537 /* libstdc++.6.tbd */; };
+		384B31F7248E121E00B31537 /* MaintenanceRecordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B31F3248E121D00B31537 /* MaintenanceRecordListViewController.m */; };
+		384B31F8248E121E00B31537 /* MaintenanceRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B31F4248E121D00B31537 /* MaintenanceRecordViewController.m */; };
+		384B31F9248E121E00B31537 /* MaintenanceRecordListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384B31F6248E121D00B31537 /* MaintenanceRecordListViewController.xib */; };
+		384B3200248F282700B31537 /* MaintenanceRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B31FE248F282700B31537 /* MaintenanceRecordTableViewCell.m */; };
+		384B3201248F282700B31537 /* MaintenanceRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384B31FF248F282700B31537 /* MaintenanceRecordTableViewCell.xib */; };
 		38599598223F5F9900DD80AF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38599597223F5F9900DD80AF /* libstdc++.tbd */; };
 		385EA95023C6B9D100F7CDE3 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 385EA94E23C6B9D000F7CDE3 /* AFAppDotNetAPIClient.m */; };
 		385EA95423C6BA6300F7CDE3 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 385EA95223C6BA6300F7CDE3 /* MBProgressHUD+Add.m */; };
@@ -1078,6 +1086,9 @@
 		3892D8E1228E88780056E4D8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3892D8E0228E88780056E4D8 /* BaseViewController.m */; };
 		389D5050243EB1D700609103 /* SXTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 389D504F243EB1D700609103 /* SXTView.m */; };
 		389D5052243EB1F300609103 /* SXTView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389D5051243EB1F300609103 /* SXTView.xib */; };
+		38F0CCB42488D86A00E98FB9 /* MaintenanceCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0CCB22488D86A00E98FB9 /* MaintenanceCalendarViewController.m */; };
+		38F0CCB52488D86A00E98FB9 /* MaintenanceCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F0CCB32488D86A00E98FB9 /* MaintenanceCalendarViewController.xib */; };
+		38F0CCB72488DE6E00E98FB9 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F0CCB62488DE6E00E98FB9 /* libstdc++.6.0.9.tbd */; };
 		3CF013311D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */; };
 		3CF0133E1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */; };
 		5C06B7BA1D4B44F200CC6229 /* line03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C06B7B71D4B44F200CC6229 /* line03.png */; };
@@ -2733,6 +2744,19 @@
 		2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHWaveChart.m; sourceTree = "<group>"; };
 		37D41061BED74335186C3BAC /* Pods-dtyios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dtyios.release.xcconfig"; path = "Pods/Target Support Files/Pods-dtyios/Pods-dtyios.release.xcconfig"; sourceTree = "<group>"; };
 		381C41C823C5C08D00B77CB2 /* BaseConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseConfig.h; sourceTree = "<group>"; };
+		382C1F2B2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = New_Elevator_MaintenanceViewController.h; sourceTree = "<group>"; };
+		382C1F2C2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = New_Elevator_MaintenanceViewController.m; sourceTree = "<group>"; };
+		382C1F2D2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = New_Elevator_MaintenanceViewController.xib; sourceTree = "<group>"; };
+		384B31E92488DFC600B31537 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		384B31EB2488DFCE00B31537 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		384B31F2248E121D00B31537 /* MaintenanceRecordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintenanceRecordListViewController.h; sourceTree = "<group>"; };
+		384B31F3248E121D00B31537 /* MaintenanceRecordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintenanceRecordListViewController.m; sourceTree = "<group>"; };
+		384B31F4248E121D00B31537 /* MaintenanceRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintenanceRecordViewController.m; sourceTree = "<group>"; };
+		384B31F5248E121D00B31537 /* MaintenanceRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintenanceRecordViewController.h; sourceTree = "<group>"; };
+		384B31F6248E121D00B31537 /* MaintenanceRecordListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MaintenanceRecordListViewController.xib; sourceTree = "<group>"; };
+		384B31FD248F282700B31537 /* MaintenanceRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceRecordTableViewCell.h; sourceTree = "<group>"; };
+		384B31FE248F282700B31537 /* MaintenanceRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceRecordTableViewCell.m; sourceTree = "<group>"; };
+		384B31FF248F282700B31537 /* MaintenanceRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceRecordTableViewCell.xib; sourceTree = "<group>"; };
 		38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.6.0.9.tbd"; sourceTree = "<group>"; };
 		38599597223F5F9900DD80AF /* libstdc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libstdc++.tbd"; sourceTree = "<group>"; };
 		385EA94E23C6B9D000F7CDE3 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
@@ -3119,6 +3143,10 @@
 		389D504F243EB1D700609103 /* SXTView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTView.m; sourceTree = "<group>"; };
 		389D5051243EB1F300609103 /* SXTView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTView.xib; sourceTree = "<group>"; };
 		38D200B523C5C48E002636FA /* WebInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebInterface.h; sourceTree = "<group>"; };
+		38F0CCB12488D86A00E98FB9 /* MaintenanceCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceCalendarViewController.h; sourceTree = "<group>"; };
+		38F0CCB22488D86A00E98FB9 /* MaintenanceCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceCalendarViewController.m; sourceTree = "<group>"; };
+		38F0CCB32488D86A00E98FB9 /* MaintenanceCalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceCalendarViewController.xib; sourceTree = "<group>"; };
+		38F0CCB62488DE6E00E98FB9 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		3CF013301D448ECB00B7F5B4 /* ResetPasswordViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_s.xib; sourceTree = "<group>"; };
 		3CF0133D1D448F0E00B7F5B4 /* ResetPasswordViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPasswordViewController_p.xib; sourceTree = "<group>"; };
 		5C06B7B71D4B44F200CC6229 /* line03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line03.png; sourceTree = "<group>"; };
@@ -3520,6 +3548,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F0CCB72488DE6E00E98FB9 /* libstdc++.6.0.9.tbd in Frameworks */,
+				384B31EC2488DFCE00B31537 /* libstdc++.6.tbd in Frameworks */,
+				384B31EA2488DFC700B31537 /* libstdc++.tbd in Frameworks */,
 				1DF43EF0214F40C80018B7A0 /* AdSupport.framework in Frameworks */,
 				1DE911892121592B00FC620B /* AVFoundation.framework in Frameworks */,
 				5C767BF01D1CFF71002011D7 /* SystemConfiguration.framework in Frameworks */,
@@ -3573,7 +3604,6 @@
 				1D5C60371E96072E00726D70 /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				1D83264F1DCEE422004F84B6 /* BaiduMapAPI_Utils.framework in Frameworks */,
 				5C767BC11D1CF96F002011D7 /* libopencore-amrwb.a in Frameworks */,
-				38599596223F487A00DD80AF /* libstdc++.6.0.9.tbd in Frameworks */,
 				5C767BC01D1CF96F002011D7 /* libopencore-amrnb.a in Frameworks */,
 				5CF3F37C1D1D075F002F852A /* SMS_SDK.framework in Frameworks */,
 				E51C9714D5D5B3777863C452 /* Pods_dtyios.framework in Frameworks */,
@@ -3708,6 +3738,7 @@
 				388F211A23D039150063DDB7 /* Controller */,
 				388F211E23D039150063DDB7 /* Model */,
 				388F211F23D039150063DDB7 /* View */,
+				382C1F2A24879FAA0059C6D6 /* 新电梯维保 */,
 				1D67454520F47755002B1AB2 /* 无纸化维保 */,
 				1DAE84C320F334ED00254D5D /* NFC绑定 */,
 				1D63BBFE20103DC000DBF15C /* 预警分析 */,
@@ -6488,6 +6519,52 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		382C1F2A24879FAA0059C6D6 /* 新电梯维保 */ = {
+			isa = PBXGroup;
+			children = (
+				382C1F2B2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.h */,
+				382C1F2C2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m */,
+				382C1F2D2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib */,
+				38F0CCAB2488D82800E98FB9 /* 1.维保记录 */,
+				38F0CCB02488D82900E98FB9 /* 2.超期电梯 */,
+				38F0CCAC2488D82800E98FB9 /* 3.待审核 */,
+				38F0CCAF2488D82900E98FB9 /* 4.今日完成 */,
+				38F0CCAD2488D82800E98FB9 /* 5.维保计划 */,
+				38F0CCAA2488D82800E98FB9 /* 6.维保记录 */,
+				38F0CCAE2488D82800E98FB9 /* 7.临时工单 */,
+			);
+			path = "新电梯维保";
+			sourceTree = "<group>";
+		};
+		384B31FA248E134400B31537 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				384B31F2248E121D00B31537 /* MaintenanceRecordListViewController.h */,
+				384B31F3248E121D00B31537 /* MaintenanceRecordListViewController.m */,
+				384B31F6248E121D00B31537 /* MaintenanceRecordListViewController.xib */,
+				384B31F5248E121D00B31537 /* MaintenanceRecordViewController.h */,
+				384B31F4248E121D00B31537 /* MaintenanceRecordViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		384B31FB248E134400B31537 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				384B31FD248F282700B31537 /* MaintenanceRecordTableViewCell.h */,
+				384B31FE248F282700B31537 /* MaintenanceRecordTableViewCell.m */,
+				384B31FF248F282700B31537 /* MaintenanceRecordTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		384B31FC248E134400B31537 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		385EA94D23C6B9D000F7CDE3 /* AFNetworking_Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -7948,6 +8025,61 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		38F0CCAA2488D82800E98FB9 /* 6.维保记录 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "6.维保记录";
+			sourceTree = "<group>";
+		};
+		38F0CCAB2488D82800E98FB9 /* 1.维保记录 */ = {
+			isa = PBXGroup;
+			children = (
+				384B31FA248E134400B31537 /* Controller */,
+				384B31FC248E134400B31537 /* Model */,
+				384B31FB248E134400B31537 /* View */,
+			);
+			path = "1.维保记录";
+			sourceTree = "<group>";
+		};
+		38F0CCAC2488D82800E98FB9 /* 3.待审核 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "3.待审核";
+			sourceTree = "<group>";
+		};
+		38F0CCAD2488D82800E98FB9 /* 5.维保计划 */ = {
+			isa = PBXGroup;
+			children = (
+				38F0CCB12488D86A00E98FB9 /* MaintenanceCalendarViewController.h */,
+				38F0CCB22488D86A00E98FB9 /* MaintenanceCalendarViewController.m */,
+				38F0CCB32488D86A00E98FB9 /* MaintenanceCalendarViewController.xib */,
+			);
+			path = "5.维保计划";
+			sourceTree = "<group>";
+		};
+		38F0CCAE2488D82800E98FB9 /* 7.临时工单 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "7.临时工单";
+			sourceTree = "<group>";
+		};
+		38F0CCAF2488D82900E98FB9 /* 4.今日完成 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "4.今日完成";
+			sourceTree = "<group>";
+		};
+		38F0CCB02488D82900E98FB9 /* 2.超期电梯 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "2.超期电梯";
+			sourceTree = "<group>";
+		};
 		5C085CD21D41C10200F1B5A5 /* 左菜单 */ = {
 			isa = PBXGroup;
 			children = (
@@ -8777,7 +8909,10 @@
 		5C767BDA1D1CFEC4002011D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				384B31EB2488DFCE00B31537 /* libstdc++.6.tbd */,
+				384B31E92488DFC600B31537 /* libstdc++.tbd */,
 				38599591223F487A00DD80AF /* libstdc++.6.0.9.tbd */,
+				38F0CCB62488DE6E00E98FB9 /* libstdc++.6.0.9.tbd */,
 				38599597223F5F9900DD80AF /* libstdc++.tbd */,
 				1DE9118E2121596B00FC620B /* libc++.tbd */,
 				1DE9118C2121595F00FC620B /* VideoToolbox.framework */,
@@ -8873,30 +9008,30 @@
 		5C7F64911D3539E40024C8ED /* 活动 */ = {
 			isa = PBXGroup;
 			children = (
-				1D0B3B5B1DD469AA00F8C42C /* 投诉建议 */,
-				1D0B3B5A1DD4698800F8C42C /* 人工下单 */,
-				1D0B3B551DD4694200F8C42C /* 处置记录 */,
-				1D4927211DD2F591005663EA /* model */,
 				1D04A6441DD1DB8100CFC9D0 /* 报警电梯 */,
-				1D04A63D1DD1C1A100CFC9D0 /* 救援列表 */,
 				1D151FC11D6A94A60074C6D9 /* 报名 */,
+				1D0B3B551DD4694200F8C42C /* 处置记录 */,
 				1D40511B1D5D73420034033C /* 活动列表 */,
+				1D04A63D1DD1C1A100CFC9D0 /* 救援列表 */,
+				1D0B3B5A1DD4698800F8C42C /* 人工下单 */,
+				1D0B3B5B1DD469AA00F8C42C /* 投诉建议 */,
+				5CEAF1101D406B83000AAF99 /* EventTwoViewController.h */,
+				5CEAF1111D406B83000AAF99 /* EventTwoViewController.m */,
+				5CEAF1031D405870000AAF99 /* EventViewController_p.xib */,
+				5CEAF0F61D405866000AAF99 /* EventViewController_s.xib */,
 				5C7F649C1D3545F80024C8ED /* EventViewController.h */,
 				5C7F649D1D3545F80024C8ED /* EventViewController.m */,
 				5C7F649E1D3545F80024C8ED /* EventViewController.xib */,
-				5CEAF0F61D405866000AAF99 /* EventViewController_s.xib */,
-				5CEAF1031D405870000AAF99 /* EventViewController_p.xib */,
-				5CEAF1101D406B83000AAF99 /* EventTwoViewController.h */,
-				5CEAF1111D406B83000AAF99 /* EventTwoViewController.m */,
-				1D40510E1D5D721C0034033C /* EventViewIOSController.xib */,
-				1D4051141D5D722E0034033C /* EventViewIOSController_s.xib */,
 				1D4051161D5D72400034033C /* EventViewIOSController_p.xib */,
+				1D4051141D5D722E0034033C /* EventViewIOSController_s.xib */,
 				1D4051181D5D725E0034033C /* EventViewIOSController.h */,
 				1D4051191D5D725E0034033C /* EventViewIOSController.m */,
-				1D04A6311DD0B38600CFC9D0 /* warningElevatorModel.h */,
-				1D04A6321DD1599100CFC9D0 /* warningElevatorModel.m */,
+				1D40510E1D5D721C0034033C /* EventViewIOSController.xib */,
+				1D4927211DD2F591005663EA /* model */,
 				1D04A6341DD15A4E00CFC9D0 /* warningElevatorLift.h */,
 				1D04A6351DD15A4E00CFC9D0 /* warningElevatorLift.m */,
+				1D04A6311DD0B38600CFC9D0 /* warningElevatorModel.h */,
+				1D04A6321DD1599100CFC9D0 /* warningElevatorModel.m */,
 			);
 			path = "活动";
 			sourceTree = "<group>";
@@ -9408,6 +9543,7 @@
 				1DD16681204105D2000D5589 /* JYGLListCell.xib in Resources */,
 				1D4555F01FFE23D800213B8A /* backArrow@2x.png in Resources */,
 				1D151FFB1D6D7ABC0074C6D9 /* share_logo_108.png in Resources */,
+				384B3201248F282700B31537 /* MaintenanceRecordTableViewCell.xib in Resources */,
 				1D9D1A5D200850260017A38A /* wbdc1_half.png in Resources */,
 				1D7E97062124088F00D01FEB /* CYZCellViewController.xib in Resources */,
 				1D93984A1E0241F800A7669C /* handleRecordeCell.xib in Resources */,
@@ -9563,9 +9699,11 @@
 				1D46F543200732D5001B29D1 /* wb3_repair_time.png in Resources */,
 				3873DFA123CC087B00EC5220 /* ChangePwdViewController.xib in Resources */,
 				1D52B4DE1FFB749F00BC8B62 /* Data_time.png in Resources */,
+				382C1F2F2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib in Resources */,
 				1D6E11A3204E2B8C00B05EA5 /* scanning_48dp1.png in Resources */,
 				3873DF1223CC032F00EC5220 /* Old_PartDetailViewController.xib in Resources */,
 				5CF96B4A1D48766E00A88EF6 /* PushImageViewController_p.xib in Resources */,
+				384B31F9248E121E00B31537 /* MaintenanceRecordListViewController.xib in Resources */,
 				1D70498E1FF2375400D9417B /* tab_help_sel.png in Resources */,
 				1DD22DDB1FFF114E004E0FC7 /* my_headbg.png in Resources */,
 				5CDDAF671D530C110093ACFB /* refreshAnimation_19.png in Resources */,
@@ -9617,6 +9755,7 @@
 				5C51769A1D388E4600284AB1 /* background@2x.png in Resources */,
 				388F212B23D039150063DDB7 /* WorkCollectionReusableView.xib in Resources */,
 				1DD22DD91FFF114E004E0FC7 /* my_head.png in Resources */,
+				38F0CCB52488D86A00E98FB9 /* MaintenanceCalendarViewController.xib in Resources */,
 				1DAAE86D1D46F0F900381054 /* PersonChangePWDViewController_p.xib in Resources */,
 				1D2D460F2090123400727183 /* QRCodeViewController_WYXC.xib in Resources */,
 				1D66BF9B213D347000CC246A /* swjk_sbts.png in Resources */,
@@ -9755,6 +9894,7 @@
 			files = (
 				1D34C5F32125A05C00A800B1 /* common.c in Sources */,
 				1D34C6A62125A05D00A800B1 /* UITableView+NIMScrollToBottom.m in Sources */,
+				38F0CCB42488D86A00E98FB9 /* MaintenanceCalendarViewController.m in Sources */,
 				1D34C6B32125A05D00A800B1 /* UIImage+NTES.m in Sources */,
 				1D34C5F92125A05C00A800B1 /* shader.c in Sources */,
 				1D34C5D32125A05C00A800B1 /* NTESChatroomCellLayoutConfig.m in Sources */,
@@ -9808,6 +9948,7 @@
 				1D4927291DD31E30005663EA /* rescueListCell.m in Sources */,
 				1D34C6592125A05C00A800B1 /* NIMContactSelectTabView.m in Sources */,
 				1D19583D20467DC3009F96AD /* ZFGenericChart.m in Sources */,
+				384B31F7248E121E00B31537 /* MaintenanceRecordListViewController.m in Sources */,
 				1DF3280A216C83CE00780AEB /* SBTSModel.m in Sources */,
 				1D34C5E72125A05C00A800B1 /* NTESChatroomUnknowContentView.m in Sources */,
 				1D5C5FE11E9490B500726D70 /* HTTPSessionManager.m in Sources */,
@@ -9934,6 +10075,7 @@
 				5C767B6C1D1CF96F002011D7 /* ChangeTitleAnimation.m in Sources */,
 				385EA9A823C6C03A00F7CDE3 /* FileFunction.m in Sources */,
 				1D34C6612125A05C00A800B1 /* NIMInputTextView.m in Sources */,
+				382C1F2E2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m in Sources */,
 				1D9B2BC91D45BC1B0098A073 /* PersonController.m in Sources */,
 				1D34C5FF2125A05C00A800B1 /* color.c in Sources */,
 				1D9398091E01303400A7669C /* complainDetailViewController.m in Sources */,
@@ -10088,6 +10230,7 @@
 				5C767BAC1D1CF96F002011D7 /* FMDatabasePool.m in Sources */,
 				5C767B831D1CF96F002011D7 /* MLEmojiLabel.m in Sources */,
 				5C767BAD1D1CF96F002011D7 /* FMDatabaseQueue.m in Sources */,
+				384B31F8248E121E00B31537 /* MaintenanceRecordViewController.m in Sources */,
 				3873DF1123CC032F00EC5220 /* Old_PartDetailViewController.m in Sources */,
 				1D4051951D61A1F10034033C /* FacListViewController.m in Sources */,
 				1D34C6B62125A05D00A800B1 /* NSDictionary+NTESJson.m in Sources */,
@@ -10309,6 +10452,7 @@
 				1D2D46122090125200727183 /* QRCodeViewController_WYXC.m in Sources */,
 				1D19583920467DC3009F96AD /* ZFBarChart.m in Sources */,
 				1D6F5F9F1F0A5BD10058C5BB /* SZQuestionCell.m in Sources */,
+				384B3200248F282700B31537 /* MaintenanceRecordTableViewCell.m in Sources */,
 				1D34C60A2125A05C00A800B1 /* UINavigationBar+Swizzling.m in Sources */,
 				1D34C5D92125A05C00A800B1 /* NTESChatroomListViewController.m in Sources */,
 				1D67454420F44F48002B1AB2 /* NFCBandClass.m in Sources */,
