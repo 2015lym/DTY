@@ -28,13 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [[IQKeyboardManager sharedManager] setEnable:NO];
     [self netRequest];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-//    [[IQKeyboardManager sharedManager] setEnable:YES];
 }
 
 - (IBAction)search:(id)sender {

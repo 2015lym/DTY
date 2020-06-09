@@ -90,7 +90,7 @@
 #pragma mark - ---------- 每个Cell的内容 ----------
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MaintenanceRecordTableViewCell *cell = [MaintenanceRecordTableViewCell cellWithTableView:tableView];
-    
+    cell.overLabel.hidden = YES;
 //    cell.model = _dataArray[indexPath.row];
     return cell;
 }
