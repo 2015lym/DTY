@@ -854,6 +854,14 @@
 		2A2984DE1E84E3B2001EF5A0 /* JHWaveChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2984D71E84E3B2001EF5A0 /* JHWaveChart.m */; };
 		382C1F2E2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382C1F2C2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m */; };
 		382C1F2F2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382C1F2D2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib */; };
+		38432FD0248F750200DE3437 /* MaintenanceRecordNoTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38432FCE248F750200DE3437 /* MaintenanceRecordNoTabViewController.m */; };
+		38432FD1248F750200DE3437 /* MaintenanceRecordNoTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38432FCF248F750200DE3437 /* MaintenanceRecordNoTabViewController.xib */; };
+		38432FD52490A2DC00DE3437 /* MaintenanceUncheckedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38432FD32490A2DC00DE3437 /* MaintenanceUncheckedViewController.m */; };
+		38432FD62490A2DC00DE3437 /* MaintenanceUncheckedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38432FD42490A2DC00DE3437 /* MaintenanceUncheckedViewController.xib */; };
+		38432FDA2490A40400DE3437 /* MaintenanceUncheckedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38432FD82490A40400DE3437 /* MaintenanceUncheckedTableViewCell.m */; };
+		38432FDB2490A40400DE3437 /* MaintenanceUncheckedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38432FD92490A40400DE3437 /* MaintenanceUncheckedTableViewCell.xib */; };
+		38432FE2249229E000DE3437 /* MaintenanceOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38432FE0249229E000DE3437 /* MaintenanceOrderDetailViewController.m */; };
+		38432FE3249229E000DE3437 /* MaintenanceOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38432FE1249229E000DE3437 /* MaintenanceOrderDetailViewController.xib */; };
 		384B31EA2488DFC700B31537 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 384B31E92488DFC600B31537 /* libstdc++.tbd */; };
 		384B31EC2488DFCE00B31537 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 384B31EB2488DFCE00B31537 /* libstdc++.6.tbd */; };
 		384B31F7248E121E00B31537 /* MaintenanceRecordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B31F3248E121D00B31537 /* MaintenanceRecordListViewController.m */; };
@@ -1086,6 +1094,10 @@
 		388F212D23D039150063DDB7 /* WorkCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388F212623D039150063DDB7 /* WorkCollectionView.m */; };
 		388F212E23D039150063DDB7 /* WorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388F212723D039150063DDB7 /* WorkCollectionViewCell.xib */; };
 		3892D8E1228E88780056E4D8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3892D8E0228E88780056E4D8 /* BaseViewController.m */; };
+		389C99D02493671F00EB7507 /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C99CE2493671F00EB7507 /* MapTableViewCell.m */; };
+		389C99D12493671F00EB7507 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389C99CF2493671F00EB7507 /* MapTableViewCell.xib */; };
+		389C99D624937D1100EB7507 /* MaintenanceRefuseOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C99D424937D1100EB7507 /* MaintenanceRefuseOrderViewController.m */; };
+		389C99D724937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389C99D524937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib */; };
 		389D5050243EB1D700609103 /* SXTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 389D504F243EB1D700609103 /* SXTView.m */; };
 		389D5052243EB1F300609103 /* SXTView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389D5051243EB1F300609103 /* SXTView.xib */; };
 		38F0CCB42488D86A00E98FB9 /* MaintenanceCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0CCB22488D86A00E98FB9 /* MaintenanceCalendarViewController.m */; };
@@ -2749,6 +2761,18 @@
 		382C1F2B2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = New_Elevator_MaintenanceViewController.h; sourceTree = "<group>"; };
 		382C1F2C2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = New_Elevator_MaintenanceViewController.m; sourceTree = "<group>"; };
 		382C1F2D2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = New_Elevator_MaintenanceViewController.xib; sourceTree = "<group>"; };
+		38432FCD248F750200DE3437 /* MaintenanceRecordNoTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceRecordNoTabViewController.h; sourceTree = "<group>"; };
+		38432FCE248F750200DE3437 /* MaintenanceRecordNoTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceRecordNoTabViewController.m; sourceTree = "<group>"; };
+		38432FCF248F750200DE3437 /* MaintenanceRecordNoTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceRecordNoTabViewController.xib; sourceTree = "<group>"; };
+		38432FD22490A2DC00DE3437 /* MaintenanceUncheckedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceUncheckedViewController.h; sourceTree = "<group>"; };
+		38432FD32490A2DC00DE3437 /* MaintenanceUncheckedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceUncheckedViewController.m; sourceTree = "<group>"; };
+		38432FD42490A2DC00DE3437 /* MaintenanceUncheckedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceUncheckedViewController.xib; sourceTree = "<group>"; };
+		38432FD72490A40400DE3437 /* MaintenanceUncheckedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceUncheckedTableViewCell.h; sourceTree = "<group>"; };
+		38432FD82490A40400DE3437 /* MaintenanceUncheckedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceUncheckedTableViewCell.m; sourceTree = "<group>"; };
+		38432FD92490A40400DE3437 /* MaintenanceUncheckedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceUncheckedTableViewCell.xib; sourceTree = "<group>"; };
+		38432FDF249229E000DE3437 /* MaintenanceOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceOrderDetailViewController.h; sourceTree = "<group>"; };
+		38432FE0249229E000DE3437 /* MaintenanceOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceOrderDetailViewController.m; sourceTree = "<group>"; };
+		38432FE1249229E000DE3437 /* MaintenanceOrderDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceOrderDetailViewController.xib; sourceTree = "<group>"; };
 		384B31E92488DFC600B31537 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		384B31EB2488DFCE00B31537 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		384B31F2248E121D00B31537 /* MaintenanceRecordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintenanceRecordListViewController.h; sourceTree = "<group>"; };
@@ -3144,6 +3168,12 @@
 		388F212723D039150063DDB7 /* WorkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		3892D8DF228E88780056E4D8 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3892D8E0228E88780056E4D8 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		389C99CD2493671F00EB7507 /* MapTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
+		389C99CE2493671F00EB7507 /* MapTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
+		389C99CF2493671F00EB7507 /* MapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
+		389C99D324937D1100EB7507 /* MaintenanceRefuseOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceRefuseOrderViewController.h; sourceTree = "<group>"; };
+		389C99D424937D1100EB7507 /* MaintenanceRefuseOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceRefuseOrderViewController.m; sourceTree = "<group>"; };
+		389C99D524937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceRefuseOrderViewController.xib; sourceTree = "<group>"; };
 		389D504E243EB1D700609103 /* SXTView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXTView.h; sourceTree = "<group>"; };
 		389D504F243EB1D700609103 /* SXTView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTView.m; sourceTree = "<group>"; };
 		389D5051243EB1F300609103 /* SXTView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTView.xib; sourceTree = "<group>"; };
@@ -6532,13 +6562,91 @@
 				382C1F2D2487A01B0059C6D6 /* New_Elevator_MaintenanceViewController.xib */,
 				38F0CCAB2488D82800E98FB9 /* 1.维保记录 */,
 				38F0CCB02488D82900E98FB9 /* 2.超期电梯 */,
-				38F0CCAC2488D82800E98FB9 /* 3.待审核 */,
-				38F0CCAF2488D82900E98FB9 /* 4.今日完成 */,
-				38F0CCAD2488D82800E98FB9 /* 5.维保计划 */,
-				38F0CCAA2488D82800E98FB9 /* 6.维保记录 */,
-				38F0CCAE2488D82800E98FB9 /* 7.临时工单 */,
+				38F0CCAC2488D82800E98FB9 /* 3.待审核（废弃） */,
+				38F0CCAF2488D82900E98FB9 /* 4.今日保养 已完成工单 临时工单 */,
+				38F0CCAD2488D82800E98FB9 /* 5.维保计划（日历） */,
+				38F0CCAA2488D82800E98FB9 /* 6.未进行工单详情页 */,
+				38F0CCAE2488D82800E98FB9 /* 7.拒绝工单 */,
 			);
 			path = "新电梯维保";
+			sourceTree = "<group>";
+		};
+		38432FC7248F74AC00DE3437 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38432FC8248F74AC00DE3437 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38432FD72490A40400DE3437 /* MaintenanceUncheckedTableViewCell.h */,
+				38432FD82490A40400DE3437 /* MaintenanceUncheckedTableViewCell.m */,
+				38432FD92490A40400DE3437 /* MaintenanceUncheckedTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38432FC9248F74AD00DE3437 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38432FD22490A2DC00DE3437 /* MaintenanceUncheckedViewController.h */,
+				38432FD32490A2DC00DE3437 /* MaintenanceUncheckedViewController.m */,
+				38432FD42490A2DC00DE3437 /* MaintenanceUncheckedViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38432FCA248F74B200DE3437 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38432FCB248F74B200DE3437 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38432FCD248F750200DE3437 /* MaintenanceRecordNoTabViewController.h */,
+				38432FCE248F750200DE3437 /* MaintenanceRecordNoTabViewController.m */,
+				38432FCF248F750200DE3437 /* MaintenanceRecordNoTabViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38432FCC248F74B300DE3437 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38432FDC249229BF00DE3437 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38432FDD249229BF00DE3437 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38432FDF249229E000DE3437 /* MaintenanceOrderDetailViewController.h */,
+				38432FE0249229E000DE3437 /* MaintenanceOrderDetailViewController.m */,
+				38432FE1249229E000DE3437 /* MaintenanceOrderDetailViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38432FDE249229BF00DE3437 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				389C99CD2493671F00EB7507 /* MapTableViewCell.h */,
+				389C99CE2493671F00EB7507 /* MapTableViewCell.m */,
+				389C99CF2493671F00EB7507 /* MapTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		384B31FA248E134400B31537 /* Controller */ = {
@@ -8054,11 +8162,24 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		38F0CCAA2488D82800E98FB9 /* 6.维保记录 */ = {
+		389C99D224937CF300EB7507 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				389C99D324937D1100EB7507 /* MaintenanceRefuseOrderViewController.h */,
+				389C99D424937D1100EB7507 /* MaintenanceRefuseOrderViewController.m */,
+				389C99D524937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib */,
 			);
-			path = "6.维保记录";
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38F0CCAA2488D82800E98FB9 /* 6.未进行工单详情页 */ = {
+			isa = PBXGroup;
+			children = (
+				38432FDD249229BF00DE3437 /* Controller */,
+				38432FDC249229BF00DE3437 /* Model */,
+				38432FDE249229BF00DE3437 /* View */,
+			);
+			path = "6.未进行工单详情页";
 			sourceTree = "<group>";
 		};
 		38F0CCAB2488D82800E98FB9 /* 1.维保记录 */ = {
@@ -8071,35 +8192,42 @@
 			path = "1.维保记录";
 			sourceTree = "<group>";
 		};
-		38F0CCAC2488D82800E98FB9 /* 3.待审核 */ = {
+		38F0CCAC2488D82800E98FB9 /* 3.待审核（废弃） */ = {
 			isa = PBXGroup;
 			children = (
+				38432FC9248F74AD00DE3437 /* Controller */,
+				38432FC7248F74AC00DE3437 /* Model */,
+				38432FC8248F74AC00DE3437 /* View */,
 			);
-			path = "3.待审核";
+			path = "3.待审核（废弃）";
 			sourceTree = "<group>";
 		};
-		38F0CCAD2488D82800E98FB9 /* 5.维保计划 */ = {
+		38F0CCAD2488D82800E98FB9 /* 5.维保计划（日历） */ = {
 			isa = PBXGroup;
 			children = (
 				38F0CCB12488D86A00E98FB9 /* MaintenanceCalendarViewController.h */,
 				38F0CCB22488D86A00E98FB9 /* MaintenanceCalendarViewController.m */,
 				38F0CCB32488D86A00E98FB9 /* MaintenanceCalendarViewController.xib */,
 			);
-			path = "5.维保计划";
+			path = "5.维保计划（日历）";
 			sourceTree = "<group>";
 		};
-		38F0CCAE2488D82800E98FB9 /* 7.临时工单 */ = {
+		38F0CCAE2488D82800E98FB9 /* 7.拒绝工单 */ = {
 			isa = PBXGroup;
 			children = (
+				389C99D224937CF300EB7507 /* Controller */,
 			);
-			path = "7.临时工单";
+			path = "7.拒绝工单";
 			sourceTree = "<group>";
 		};
-		38F0CCAF2488D82900E98FB9 /* 4.今日完成 */ = {
+		38F0CCAF2488D82900E98FB9 /* 4.今日保养 已完成工单 临时工单 */ = {
 			isa = PBXGroup;
 			children = (
+				38432FCB248F74B200DE3437 /* Controller */,
+				38432FCA248F74B200DE3437 /* Model */,
+				38432FCC248F74B300DE3437 /* View */,
 			);
-			path = "4.今日完成";
+			path = "4.今日保养 已完成工单 临时工单";
 			sourceTree = "<group>";
 		};
 		38F0CCB02488D82900E98FB9 /* 2.超期电梯 */ = {
@@ -9358,6 +9486,7 @@
 				1D7E971A2124088F00D01FEB /* RoomTableViewCell.xib in Resources */,
 				1D4555ED1FFE15D400213B8A /* pj_starsel.png in Resources */,
 				3873DEF423CC032F00EC5220 /* Examine_WorkTableViewCell.xib in Resources */,
+				38432FE3249229E000DE3437 /* MaintenanceOrderDetailViewController.xib in Resources */,
 				5C06B7BC1D4B44F200CC6229 /* line03@2x.png in Resources */,
 				5C5176D41D388E4E00284AB1 /* LoginViewController.xib in Resources */,
 				1D67455320F47D91002B1AB2 /* dtwb_wzh.png in Resources */,
@@ -9418,6 +9547,7 @@
 				1DE22285200486E4006003A4 /* front.png in Resources */,
 				3873DEF023CC032F00EC5220 /* Examine_HomeListViewController.xib in Resources */,
 				1DEBB997203FEB6500921EB1 /* MainViewController_dtjy.xib in Resources */,
+				389C99D724937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib in Resources */,
 				1D9E174A1FF4D63500C66934 /* dlxx_btn_jd.png in Resources */,
 				1D0891C21DDC2648009B2F36 /* sroow.jpg in Resources */,
 				1D90B8E721508297005144A4 /* sbts_backgroup2.png in Resources */,
@@ -9426,6 +9556,7 @@
 				5C5176891D388E4600284AB1 /* leftmenu01.png in Resources */,
 				5C5176931D388E4600284AB1 /* leftmenu06.png in Resources */,
 				1D0891D81DDEDABC009B2F36 /* LiftBusinessViewController.xib in Resources */,
+				389C99D12493671F00EB7507 /* MapTableViewCell.xib in Resources */,
 				3873DEAD23CC032E00EC5220 /* Task_PartDetailTableViewCell.xib in Resources */,
 				1D34C6192125A05C00A800B1 /* NTESLoginViewController.xib in Resources */,
 				5C5176AD1D388E4600284AB1 /* rightmenu05.png in Resources */,
@@ -9479,6 +9610,7 @@
 				5C5176AC1D388E4600284AB1 /* rightmenu04@2x.png in Resources */,
 				5C5176A91D388E4600284AB1 /* rightmenu03.png in Resources */,
 				5C0B57DC1D47014E008EABB1 /* PushImageViewController.xib in Resources */,
+				38432FD1248F750200DE3437 /* MaintenanceRecordNoTabViewController.xib in Resources */,
 				1DCF60F72021675500081922 /* sound0.wav in Resources */,
 				1D46F53C200731FA001B29D1 /* no_photos.png in Resources */,
 				5C7F64991D353FDF0024C8ED /* ConvenienceViewController_s.xib in Resources */,
@@ -9601,6 +9733,7 @@
 				5C5176941D388E4600284AB1 /* leftmenu06@2x.png in Resources */,
 				1D9B2BC41D45B9490098A073 /* Singleline_T@2x.png in Resources */,
 				3873DE9623CC032E00EC5220 /* Task_RiskPartDetailViewController.xib in Resources */,
+				38432FDB2490A40400DE3437 /* MaintenanceUncheckedTableViewCell.xib in Resources */,
 				5C5176851D388E4600284AB1 /* navback@2x.png in Resources */,
 				1D2EB7591D51EC7F00203166 /* placeholder.png in Resources */,
 				1DAE84E420F3550E00254D5D /* nfc_c_7.png in Resources */,
@@ -9740,6 +9873,7 @@
 				1D70498E1FF2375400D9417B /* tab_help_sel.png in Resources */,
 				1DD22DDB1FFF114E004E0FC7 /* my_headbg.png in Resources */,
 				5CDDAF671D530C110093ACFB /* refreshAnimation_19.png in Resources */,
+				38432FD62490A2DC00DE3437 /* MaintenanceUncheckedViewController.xib in Resources */,
 				5C0B57D21D46F6A6008EABB1 /* PushTextViewController.xib in Resources */,
 				1DF32815216C856F00780AEB /* sbts_write.png in Resources */,
 				1D3E61832043D67A00738587 /* small@2x.png in Resources */,
@@ -10116,6 +10250,7 @@
 				1D3E618A2043D67A00738587 /* UIView+SCYCategory.m in Sources */,
 				1D34C6352125A05C00A800B1 /* NTESDataManager.m in Sources */,
 				1D34C6B22125A05D00A800B1 /* NSString+NTES.m in Sources */,
+				38432FD0248F750200DE3437 /* MaintenanceRecordNoTabViewController.m in Sources */,
 				385EA97A23C6BFA200F7CDE3 /* OldElevatorBaseModel.m in Sources */,
 				5C12C0CD1D20B42C001BDC4E /* HomeViewController.m in Sources */,
 				1D34C63D2125A05C00A800B1 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -10245,6 +10380,7 @@
 				5C767B6D1D1CF96F002011D7 /* EGOCache.m in Sources */,
 				3892D8E1228E88780056E4D8 /* BaseViewController.m in Sources */,
 				1D34C5FB2125A05C00A800B1 /* yuv444p10le.fsh.c in Sources */,
+				38432FD52490A2DC00DE3437 /* MaintenanceUncheckedViewController.m in Sources */,
 				3873DEA323CC032E00EC5220 /* Task_WorkTableViewCell.m in Sources */,
 				1D04A6361DD15A4E00CFC9D0 /* warningElevatorLift.m in Sources */,
 				5CEF6CDC1D3DC76D0044F8F0 /* JSONKit.m in Sources */,
@@ -10253,6 +10389,7 @@
 				5C0B57D11D46F6A6008EABB1 /* PushTextViewController.m in Sources */,
 				1D34C6452125A05C00A800B1 /* NIMWebImageDownloader.m in Sources */,
 				1D34C60B2125A05C00A800B1 /* UINavigationController+Swizzling.m in Sources */,
+				38432FE2249229E000DE3437 /* MaintenanceOrderDetailViewController.m in Sources */,
 				1D34C2501D48B530001212E5 /* CourseHearView.m in Sources */,
 				1D4051571D5DC4650034033C /* InteractionCourseTableViewCell.m in Sources */,
 				5CEAF1081D406372000AAF99 /* InteractionViewController.m in Sources */,
@@ -10269,6 +10406,7 @@
 				1D34C6B62125A05D00A800B1 /* NSDictionary+NTESJson.m in Sources */,
 				1DED6AB92091A94700AE0E3E /* WXJLSaveViewController.m in Sources */,
 				3873DF7F23CC046900EC5220 /* DKCardNoResponseException.m in Sources */,
+				389C99D624937D1100EB7507 /* MaintenanceRefuseOrderViewController.m in Sources */,
 				1D037EAA200ED6F200FBB1F5 /* TZTGDetailViewController.m in Sources */,
 				5C767BCD1D1CF96F002011D7 /* VoiceRecorderBaseVC.m in Sources */,
 				1D19583E20467DC3009F96AD /* ZFHorizontalAxis.m in Sources */,
@@ -10442,6 +10580,7 @@
 				1D34C62D2125A05C00A800B1 /* NTESLogManager.m in Sources */,
 				1D151FCA1D6AA9620074C6D9 /* signUpViewController.m in Sources */,
 				1D34C6522125A05C00A800B1 /* NIMAttributedLabelURL.m in Sources */,
+				389C99D02493671F00EB7507 /* MapTableViewCell.m in Sources */,
 				1D19582F20467DC3009F96AD /* UIView+Zirkfied.m in Sources */,
 				5CD474FE1D5DA14900AEAAC4 /* ClassIfication.m in Sources */,
 				1D34C6372125A05C00A800B1 /* DDContextFilterLogFormatter.m in Sources */,
@@ -10607,6 +10746,7 @@
 				3873DF6F23CC046900EC5220 /* UITextView+ZWPlaceHolder.m in Sources */,
 				5CD475081D5DD03400AEAAC4 /* ClassIficationEx.m in Sources */,
 				1D2D461620904B5500727183 /* WYXCSaveViewController.m in Sources */,
+				38432FDA2490A40400DE3437 /* MaintenanceUncheckedTableViewCell.m in Sources */,
 				3873DEBA23CC032E00EC5220 /* Task_RiskSelectPartPreviewTableViewCell.m in Sources */,
 				1D34C6982125A05D00A800B1 /* NIMSessionTimestampCell.m in Sources */,
 				1D1A4A462137C69E00A40054 /* SBBandSaveViewController.m in Sources */,

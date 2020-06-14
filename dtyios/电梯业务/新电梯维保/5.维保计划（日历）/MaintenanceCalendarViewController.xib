@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MaintenanceCalendarViewController">
             <connections>
+                <outlet property="endDateLabel" destination="SNj-oe-KfQ" id="2CB-jv-voD"/>
+                <outlet property="startDateLabel" destination="Hns-xd-1Ie" id="UBj-Ka-q0i"/>
                 <outlet property="tableView" destination="zAd-z5-eX0" id="lye-io-yss"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,28 +22,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu6-DE-uMo">
-                    <rect key="frame" x="0.0" y="44" width="414" height="120"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWW-Uj-MTl">
-                            <rect key="frame" x="197.5" y="53" width="19.5" height="14.5"/>
+                            <rect key="frame" x="197.5" y="43" width="19.5" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.086274509803921567" green="0.60784313725490191" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5月18日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hns-xd-1Ie">
-                            <rect key="frame" x="30" y="49.5" width="63" height="21"/>
+                            <rect key="frame" x="30" y="39.5" width="63" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5月25日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-oe-KfQ">
-                            <rect key="frame" x="319" y="49.5" width="65" height="21"/>
+                            <rect key="frame" x="319" y="39.5" width="65" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifM-sm-Nw1">
-                            <rect key="frame" x="30" y="100.5" width="354" height="1"/>
+                            <rect key="frame" x="30" y="90.5" width="354" height="1"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="BhJ-S0-9tz"/>
@@ -52,7 +54,7 @@
                     <constraints>
                         <constraint firstItem="TWW-Uj-MTl" firstAttribute="centerX" secondItem="lu6-DE-uMo" secondAttribute="centerX" id="3U0-OZ-bVh"/>
                         <constraint firstAttribute="trailing" secondItem="ifM-sm-Nw1" secondAttribute="trailing" constant="30" id="MTF-pT-frp"/>
-                        <constraint firstAttribute="height" constant="120" id="O5X-DX-fem"/>
+                        <constraint firstAttribute="height" constant="100" id="O5X-DX-fem"/>
                         <constraint firstItem="Hns-xd-1Ie" firstAttribute="centerY" secondItem="TWW-Uj-MTl" secondAttribute="centerY" id="QUQ-YR-x1t"/>
                         <constraint firstItem="TWW-Uj-MTl" firstAttribute="centerY" secondItem="lu6-DE-uMo" secondAttribute="centerY" id="Zy1-aT-Po3"/>
                         <constraint firstItem="Hns-xd-1Ie" firstAttribute="leading" secondItem="lu6-DE-uMo" secondAttribute="leading" constant="30" id="dI3-re-7ie"/>
@@ -63,13 +65,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*7天内的保养计划" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJT-cq-TR1">
-                    <rect key="frame" x="16" y="194" width="122.5" height="18"/>
+                    <rect key="frame" x="16" y="174" width="122.5" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="zAd-z5-eX0">
-                    <rect key="frame" x="0.0" y="242" width="414" height="620"/>
+                    <rect key="frame" x="0.0" y="222" width="414" height="640"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="EZ8-8U-RXh"/>

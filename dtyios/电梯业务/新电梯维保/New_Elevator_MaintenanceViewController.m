@@ -15,6 +15,10 @@
 #import "MaintenanceRecordViewController.h"
 // 超期工单
 #import "MaintenanceOverOrderViewController.h"
+// 待审核工单
+#import "MaintenanceUncheckedViewController.h"
+// 今日完成（无Tab维保记录页）
+#import "MaintenanceRecordNoTabViewController.h"
 
 #import "MaintenanceCalendarViewController.h"
 
@@ -60,8 +64,7 @@
     WorkCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId"
                                                                              forIndexPath:indexPath];
     cell.titleLabel.text = _dataArray[indexPath.row];
-//    cell.itemImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"业务-%@", _dataArray[indexPath.row]]];
-    cell.itemImageView.image = [UIImage imageNamed:@"业务-维修记录"];
+    cell.itemImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"维保-%@", _dataArray[indexPath.row]]];
     [cell hyb_addCornerRadius:5];
     return cell;
 }
@@ -71,7 +74,17 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if(indexPath.item == 0) {
+            // 维保计划
             MaintenanceCalendarViewController *vc = [MaintenanceCalendarViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.item == 1) {
+            // 维保记录
+            MaintenanceRecordViewController *vc = [MaintenanceRecordViewController new];
+             [self.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.item == 2) {
+            // 临时工单
+            MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
+            vc.navigationItem.title = @"临时工单";
             [self.navigationController pushViewController:vc animated:YES];
         }
     } else {
@@ -91,19 +104,30 @@
     //如果是头视图
     return reusableView;
 }
+// 今日保养
 - (IBAction)action1:(id)sender {
-    MaintenanceRecordViewController *vc = [MaintenanceRecordViewController new];
+    MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
+    vc.navigationItem.title = @"今日保养";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+// 超期电梯
 - (IBAction)action2:(id)sender {
     MaintenanceOverOrderViewController *vc = [MaintenanceOverOrderViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+// 待审核
 - (IBAction)action3:(id)sender {
+    MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
+    vc.navigationItem.title = @"待审核工单";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
+// 今日完成
 - (IBAction)action4:(id)sender {
+    MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
+    vc.navigationItem.title = @"已完成工单";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -23,7 +23,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyY-sG-632">
                             <rect key="frame" x="0.0" y="0.0" width="94" height="125"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="业务-电梯维保" translatesAutoresizingMaskIntoConstraints="NO" id="C7j-pR-CbR">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="维保-今日保养" translatesAutoresizingMaskIntoConstraints="NO" id="C7j-pR-CbR">
                                     <rect key="frame" x="23.5" y="19" width="47" height="47"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="C7j-pR-CbR" secondAttribute="height" id="sFW-SS-Uzz"/>
@@ -66,7 +66,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtw-17-OYc">
                             <rect key="frame" x="94" y="0.0" width="93.5" height="125"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="业务-电梯维保" translatesAutoresizingMaskIntoConstraints="NO" id="K2v-wh-Qjs">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="维保-超期电梯" translatesAutoresizingMaskIntoConstraints="NO" id="K2v-wh-Qjs">
                                     <rect key="frame" x="23" y="19" width="47" height="47"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="K2v-wh-Qjs" secondAttribute="height" id="XUb-PM-Mdu"/>
@@ -109,7 +109,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1f-pQ-off">
                             <rect key="frame" x="187.5" y="0.0" width="93.5" height="125"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="业务-电梯维保" translatesAutoresizingMaskIntoConstraints="NO" id="o2a-KP-HAR">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="维保-待审核" translatesAutoresizingMaskIntoConstraints="NO" id="o2a-KP-HAR">
                                     <rect key="frame" x="23.5" y="19" width="46.5" height="47"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="o2a-KP-HAR" secondAttribute="height" id="ee1-6U-EXw"/>
@@ -152,7 +152,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kze-yd-9kg">
                             <rect key="frame" x="282" y="0.0" width="93" height="125"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="业务-电梯维保" translatesAutoresizingMaskIntoConstraints="NO" id="LgY-zZ-iDl">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="维保-今日完成" translatesAutoresizingMaskIntoConstraints="NO" id="LgY-zZ-iDl">
                                     <rect key="frame" x="23" y="19" width="46.5" height="47"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="LgY-zZ-iDl" secondAttribute="height" id="lcl-6s-FlG"/>
@@ -226,6 +226,9 @@
         </view>
     </objects>
     <resources>
-        <image name="业务-电梯维保" width="72" height="72"/>
+        <image name="维保-今日保养" width="71" height="71"/>
+        <image name="维保-今日完成" width="71" height="71"/>
+        <image name="维保-待审核" width="71" height="71"/>
+        <image name="维保-超期电梯" width="71" height="71"/>
     </resources>
 </document>

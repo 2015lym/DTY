@@ -10,7 +10,9 @@
 
 @interface MaintenanceCalendarViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
+@property (nonatomic, strong) NSMutableArray *dateArray;
 @end
 
 @implementation MaintenanceCalendarViewController
@@ -18,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"维保日历";
-    _dataArray = [NSMutableArray arrayWithObjects:@"5月8日", @"5月9日", @"5月10日", @"5月11日", @"5月12日", @"5月13日", @"5月14日",  nil];
+    [self getDate];
     _tableView.tableFooterView = [UIView new];
 }
 
@@ -52,7 +54,7 @@
 
 #pragma mark - ---------- Cell的数量 ----------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArray.count;
+    return _dateArray.count;
 }
 
 #pragma mark - ---------- 每个Cell的内容 ----------
@@ -62,7 +64,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ideitifier];
     }
-    cell.textLabel.text = _dataArray[indexPath.row];
+    cell.textLabel.text = _dateArray[indexPath.row];
     cell.detailTextLabel.text = @"计划保养7台";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -71,5 +73,21 @@
 #pragma mark - ---------- TableView 点击事件 ----------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)getDate {
+    _dateArray = [NSMutableArray array];
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval oneDay = 24 * 60 * 60;
+    for (int i=0; i<7; i++) {
+        NSDate *tempDate = [currentDate initWithTimeIntervalSinceNow: oneDay * i];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM月dd日"];
+        NSString *strDate = [dateFormatter stringFromDate:tempDate];
+        [_dateArray addObject:strDate];
+    }
+    _startDateLabel.text = _dateArray.firstObject;
+    _endDateLabel.text = _dateArray.lastObject;
+    NSLog(@"%@", _dateArray);
 }
 @end

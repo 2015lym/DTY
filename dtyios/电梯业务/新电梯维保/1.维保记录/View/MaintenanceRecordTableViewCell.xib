@@ -93,7 +93,7 @@
                 <outlet property="codeLabel" destination="hm1-fY-FZG" id="IEd-WR-Fhj"/>
                 <outlet property="overLabel" destination="AOa-Q9-YlY" id="kFf-dJ-ofw"/>
                 <outlet property="peopleLabel" destination="14h-58-TNn" id="x7a-aS-GgO"/>
-                <outlet property="tabLabel" destination="izV-MA-fuo" id="oDZ-yL-vLJ"/>
+                <outlet property="tagLabel" destination="izV-MA-fuo" id="Hvs-n6-toP"/>
                 <outlet property="timeLabel" destination="sJf-95-iD4" id="X58-vJ-qXm"/>
                 <outlet property="typeLabel" destination="DIi-CW-39m" id="bp6-m9-Shc"/>
             </connections>
