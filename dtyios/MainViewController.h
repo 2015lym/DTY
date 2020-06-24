@@ -13,6 +13,7 @@
 #import "Util.h"
 #import "LeftViewController.h"
 #import "SWJKViewController.h"
+
 @interface MainViewController : UITabBarController<MainViewDelegate,LeftViewDelegate,RightViewDelegate>
 {
     UIView *view_tabBar;

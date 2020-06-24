@@ -11,7 +11,6 @@
 #import "Util.h"
 #import "ConvenienceViewController.h"
 #import "ConvenienceViewIOSController.h"
-#import "EventViewController.h"
 #import "EventViewIOSController.h"
 #import "InteractionViewController.h"
 #import "InteractionViewIOSController.h"
@@ -23,6 +22,8 @@
 #import "AboutViewController.h"
 #import "MessageCenterViewController.h"
 #import "JYGLListViewController.h"
+#import "LoginViewController.h"
+
 @interface MainViewController_dtjy ()
 
 @end

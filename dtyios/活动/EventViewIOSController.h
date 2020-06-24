@@ -26,8 +26,8 @@
 @interface EventViewIOSController : UIViewController<SchoolCourseDelegate,BMKMapViewDelegate,CLLocationManagerDelegate,NIMLoginManagerDelegate,NIMChatManagerDelegate,NIMSystemNotificationManagerDelegate,BMKLocationManagerDelegate>
 {
     EventCourseViewController *scvc;
-    IBOutlet BMKMapView *_mapView;
-    IBOutlet UIView *view_content;
+    BMKMapView *_mapView;
+    UIView *view_content;
     
     NSMutableArray* allTags;
     FMDatabase *fmdDB;

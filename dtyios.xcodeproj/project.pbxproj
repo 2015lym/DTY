@@ -439,9 +439,6 @@
 		1D4050FD1D5C02870034033C /* ConvenienceViewIOSController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4050FC1D5C02870034033C /* ConvenienceViewIOSController_s.xib */; };
 		1D4050FF1D5C02A10034033C /* ConvenienceViewIOSController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4050FE1D5C02A10034033C /* ConvenienceViewIOSController_p.xib */; };
 		1D4051021D5C02E30034033C /* ConvenienceViewIOSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4051011D5C02E30034033C /* ConvenienceViewIOSController.m */; };
-		1D40510F1D5D721C0034033C /* EventViewIOSController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D40510E1D5D721C0034033C /* EventViewIOSController.xib */; };
-		1D4051151D5D722E0034033C /* EventViewIOSController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4051141D5D722E0034033C /* EventViewIOSController_s.xib */; };
-		1D4051171D5D72400034033C /* EventViewIOSController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4051161D5D72400034033C /* EventViewIOSController_p.xib */; };
 		1D40511A1D5D725E0034033C /* EventViewIOSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4051191D5D725E0034033C /* EventViewIOSController.m */; };
 		1D4051291D5D73420034033C /* EventCurriculumEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4051221D5D73420034033C /* EventCurriculumEntity.m */; };
 		1D40512A1D5D73420034033C /* EventCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4051251D5D73420034033C /* EventCourseViewController.m */; };
@@ -1298,8 +1295,6 @@
 		5C7F64971D353A980024C8ED /* ConvenienceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C7F64951D353A980024C8ED /* ConvenienceViewController.xib */; };
 		5C7F64991D353FDF0024C8ED /* ConvenienceViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C7F64981D353FDF0024C8ED /* ConvenienceViewController_s.xib */; };
 		5C7F649B1D353FED0024C8ED /* ConvenienceViewController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C7F649A1D353FED0024C8ED /* ConvenienceViewController_p.xib */; };
-		5C7F649F1D3545F80024C8ED /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F649D1D3545F80024C8ED /* EventViewController.m */; };
-		5C7F64A01D3545F80024C8ED /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C7F649E1D3545F80024C8ED /* EventViewController.xib */; };
 		5C89A1FF1D4E5B4600AD67FB /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C89A1FE1D4E5B4600AD67FB /* AboutViewController.m */; };
 		5C89A2011D4E5D3900AD67FB /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C89A2001D4E5D3900AD67FB /* AboutViewController.xib */; };
 		5C89A2031D4E5D4600AD67FB /* AboutViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C89A2021D4E5D4600AD67FB /* AboutViewController_s.xib */; };
@@ -1342,8 +1337,6 @@
 		5CEAA3DF1D3CA7EF00AA216B /* RegisterViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAA3DD1D3CA7EF00AA216B /* RegisterViewController_s.xib */; };
 		5CEAA3E21D3CA85D00AA216B /* LoginViewController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAA3E01D3CA85D00AA216B /* LoginViewController_p.xib */; };
 		5CEAA3E31D3CA85D00AA216B /* LoginViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAA3E11D3CA85D00AA216B /* LoginViewController_s.xib */; };
-		5CEAF0F71D405866000AAF99 /* EventViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAF0F61D405866000AAF99 /* EventViewController_s.xib */; };
-		5CEAF1041D405870000AAF99 /* EventViewController_p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAF1031D405870000AAF99 /* EventViewController_p.xib */; };
 		5CEAF1081D406372000AAF99 /* InteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAF1061D406372000AAF99 /* InteractionViewController.m */; };
 		5CEAF1091D406372000AAF99 /* InteractionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAF1071D406372000AAF99 /* InteractionViewController.xib */; };
 		5CEAF10B1D40639D000AAF99 /* InteractionViewController_s.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAF10A1D40639D000AAF99 /* InteractionViewController_s.xib */; };
@@ -2201,9 +2194,6 @@
 		1D4050FE1D5C02A10034033C /* ConvenienceViewIOSController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConvenienceViewIOSController_p.xib; sourceTree = "<group>"; };
 		1D4051001D5C02E30034033C /* ConvenienceViewIOSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvenienceViewIOSController.h; sourceTree = "<group>"; };
 		1D4051011D5C02E30034033C /* ConvenienceViewIOSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvenienceViewIOSController.m; sourceTree = "<group>"; };
-		1D40510E1D5D721C0034033C /* EventViewIOSController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewIOSController.xib; sourceTree = "<group>"; };
-		1D4051141D5D722E0034033C /* EventViewIOSController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewIOSController_s.xib; sourceTree = "<group>"; };
-		1D4051161D5D72400034033C /* EventViewIOSController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewIOSController_p.xib; sourceTree = "<group>"; };
 		1D4051181D5D725E0034033C /* EventViewIOSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewIOSController.h; sourceTree = "<group>"; };
 		1D4051191D5D725E0034033C /* EventViewIOSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewIOSController.m; sourceTree = "<group>"; };
 		1D4051211D5D73420034033C /* EventCurriculumEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCurriculumEntity.h; sourceTree = "<group>"; };
@@ -3473,9 +3463,6 @@
 		5C7F64951D353A980024C8ED /* ConvenienceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConvenienceViewController.xib; sourceTree = "<group>"; };
 		5C7F64981D353FDF0024C8ED /* ConvenienceViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConvenienceViewController_s.xib; sourceTree = "<group>"; };
 		5C7F649A1D353FED0024C8ED /* ConvenienceViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConvenienceViewController_p.xib; sourceTree = "<group>"; };
-		5C7F649C1D3545F80024C8ED /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
-		5C7F649D1D3545F80024C8ED /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
-		5C7F649E1D3545F80024C8ED /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
 		5C89A1FD1D4E5B4600AD67FB /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		5C89A1FE1D4E5B4600AD67FB /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		5C89A2001D4E5D3900AD67FB /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -3523,8 +3510,6 @@
 		5CEAA3DD1D3CA7EF00AA216B /* RegisterViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController_s.xib; sourceTree = "<group>"; };
 		5CEAA3E01D3CA85D00AA216B /* LoginViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController_p.xib; sourceTree = "<group>"; };
 		5CEAA3E11D3CA85D00AA216B /* LoginViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController_s.xib; sourceTree = "<group>"; };
-		5CEAF0F61D405866000AAF99 /* EventViewController_s.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController_s.xib; sourceTree = "<group>"; };
-		5CEAF1031D405870000AAF99 /* EventViewController_p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController_p.xib; sourceTree = "<group>"; };
 		5CEAF1051D406372000AAF99 /* InteractionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractionViewController.h; sourceTree = "<group>"; };
 		5CEAF1061D406372000AAF99 /* InteractionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractionViewController.m; sourceTree = "<group>"; };
 		5CEAF1071D406372000AAF99 /* InteractionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InteractionViewController.xib; sourceTree = "<group>"; };
@@ -9171,23 +9156,15 @@
 				1D04A63D1DD1C1A100CFC9D0 /* 救援列表 */,
 				1D0B3B5A1DD4698800F8C42C /* 人工下单 */,
 				1D0B3B5B1DD469AA00F8C42C /* 投诉建议 */,
-				5CEAF1101D406B83000AAF99 /* EventTwoViewController.h */,
-				5CEAF1111D406B83000AAF99 /* EventTwoViewController.m */,
-				5CEAF1031D405870000AAF99 /* EventViewController_p.xib */,
-				5CEAF0F61D405866000AAF99 /* EventViewController_s.xib */,
-				5C7F649C1D3545F80024C8ED /* EventViewController.h */,
-				5C7F649D1D3545F80024C8ED /* EventViewController.m */,
-				5C7F649E1D3545F80024C8ED /* EventViewController.xib */,
-				1D4051161D5D72400034033C /* EventViewIOSController_p.xib */,
-				1D4051141D5D722E0034033C /* EventViewIOSController_s.xib */,
-				1D4051181D5D725E0034033C /* EventViewIOSController.h */,
-				1D4051191D5D725E0034033C /* EventViewIOSController.m */,
-				1D40510E1D5D721C0034033C /* EventViewIOSController.xib */,
 				1D4927211DD2F591005663EA /* model */,
 				1D04A6341DD15A4E00CFC9D0 /* warningElevatorLift.h */,
 				1D04A6351DD15A4E00CFC9D0 /* warningElevatorLift.m */,
 				1D04A6311DD0B38600CFC9D0 /* warningElevatorModel.h */,
 				1D04A6321DD1599100CFC9D0 /* warningElevatorModel.m */,
+				5CEAF1101D406B83000AAF99 /* EventTwoViewController.h */,
+				5CEAF1111D406B83000AAF99 /* EventTwoViewController.m */,
+				1D4051181D5D725E0034033C /* EventViewIOSController.h */,
+				1D4051191D5D725E0034033C /* EventViewIOSController.m */,
 			);
 			path = "活动";
 			sourceTree = "<group>";
@@ -9359,7 +9336,6 @@
 				1D0891C81DDD8135009B2F36 /* SinodomSQLite.sqlite in Resources */,
 				1DB31A111FF5D3CD00FEF755 /* phone_green.png in Resources */,
 				1DAE84F620F3554800254D5D /* nfc_back_6.png in Resources */,
-				1D40510F1D5D721C0034033C /* EventViewIOSController.xib in Resources */,
 				1D90B8F0215082A8005144A4 /* sbts_right_blru.png in Resources */,
 				3873DEEC23CC032F00EC5220 /* Examine_WorkDetailViewController.xib in Resources */,
 				1D0891A21DD9B12E009B2F36 /* loginAndRegistViewController.xib in Resources */,
@@ -9594,7 +9570,6 @@
 				3873DEF923CC032F00EC5220 /* Examine_ProjectListTableViewCell.xib in Resources */,
 				3873DEBB23CC032E00EC5220 /* Task_RiskPartSelectTableViewCell.xib in Resources */,
 				5CDDAF5E1D530C110093ACFB /* refreshAnimation_9.png in Resources */,
-				1D4051151D5D722E0034033C /* EventViewIOSController_s.xib in Resources */,
 				1DE22284200486E4006003A4 /* content.png in Resources */,
 				5CFA287C1D616E95000B440A /* test.caf in Resources */,
 				1D34C2571D48B530001212E5 /* CourseDetailedViewController_n.xib in Resources */,
@@ -9611,13 +9586,11 @@
 				5C7F64991D353FDF0024C8ED /* ConvenienceViewController_s.xib in Resources */,
 				5C767BC61D1CF96F002011D7 /* ChatVoiceRecorderVC.xib in Resources */,
 				1DD166992041409E000D5589 /* lookDetail.png in Resources */,
-				5CEAF0F71D405866000AAF99 /* EventViewController_s.xib in Resources */,
 				1D4D3D4A201B2716001343D1 /* ChangePasswordVC.xib in Resources */,
 				1D3F84E520048CAE0000ABBD /* wyxc_48dp.png in Resources */,
 				1D9E39AA1DE2CA670029DCDC /* RescueOmitViewController_s.xib in Resources */,
 				3873DECB23CC032E00EC5220 /* Part_BindViewController.xib in Resources */,
 				1D9E173B1FF483DE00C66934 /* dlxx_ts.png in Resources */,
-				5C7F64A01D3545F80024C8ED /* EventViewController.xib in Resources */,
 				1D4555DE1FFDC5B000213B8A /* dt_choice1.png in Resources */,
 				1D3E61952043E56F00738587 /* QRCodeViewController_JX.xib in Resources */,
 				1DF7E104214A0A8800B5A62D /* search_colorGray.png in Resources */,
@@ -9714,7 +9687,6 @@
 				1D04A63C1DD1999D00CFC9D0 /* selectBack.png in Resources */,
 				1D7049841FF1F9A500D9417B /* login_name.png in Resources */,
 				5C89A2011D4E5D3900AD67FB /* AboutViewController.xib in Resources */,
-				1D4051171D5D72400034033C /* EventViewIOSController_p.xib in Resources */,
 				1D34C6AC2125A05D00A800B1 /* video_chat_tip_receiver.aac in Resources */,
 				1D827D711D4B690100FE9BE7 /* refreshAnimation_10.png in Resources */,
 				3873DF8723CC046900EC5220 /* Overlay.png in Resources */,
@@ -9899,7 +9871,6 @@
 				1D0FB56B1E0D1FBE00311C39 /* BJYLWViewController.xib in Resources */,
 				1D3E61822043D67A00738587 /* play@2x.png in Resources */,
 				5CD474FB1D5DA07F00AEAAC4 /* ConvenienceDetailsViewController.xib in Resources */,
-				5CEAF1041D405870000AAF99 /* EventViewController_p.xib in Resources */,
 				1D9E39B51DE2D9740029DCDC /* rating.png in Resources */,
 				5C5176841D388E4600284AB1 /* navback.png in Resources */,
 				1DF7E115214A283000B5A62D /* addPeople.png in Resources */,
@@ -10168,7 +10139,6 @@
 				1D34C6A92125A05D00A800B1 /* NSString+NIM.m in Sources */,
 				1D5B4AF6216F41F300E562BB /* WZHMainViewController.m in Sources */,
 				1D34C6142125A05C00A800B1 /* NTESBadgeView.m in Sources */,
-				5C7F649F1D3545F80024C8ED /* EventViewController.m in Sources */,
 				1D34C6922125A05D00A800B1 /* NIMImageContentConfig.m in Sources */,
 				1D0C7FC7200335AF00A21F3F /* XXNet.m in Sources */,
 				5C767BC21D1CF96F002011D7 /* VoiceConverter.mm in Sources */,

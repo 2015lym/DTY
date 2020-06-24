@@ -89,7 +89,7 @@ BOOL enableCustomMap;
     static dispatch_once_t onceToken;
     // dispatch_once  无论使用多线程还是单线程，都只执行一次
     dispatch_once(&onceToken, ^{
-        singleton = [[EventViewIOSController alloc] initWithNibName:[Util GetResolution:@"EventViewIOSController"]  bundle:nil];
+        singleton = [[EventViewIOSController alloc] init];
     });
     return singleton;
 }
@@ -161,7 +161,10 @@ BOOL enableCustomMap;
     locationTime=300;
     getStateAction *stateAction=[[getStateAction alloc]init];
     [stateAction GetLastStatusActionList];
-    
+    _mapView = [BMKMapView new];
+    view_content = [UIView new];
+    [self.view addSubview:view_content];
+    [view_content addSubview:_mapView];
     view_content.frame=CGRectMake(0,  0, bounds_width.size.width, bounds_width.size.height);
     _mapView.frame=CGRectMake(0,  0, bounds_width.size.width, bounds_width.size.height-48);
     _mapView.backgroundColor=[UIColor whiteColor];
