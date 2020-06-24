@@ -22,7 +22,7 @@
         return userType;
     }
 }
-
+#pragma mark - ---------- 老旧信息 ----------
 + (void)setOldUserInfo:(OldUserModel *)model {
     NSString *userInfoString = [model yy_modelToJSONString];
     [[NSUserDefaults standardUserDefaults] setObject:userInfoString forKey:@"userInfo"];
@@ -35,6 +35,23 @@
     } else {
         NSDictionary *dic = [StringFunction stringToDic:userInfoString];
         OldUserModel *model = [OldUserModel yy_modelWithJSON:dic];
+        return model;
+    }
+}
+
+#pragma mark - ---------- 用户信息 ----------
++ (void)setUserInfo:(UserModel *)model {
+    NSString *userInfoString = [model yy_modelToJSONString];
+    [[NSUserDefaults standardUserDefaults] setObject:userInfoString forKey:@"userInfo"];
+}
+
++ (UserModel *)getUserInfo {
+    NSString *userInfoString = [[NSUserDefaults standardUserDefaults] valueForKey:@"userInfo"];
+    if ([StringFunction isBlankString:userInfoString]) {
+        return [[UserModel alloc] init];
+    } else {
+        NSDictionary *dic = [StringFunction stringToDic:userInfoString];
+        UserModel *model = [UserModel yy_modelWithJSON:dic];
         return model;
     }
 }

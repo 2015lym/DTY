@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MaintenanceRecordModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MaintenanceRecordTableViewCell : UITableViewCell
@@ -19,7 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *peopleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *overLabel;
 
+
+
 + (instancetype)cellWithTableView:(UITableView *)tableview;
+
+@property (nonatomic, strong) MaintenanceRecordModel *model;
 
 @end
 

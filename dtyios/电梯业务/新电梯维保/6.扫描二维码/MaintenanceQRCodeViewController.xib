@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MaintenanceQRCodeViewController">
+            <connections>
+                <outlet property="nextButton" destination="mOR-EC-bP2" id="F8x-sc-7ZI"/>
+                <outlet property="scanButton" destination="1fC-Xp-PyX" id="X0N-dP-c3L"/>
+                <outlet property="view" destination="ivV-0s-U0d" id="h56-hM-jkc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ivV-0s-U0d">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWC-95-SMk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="500.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note_2code_back" translatesAutoresizingMaskIntoConstraints="NO" id="724-cf-NW9">
+                            <rect key="frame" x="87.5" y="20" width="200" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="s5p-dg-6Iv"/>
+                                <constraint firstAttribute="height" constant="200" id="xtu-kn-xcB"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击立即扫码扫描电梯应急指示牌上的二维码" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smw-pT-0Gb">
+                            <rect key="frame" x="15" y="230" width="345" height="43"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前状态：未识别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlM-vy-bmj">
+                            <rect key="frame" x="118" y="288" width="139" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fC-Xp-PyX">
+                            <rect key="frame" x="127.5" y="324" width="120" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="Z9H-vF-Q8b"/>
+                                <constraint firstAttribute="height" constant="40" id="yI6-Hj-LI9"/>
+                            </constraints>
+                            <state key="normal" title="立即扫描">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="scanAction:" destination="-1" eventType="touchUpInside" id="gk4-SR-go9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.15294117647058825" green="0.16470588235294117" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="dlM-vy-bmj" firstAttribute="top" secondItem="smw-pT-0Gb" secondAttribute="bottom" constant="15" id="GNh-Dq-KWk"/>
+                        <constraint firstItem="dlM-vy-bmj" firstAttribute="centerX" secondItem="AWC-95-SMk" secondAttribute="centerX" id="LNL-BR-m8D"/>
+                        <constraint firstItem="smw-pT-0Gb" firstAttribute="top" secondItem="724-cf-NW9" secondAttribute="bottom" constant="10" id="NiK-a3-MnU"/>
+                        <constraint firstItem="724-cf-NW9" firstAttribute="top" secondItem="AWC-95-SMk" secondAttribute="top" constant="20" id="cst-JU-dlh"/>
+                        <constraint firstItem="1fC-Xp-PyX" firstAttribute="centerX" secondItem="AWC-95-SMk" secondAttribute="centerX" id="fBl-91-0Nk"/>
+                        <constraint firstItem="smw-pT-0Gb" firstAttribute="leading" secondItem="AWC-95-SMk" secondAttribute="leading" constant="15" id="lYD-2j-tGh"/>
+                        <constraint firstItem="724-cf-NW9" firstAttribute="centerX" secondItem="AWC-95-SMk" secondAttribute="centerX" id="nD7-Ao-qT0"/>
+                        <constraint firstAttribute="trailing" secondItem="smw-pT-0Gb" secondAttribute="trailing" constant="15" id="wIR-lr-HvK"/>
+                        <constraint firstItem="1fC-Xp-PyX" firstAttribute="top" secondItem="dlM-vy-bmj" secondAttribute="bottom" constant="15" id="wnf-MR-454"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOR-EC-bP2">
+                    <rect key="frame" x="30" y="530.5" width="315" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="c0q-Bk-ece"/>
+                    </constraints>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="nextPage:" destination="-1" eventType="touchUpInside" id="LbN-0O-cYK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mOR-EC-bP2" secondAttribute="trailing" constant="30" id="9sg-Uf-PhE"/>
+                <constraint firstItem="mOR-EC-bP2" firstAttribute="centerX" secondItem="ivV-0s-U0d" secondAttribute="centerX" id="D53-uP-9DG"/>
+                <constraint firstAttribute="trailing" secondItem="AWC-95-SMk" secondAttribute="trailing" id="PV2-Al-Zdw"/>
+                <constraint firstItem="AWC-95-SMk" firstAttribute="leading" secondItem="ivV-0s-U0d" secondAttribute="leading" id="cuX-tV-VT5"/>
+                <constraint firstItem="AWC-95-SMk" firstAttribute="height" secondItem="ivV-0s-U0d" secondAttribute="height" multiplier="3/4" id="eMZ-iO-PvK"/>
+                <constraint firstItem="mOR-EC-bP2" firstAttribute="top" secondItem="AWC-95-SMk" secondAttribute="bottom" constant="30" id="s37-wZ-8ws"/>
+                <constraint firstItem="AWC-95-SMk" firstAttribute="top" secondItem="ivV-0s-U0d" secondAttribute="top" id="tiK-h7-fw8"/>
+                <constraint firstItem="mOR-EC-bP2" firstAttribute="leading" secondItem="ivV-0s-U0d" secondAttribute="leading" constant="30" id="yjb-3q-5Qe"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="-58.399999999999999" y="29.23538230884558"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="note_2code_back" width="189.5" height="189.5"/>
+    </resources>
+</document>

@@ -14,6 +14,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _mapView = [[BMKMapView alloc] init];
+    _mapView.zoomLevel = 14;
+    _mapView.centerCoordinate = CLLocationCoordinate2DMake(41.74777698042053, 123.40173256281172);
     [self.contentView addSubview:_mapView];
     [_mapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(16);

@@ -8,10 +8,16 @@
 
 #import "YMBaseViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
+typedef NS_ENUM(NSUInteger, OrderType) {
+    todo,
+    doing,
+    checking,
+    signing,
+    done
+};
 
 @interface MaintenanceOrderDetailViewController : YMBaseViewController
+@property (nonatomic, assign) OrderType orderType;
+@property (nonatomic, copy) NSString *workOrderId;
 
 @end
-
-NS_ASSUME_NONNULL_END

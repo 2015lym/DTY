@@ -217,30 +217,20 @@
          else
          {
              long LoginErrorType=[[dic_data valueForKeyPath:@"LoginErrorType"] longValue];
-             if(LoginErrorType==1)
-             {
+             if(LoginErrorType==1) {
                  [self showAlter:@"登录名不存在！"];
                  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                  return ;
 
-             }
-             else if(LoginErrorType==2)
-             {
+             } else if(LoginErrorType==2) {
                  [self showAlter:@"登录密码错误！"];
                  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                  return ;
-             }
-             else if(LoginErrorType==3)
-             {
+             } else if(LoginErrorType==3) {
                  [self showAlter:@"此用户未激活！"];
                  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                  return ;
-             }
-//             else if (LoginErrorType==4)//未知流程，安卓代码好像是成功
-//             {
-//             }
-             else
-             {
+             } else {
          
          //////////////////////UpdateLogin调用接口
         

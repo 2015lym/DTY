@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OldUserModel.h"
+#import "UserModel.h"
 
 @interface UserService : NSObject
 
@@ -17,6 +18,9 @@
 
 + (void)setOldUserInfo:(OldUserModel *)model;
 + (OldUserModel *)getOldUserInfo;
+
++ (void)setUserInfo:(UserModel *)model;
++ (UserModel *)getUserInfo;
 
 + (void)clearUserInfo;
 

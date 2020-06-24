@@ -9,5 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface UserModel : NSObject
+@property (nonatomic, retain) NSString *roleId;
+@property (nonatomic ,strong) NSString *username;
+@property (nonatomic ,strong) NSString *nickname;
+@property (nonatomic ,strong) NSString *pwd;
+@property (nonatomic ,strong) NSString *uhead;
+
+@property (nonatomic ,strong) NSString *userId;
+@property (nonatomic ,strong) NSString *deptRoleCode;
 
 @end

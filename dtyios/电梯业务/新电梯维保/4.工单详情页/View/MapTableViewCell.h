@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) BMKMapView *mapView;
 
+@property (nonatomic, assign) float Latitude;
+@property (nonatomic, assign) float Longitude;
+
 + (instancetype)cellWithTableView:(UITableView *)tableview;
 
 @end

@@ -35,7 +35,7 @@
 }
 
 - (void)configPageView {
-    NSArray *titleArr = @[@"全部", @"未进行", @"进行中", @"待审核", @"已完成"];
+    NSArray *titleArr = @[@"未进行",@"进行中" ,@"待审核" ,@"待签认" ,@"已完成"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.indicatorToBottomDistance = 3;
     configure.titleFont = [UIFont systemFontOfSize:14];

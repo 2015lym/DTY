@@ -25,7 +25,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated {
     [self hideProgress];
     if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
 //        NSLog(@"点击返回键");

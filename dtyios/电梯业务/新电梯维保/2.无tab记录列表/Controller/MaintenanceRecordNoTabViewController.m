@@ -1,30 +1,26 @@
 //
-//  MaintenanceRecordListViewController.m
-//  Sea_northeast_asia
+//  MaintenanceRecordNoTabViewController.m
+//  dtyios
 //
-//  Created by Lym on 2019/6/10.
-//  Copyright © 2019 SongQues. All rights reserved.
+//  Created by Lym on 2020/6/9.
+//  Copyright © 2020 SongQues. All rights reserved.
 //
 
-#import "MaintenanceRecordListViewController.h"
+#import "MaintenanceRecordNoTabViewController.h"
 #import "MaintenanceRecordTableViewCell.h"
-#import "MaintenanceRecordViewController.h"
 #import "MJRefresh.h"
-#import "IQKeyboardManager.h"
 #import "MaintenanceRecordModel.h"
-
 #import "MaintenanceOrderDetailViewController.h"
 
-@interface MaintenanceRecordListViewController ()
+@interface MaintenanceRecordNoTabViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
-@implementation MaintenanceRecordListViewController
+@implementation MaintenanceRecordNoTabViewController
 
-#pragma mark - ---------- 生命周期 ----------
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(netRequest)];
@@ -32,13 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[IQKeyboardManager sharedManager] setEnable:NO];
     [self netRequest];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-   [[IQKeyboardManager sharedManager] setEnable:YES];
 }
 
 - (IBAction)search:(id)sender {
@@ -63,6 +53,7 @@
     view.backgroundColor = self.view.backgroundColor;
     return view;
 }
+
 
 #pragma mark - ---------- 每个Cell的高度 ----------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

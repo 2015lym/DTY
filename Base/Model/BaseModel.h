@@ -16,8 +16,10 @@
 
 @property (nonatomic, copy) NSString *error;
 @property (nonatomic, copy) NSString *targetUrl;
+@property (nonatomic, copy) NSString *Message;
 
 @property (nonatomic, strong) id data;
+@property (nonatomic, strong) id Data;
 @property (nonatomic, strong) id result;
 
 @end

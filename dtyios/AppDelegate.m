@@ -653,28 +653,30 @@ void getException(NSException *exception)
 
 }
 
--(void)loginShow
-{
+-(void)loginShow {
     NSString   *str_CachePath_Login = [NSString stringWithFormat:@"%@%@",[Util GetMyCachesPath],@"Login"];
-   NSMutableArray  *userinfo1=[NSMutableArray arrayWithContentsOfFile:str_CachePath_Login];
-    if(userinfo1.count==5)
-    {
+    NSMutableArray  *userinfo1=[NSMutableArray arrayWithContentsOfFile:str_CachePath_Login];
+    if(userinfo1.count==5) {
         _userInfo=[[UserInfoEntity alloc]init];
         [_userInfo setUserInfo:userinfo1[0] forpwd:@"" forUserID:userinfo1[1] forDeptRoleCode:userinfo1[2] forRoleId:userinfo1 [3] forNikename:[userinfo1 lastObject]];
+        UserModel *model = [[UserModel alloc] init];
+        model.username = _userInfo.username;
+        model.userId = _userInfo.UserID;
+        model.deptRoleCode = _userInfo.DeptRoleCode;
+        model.roleId = _userInfo.RoleId;
+        model.nickname = _userInfo.nikename;
+        [UserService setUserInfo:model];
         [self loginSucceed];
-    }
-    else
-    {
-    loginAndRegistViewController *view_Login
-    =[[loginAndRegistViewController alloc]initWithNibName:[Util GetResolution:@"loginAndRegistViewController"] bundle:nil];
-   _window.rootViewController=view_Login;
+    } else {
+        loginAndRegistViewController *view_Login = [[loginAndRegistViewController alloc]initWithNibName:[Util GetResolution:@"loginAndRegistViewController"] bundle:nil];
+        _window.rootViewController=view_Login;
     }
 }
 
 -(void)loginSucceed
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-    NSString *userid=[NSString stringWithFormat:@"%@" , _userInfo.UserID];
+        NSString *userid=[NSString stringWithFormat:@"%@" , self.userInfo.UserID];
     //推送注册
     [UMessage addAlias:userid type:@"ELEVATOR" response:^(id responseObject, NSError *error) {
         

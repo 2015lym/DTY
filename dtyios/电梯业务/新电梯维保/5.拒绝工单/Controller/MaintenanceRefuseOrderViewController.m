@@ -9,6 +9,7 @@
 #import "MaintenanceRefuseOrderViewController.h"
 
 @interface MaintenanceRefuseOrderViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"拒绝工单";
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    NSLog(@"%@", textView.text);
 }
 
 @end

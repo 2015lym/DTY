@@ -10,11 +10,10 @@
 #import "WorkCollectionView.h"
 #import "WorkCollectionViewCell.h"
 #import "WorkCollectionReusableView.h"
+#import "NewElevatorMaintenanceModel.h"
 
 // 维保记录
 #import "MaintenanceRecordViewController.h"
-// 超期工单
-#import "MaintenanceOverOrderViewController.h"
 // 待审核工单
 #import "MaintenanceUncheckedViewController.h"
 // 今日完成（无Tab维保记录页）
@@ -23,6 +22,11 @@
 #import "MaintenanceCalendarViewController.h"
 
 @interface New_Elevator_MaintenanceViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UILabel *todayMaintenanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *overdueElevatorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pendingReviewLabel;
+@property (weak, nonatomic) IBOutlet UILabel *todayCompletedLabel;
 
 @property (nonatomic, strong) WorkCollectionView *collectionView;
 
@@ -40,6 +44,26 @@
     _sectionArray = [NSMutableArray arrayWithObjects:@"电梯维保", nil];
     _dataArray = [NSMutableArray arrayWithObjects:@"维保计划", @"维保记录", @"临时工单", nil];
     [self createCollectionView];
+    
+    [self showProgress];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"userId"] = [UserService getUserInfo].userId;
+    [NetRequest GET:@"NPMaintenanceApp/GetLiftMaintenanceStatusStatistics" params:dic callback:^(BaseModel *baseModel) {
+        if (baseModel.success) {
+            NewElevatorMaintenanceModel *model = [NewElevatorMaintenanceModel yy_modelWithJSON:baseModel.data];
+            self.todayMaintenanceLabel.text = [NSString stringWithFormat:@"（%ld）", model.MaintenanceToday];
+            self.overdueElevatorLabel.text = [NSString stringWithFormat:@"（%ld）", model.OverdueElevator];
+            self.pendingReviewLabel.text = [NSString stringWithFormat:@"（%ld）", model.PendingReview];
+            self.todayCompletedLabel.text = [NSString stringWithFormat:@"（%ld）", model.Completed];
+        } else {
+            [self showInfo:baseModel.Message];
+        }
+        [self hideProgress];
+    } errorCallback:^(NSError *error) {
+        [self hideProgress];
+        [self showInfo:@"服务器错误"];
+    }];
+    
 }
 
 #pragma mark - ---------- 创建collectionView ----------
@@ -108,12 +132,15 @@
 - (IBAction)action1:(id)sender {
     MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
     vc.navigationItem.title = @"今日保养";
+    vc.workStatus = 6;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 // 超期电梯
 - (IBAction)action2:(id)sender {
-    MaintenanceOverOrderViewController *vc = [MaintenanceOverOrderViewController new];
+    MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
+    vc.navigationItem.title = @"超期工单";
+    vc.workStatus = 7;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -121,6 +148,7 @@
 - (IBAction)action3:(id)sender {
     MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
     vc.navigationItem.title = @"待审核工单";
+    vc.workStatus = 8;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -128,6 +156,7 @@
 - (IBAction)action4:(id)sender {
     MaintenanceRecordNoTabViewController *vc = [MaintenanceRecordNoTabViewController new];
     vc.navigationItem.title = @"已完成工单";
+    vc.workStatus = 5;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end
