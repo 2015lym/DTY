@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface New_Elevator_MaintenanceViewController : YMBaseViewController
+@property (nonatomic, assign) BOOL isCheck;
 
 @end
 

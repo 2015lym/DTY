@@ -11,7 +11,6 @@
 #import "AFAppDotNetAPIClient.h"
 
 #import "appDelegate.h"
-#import "HomeViewController.h"
 #import "TencentOpenAPI/TencentApiInterface.h"
 @import AFNetworking;
 

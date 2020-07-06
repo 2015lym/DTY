@@ -245,9 +245,22 @@
                  NSString *DeptRoleCode=[RoleGroup valueForKeyPath:@"RoleCode"];
                  NSString *role_id = [NSString stringWithFormat:@"%@",[User objectForKey:@"RoleId"]];
                  NSString *nikename = [NSString stringWithFormat:@"%@",[User objectForKey:@"UserName"]];
-                 app.userInfo  =[[UserInfoEntity alloc]init];
-                 [app.userInfo setUserInfo:_lblusername.text forpwd:_lblpassword.text forUserID:UserID forDeptRoleCode:DeptRoleCode forRoleId:role_id forNikename:nikename];
+                 self->app.userInfo  =[[UserInfoEntity alloc]init];
+                 [self->app.userInfo setUserInfo:self.lblusername.text forpwd:self.lblpassword.text forUserID:UserID forDeptRoleCode:DeptRoleCode forRoleId:role_id forNikename:nikename];
          
+                 UserModel *model = [[UserModel alloc] init];
+                 model.username = self.lblusername.text;
+                 model.userId = UserID;
+                 model.deptRoleCode = DeptRoleCode;
+                 model.roleId = role_id;
+                 model.nickname = nikename;
+                 if ([dic_data[@"User"][@"Role"][@"RoleCode"] isEqualToString:@"63"] && [dic_data[@"User"][@"Role"][@"IsSupervision"] boolValue] == YES) {
+                     model.isSuperVision = YES;
+                 } else {
+                     model.isSuperVision = NO;
+                 }
+                 [UserService setUserInfo:model];
+                 
                  //写缓存
                  NSString   *str_CachePath_Login = [NSString stringWithFormat:@"%@%@",[Util GetMyCachesPath],@"Login"];
                  if ([[ NSFileManager defaultManager ] fileExistsAtPath :str_CachePath_Login]) {

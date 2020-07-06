@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MaintenanceRecordModel : NSObject
 
 @property (nonatomic, copy) NSString *PlanMaintenanceTime;
-@property (nonatomic, strong) NSArray<NSString *> *MaintenanceUserNameList;
+@property (nonatomic, strong) NSArray<NSDictionary *> *MaintenanceUserNameList;
 @property (nonatomic, copy) NSString *BeginMaintenanceTime;
 @property (nonatomic, copy) NSString *CertificateNum;
 @property (nonatomic, copy) NSString *DetailAddress;
@@ -33,6 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *MaintenanceTypeId;
 @property (nonatomic, copy) NSString *UseDeptName;
 @property (nonatomic, copy) NSString *MaintDeptName;
+
+@property (nonatomic, copy) NSString *SupervisorSignImgUrl;
+@property (nonatomic, copy) NSString *SignImgUrl;
+
 @property (nonatomic, assign) float Latitude;
 @property (nonatomic, assign) float Longitude;
 

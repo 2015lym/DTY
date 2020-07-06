@@ -7,6 +7,7 @@
 //
 
 #import "New_Elevator_MaintenanceViewController.h"
+#import "Masonry.h"
 #import "WorkCollectionView.h"
 #import "WorkCollectionViewCell.h"
 #import "WorkCollectionReusableView.h"
@@ -19,9 +20,14 @@
 // 今日完成（无Tab维保记录页）
 #import "MaintenanceRecordNoTabViewController.h"
 
+// 日历
 #import "MaintenanceCalendarViewController.h"
 
+// 主管审核
+#import "MaintenanceAuditViewController.h"
+
 @interface New_Elevator_MaintenanceViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *backView;
 
 @property (weak, nonatomic) IBOutlet UILabel *todayMaintenanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *overdueElevatorLabel;
@@ -42,9 +48,17 @@
     [super viewDidLoad];
     self.navigationItem.title = @"电梯维保";
     _sectionArray = [NSMutableArray arrayWithObjects:@"电梯维保", nil];
-    _dataArray = [NSMutableArray arrayWithObjects:@"维保计划", @"维保记录", @"临时工单", nil];
+    if (_isCheck) {
+        _backView.hidden = YES;
+        _dataArray = [NSMutableArray arrayWithObjects:@"维保审核", nil];
+    } else {
+        _dataArray = [NSMutableArray arrayWithObjects:@"维保计划", @"维保记录", @"临时工单", nil];
+        [self netRequest];
+    }
     [self createCollectionView];
-    
+}
+
+- (void)netRequest {
     [self showProgress];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"userId"] = [UserService getUserInfo].userId;
@@ -63,15 +77,27 @@
         [self hideProgress];
         [self showInfo:@"服务器错误"];
     }];
-    
 }
 
 #pragma mark - ---------- 创建collectionView ----------
 - (void)createCollectionView {
-    _collectionView = [[WorkCollectionView alloc] initWithFrame:CGRectMake(0, SCREEN_WIDTH/3, SCREEN_WIDTH, SCREEN_HEIGHT - kTopHeight - SCREEN_WIDTH/3)];
+    if (_isCheck) {
+        _collectionView = [[WorkCollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - kTopHeight)];
+    } else {
+        _collectionView = [[WorkCollectionView alloc] init];
+//        _collectionView = [[WorkCollectionView alloc] initWithFrame:CGRectMake(0, SCREEN_WIDTH/3, SCREEN_WIDTH, SCREEN_HEIGHT - kTopHeight - SCREEN_WIDTH/3)];
+    }
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [self.view addSubview:self.collectionView];
+    if (!_isCheck) {
+        [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.backView.mas_bottom);
+            make.bottom.equalTo(self.view.mas_bottom);
+            make.left.equalTo(self.view.mas_left);
+            make.right.equalTo(self.view.mas_right);
+        }];
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -98,9 +124,14 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if(indexPath.item == 0) {
-            // 维保计划
-            MaintenanceCalendarViewController *vc = [MaintenanceCalendarViewController new];
-            [self.navigationController pushViewController:vc animated:YES];
+            if (_isCheck) {
+                MaintenanceAuditViewController *vc = [MaintenanceAuditViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                // 维保计划
+                MaintenanceCalendarViewController *vc = [MaintenanceCalendarViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         } else if (indexPath.item == 1) {
             // 维保记录
             MaintenanceRecordViewController *vc = [MaintenanceRecordViewController new];

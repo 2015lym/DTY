@@ -15,7 +15,7 @@ typedef void (^OldServiceRequestCallback)(OldElevatorBaseModel *baseModel);
 typedef void (^ServiceRequestCallback)(BaseModel *baseModel);
 typedef void (^ServiceProgressCallback)(NSProgress *uploadProgress);
 typedef void (^ServiceErrorCallback)(NSError* error);
-typedef void (^UploadImageCallback)(id responseObject);
+typedef void (^UploadImageCallback)(BaseModel *baseModel);
 
 @interface NetRequest : NSObject
 

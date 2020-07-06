@@ -15,20 +15,20 @@
 //1.1
 static NSString * const Ksdby_api = @"http://api.searchneasia.com/";
 
-////线上
-//static NSString * const Ksdby_api_2 = @"http://appapi.dianti119.com/api/";
-////线上维保图片
-//static NSString * const Ksdby_api_Img = @"http://appapi.dianti119.com";
+//线上
+static NSString * const Ksdby_api_2 = @"http://appapi.dianti119.com/api/";
+//线上维保图片
+static NSString * const Ksdby_api_Img = @"http://appapi.dianti119.com";
 
 ////内网1
 //static NSString * const Ksdby_api_2 = @"http://192.168.1.42:8080/api/";
 ////内网1维保图片
 //static NSString * const Ksdby_api_Img = @"http://192.168.1.42:8080";
 
-//内网2
-static NSString * const Ksdby_api_2 = @"http://192.168.10.169:8030/api/";
-//内网2维保图片
-static NSString * const Ksdby_api_Img = @"http://192.168.10.169:8030";
+////内网2
+//static NSString * const Ksdby_api_2 = @"http://192.168.10.169:8030/api/";
+////内网2维保图片
+//static NSString * const Ksdby_api_Img = @"http://192.168.10.169:8030";
 
 // bugly
 static NSString * const bugly_ID = @"e0476b271a";

@@ -659,13 +659,7 @@ void getException(NSException *exception)
     if(userinfo1.count==5) {
         _userInfo=[[UserInfoEntity alloc]init];
         [_userInfo setUserInfo:userinfo1[0] forpwd:@"" forUserID:userinfo1[1] forDeptRoleCode:userinfo1[2] forRoleId:userinfo1 [3] forNikename:[userinfo1 lastObject]];
-        UserModel *model = [[UserModel alloc] init];
-        model.username = _userInfo.username;
-        model.userId = _userInfo.UserID;
-        model.deptRoleCode = _userInfo.DeptRoleCode;
-        model.roleId = _userInfo.RoleId;
-        model.nickname = _userInfo.nikename;
-        [UserService setUserInfo:model];
+
         [self loginSucceed];
     } else {
         loginAndRegistViewController *view_Login = [[loginAndRegistViewController alloc]initWithNibName:[Util GetResolution:@"loginAndRegistViewController"] bundle:nil];

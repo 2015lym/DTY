@@ -7,6 +7,7 @@
 //
 
 #import "MaintenanceGetQRCodeViewController.h"
+#import "MaintenanceContentViewController.h"
 
 @interface MaintenanceGetQRCodeViewController ()
 
@@ -68,23 +69,8 @@
 - (void)scanResultWithArray:(NSArray<LBXScanResult*>*)array {
     LBXScanResult *result = array.firstObject;
     
-//    MaintenanceWorkTemplateNodes *curNode;
-//    for (MaintenanceWorkTemplateNodes *node in self.dataArray) {
-//        if (node.sortCode == 1) {
-//            curNode = node;
-//        }
-//    }
-//    curNode.actionValue = result.strScanned;
-//    
-//    self.workModel = [NodeUtils replaceHistories:self.workModel templateNode:curNode];
-//    NSString *page = [NodeUtils pushPageWithArgumentValue:self.argumentValue model:self.workModel];
-//    [NodeUtils saveModel:self.workModel];
-//    if ([page isEqualToString:@"NFC"]) {
-//        MaintenanceContentViewController *vc = [MaintenanceContentViewController new];
-//        vc.workModel = self.workModel;
-//        vc.statusValue = self.argumentValue;
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
+    MaintenanceContentViewController *vc = [MaintenanceContentViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

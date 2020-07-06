@@ -289,8 +289,8 @@
 }
 
 -(void)refRefshView{
-    HomeViewController  *view_CampusLife=[self.viewControllers objectAtIndex:0];
-    [view_CampusLife refRefshView];
+//    HomeViewController  *view_CampusLife=[self.viewControllers objectAtIndex:0];
+//    [view_CampusLife refRefshView];
 }
 -(void)rightLoginEvent{
     if(self.app.str_token.length==0)

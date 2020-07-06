@@ -18,4 +18,6 @@
 @property (nonatomic ,strong) NSString *userId;
 @property (nonatomic ,strong) NSString *deptRoleCode;
 
+@property (nonatomic, assign) BOOL isSuperVision;
+
 @end

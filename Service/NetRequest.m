@@ -181,7 +181,8 @@ errorCallback:(ServiceErrorCallback)errorCallback {
         NSLog(@"%@", uploadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (callback) {
-            callback(responseObject);
+            BaseModel *model = [BaseModel yy_modelWithJSON:responseObject];
+            callback(model);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);

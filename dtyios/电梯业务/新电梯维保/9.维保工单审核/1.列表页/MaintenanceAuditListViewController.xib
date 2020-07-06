@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MaintenanceAuditListViewController">
+            <connections>
+                <outlet property="tableView" destination="uCZ-92-VQu" id="XIZ-qh-eBX"/>
+                <outlet property="textField" destination="qGn-ld-GPW" id="cXq-da-PP5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="uCZ-92-VQu">
+                    <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="5qM-EB-R0l"/>
+                        <outlet property="delegate" destination="-1" id="4dA-vY-2Rh"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8W-Zp-Hdo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入注册代码搜索" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qGn-ld-GPW">
+                            <rect key="frame" x="15" y="0.0" width="283" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00j-pu-y3x">
+                            <rect key="frame" x="313" y="10" width="47" height="30"/>
+                            <color key="backgroundColor" red="0.0" green="0.30588235289999999" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="  搜索  ">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="search:" destination="-1" eventType="touchUpInside" id="qoZ-hU-wWq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="qGn-ld-GPW" firstAttribute="leading" secondItem="E8W-Zp-Hdo" secondAttribute="leading" constant="15" id="KgF-VR-l6b"/>
+                        <constraint firstAttribute="height" constant="50" id="L5P-Z5-2vI"/>
+                        <constraint firstItem="qGn-ld-GPW" firstAttribute="top" secondItem="E8W-Zp-Hdo" secondAttribute="top" id="Lqi-M0-Fla"/>
+                        <constraint firstItem="qGn-ld-GPW" firstAttribute="centerY" secondItem="E8W-Zp-Hdo" secondAttribute="centerY" id="QvT-sL-cLx"/>
+                        <constraint firstAttribute="trailing" secondItem="00j-pu-y3x" secondAttribute="trailing" constant="15" id="glx-j0-Sry"/>
+                        <constraint firstItem="00j-pu-y3x" firstAttribute="leading" secondItem="qGn-ld-GPW" secondAttribute="trailing" constant="15" id="iVH-bT-B1R"/>
+                        <constraint firstAttribute="bottom" secondItem="qGn-ld-GPW" secondAttribute="bottom" id="mLw-1M-w8L"/>
+                        <constraint firstItem="00j-pu-y3x" firstAttribute="centerY" secondItem="E8W-Zp-Hdo" secondAttribute="centerY" id="ptb-uH-hIi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="uCZ-92-VQu" secondAttribute="bottom" id="BUA-ri-Ftr"/>
+                <constraint firstAttribute="trailing" secondItem="uCZ-92-VQu" secondAttribute="trailing" id="Dfx-4V-uGf"/>
+                <constraint firstAttribute="trailing" secondItem="E8W-Zp-Hdo" secondAttribute="trailing" id="RCE-fV-bay"/>
+                <constraint firstItem="E8W-Zp-Hdo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WrN-RS-GtG"/>
+                <constraint firstItem="uCZ-92-VQu" firstAttribute="top" secondItem="E8W-Zp-Hdo" secondAttribute="bottom" constant="15" id="bbp-nH-n54"/>
+                <constraint firstItem="E8W-Zp-Hdo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i2E-lb-EJJ"/>
+                <constraint firstItem="uCZ-92-VQu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tXr-lI-X0W"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="154"/>
+        </view>
+    </objects>
+</document>

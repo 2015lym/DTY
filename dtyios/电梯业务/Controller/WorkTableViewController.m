@@ -163,7 +163,9 @@
 //                physical.web_title=@"电梯维保";
 //                [self.navigationController pushViewController:physical animated:YES];
                 New_Elevator_MaintenanceViewController *vc = [New_Elevator_MaintenanceViewController new];
+                if ([UserService getUserInfo].isSuperVision) vc.isCheck = YES;
                 [self.navigationController pushViewController:vc animated:YES];
+                
             }
             
         } else if(indexPath.item == 1) {

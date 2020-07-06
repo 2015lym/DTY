@@ -85,9 +85,9 @@
 #pragma mark - ---------- TableView 点击事件 ----------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    MaintenanceOrderDetailViewController *vc = [MaintenanceOrderDetailViewController new];
-    vc.orderType = todo;
-    [self.navigationController pushViewController:vc animated:YES];
+//    MaintenanceOrderDetailViewController *vc = [MaintenanceOrderDetailViewController new];
+//    vc.orderType = todo;
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)getDate {

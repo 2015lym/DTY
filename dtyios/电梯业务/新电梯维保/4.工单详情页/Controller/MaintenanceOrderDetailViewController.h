@@ -13,7 +13,10 @@ typedef NS_ENUM(NSUInteger, OrderType) {
     doing,
     checking,
     signing,
-    done
+    done,
+    kAudit,
+    kSupport,
+    kReject
 };
 
 @interface MaintenanceOrderDetailViewController : YMBaseViewController

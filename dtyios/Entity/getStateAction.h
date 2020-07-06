@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
+#import "FMDB.h"
 @interface getStateAction : NSObject
 {
     FMDatabase *_mDB;

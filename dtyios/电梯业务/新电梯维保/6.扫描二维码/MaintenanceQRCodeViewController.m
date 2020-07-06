@@ -8,6 +8,7 @@
 
 #import "MaintenanceQRCodeViewController.h"
 #import "MaintenanceGetQRCodeViewController.h"
+#import "MaintenanceContentViewController.h"
 
 @interface MaintenanceQRCodeViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *scanButton;
@@ -33,7 +34,8 @@
 
 - (IBAction)nextPage:(id)sender {
     [self showAlertController:@"是否跳过该节点" callBack:^{
-        
+        MaintenanceContentViewController *vc = [MaintenanceContentViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 

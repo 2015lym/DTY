@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "MainViewDelegate.h"
-#import "HomeViewController.h"
 #import "Util.h"
 #import "LeftViewController.h"
+#import "RightViewController.h"
 
 @interface MainViewController_dtjy : UITabBarController<MainViewDelegate,LeftViewDelegate,RightViewDelegate>
 {

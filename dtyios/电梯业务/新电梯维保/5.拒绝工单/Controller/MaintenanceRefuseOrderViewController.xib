@@ -47,6 +47,9 @@
                     <state key="normal" title="提交">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="submit:" destination="-1" eventType="touchUpInside" id="Juq-xc-LMm"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

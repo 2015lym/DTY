@@ -9,9 +9,12 @@
 #import "MaintenanceOrderDetailViewController.h"
 #import "MaintenanceRefuseOrderViewController.h"
 #import "MapTableViewCell.h"
+#import "SignTableViewCell.h"
 #import "MaintenanceRecordModel.h"
 
 #import "MaintenanceQRCodeViewController.h"
+#import "MaintenanceContentViewController.h"
+#import "MaintenanceAuditContentViewController.h"
 
 @interface MaintenanceOrderDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -78,6 +81,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == _titleArray.count) {
         return 250;
+    } else if (indexPath.row == _titleArray.count + 1) {
+        return 250;
+    } else if (indexPath.row == _titleArray.count + 2) {
+        return 250;
     } else {
         return 44;
     }
@@ -85,13 +92,33 @@
 
 #pragma mark - ---------- Cell的数量 ----------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _titleArray.count + 1;
+    if (_model.SupervisorSignImgUrl.length > 0) {
+        if (_model.SignImgUrl.length > 0) {
+            return _titleArray.count + 3;
+        } else {
+            return _titleArray.count + 2;
+        }
+    } else {
+        return _titleArray.count + 1;
+    }
 }
 
 #pragma mark - ---------- 每个Cell的内容 ----------
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == _titleArray.count) {
         MapTableViewCell *cell = [MapTableViewCell cellWithTableView:tableView];
+        return cell;
+    } else if (indexPath.row > _titleArray.count) {
+        SignTableViewCell *cell = [SignTableViewCell cellWithTableView:tableView];
+        if (indexPath.row == _titleArray.count + 1) {
+            cell.titleLabel.text = @"主管签字";
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Ksdby_api_Img, _model.SupervisorSignImgUrl]];
+            [cell.signImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"占位图"]];
+        } else {
+            cell.titleLabel.text = @"物业签字";
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Ksdby_api_Img, _model.SignImgUrl]];
+            [cell.signImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"占位图"]];
+        }
         return cell;
     } else {
         static NSString *ideitifier = @"cell";
@@ -211,10 +238,30 @@
         [bottomView addSubview:refuseButton];
     } else if (_orderType == checking) {
         self.navigationItem.title = @"工单审核中";
+//        bottomView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 104);
+//        UIButton *auditButton = [[UIButton alloc] initWithFrame:CGRectMake(16, 30, SCREEN_WIDTH - 32, 44)];
+//        auditButton.backgroundColor = [UIColor colorWithHexString:@"#007AFF"];
+//        auditButton.layer.cornerRadius = 5;
+//        auditButton.layer.masksToBounds = YES;
+//        auditButton.titleLabel.textColor = [UIColor whiteColor];
+//        [auditButton addTarget:self action:@selector(seeOrder) forControlEvents:UIControlEventTouchUpInside];
+//        [auditButton setTitle:@"查看维保内容" forState:UIControlStateNormal];
+//        [bottomView addSubview:auditButton];
     } else if (_orderType == signing) {
         self.navigationItem.title = @"工单待签字";
-    } else {
+    } else if (_orderType == done) {
         self.navigationItem.title = @"已完成工单";
+    } else if (_orderType == kAudit) {
+        self.navigationItem.title = @"待审核工单";
+        bottomView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 104);
+        UIButton *auditButton = [[UIButton alloc] initWithFrame:CGRectMake(16, 30, SCREEN_WIDTH - 32, 44)];
+        auditButton.backgroundColor = [UIColor colorWithHexString:@"#007AFF"];
+        auditButton.layer.cornerRadius = 5;
+        auditButton.layer.masksToBounds = YES;
+        auditButton.titleLabel.textColor = [UIColor whiteColor];
+        [auditButton addTarget:self action:@selector(audit) forControlEvents:UIControlEventTouchUpInside];
+        [auditButton setTitle:@"审核" forState:UIControlStateNormal];
+        [bottomView addSubview:auditButton];
     }
     bottomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.tableView.tableFooterView = bottomView;
@@ -255,7 +302,12 @@
 }
 
 - (void)startMaintenance {
-    MaintenanceQRCodeViewController *vc = [MaintenanceQRCodeViewController new];
+    MaintenanceContentViewController *vc = [MaintenanceContentViewController new];
+    vc.workOrderId = _model.ID;
+    vc.maintenanceTypeId = _model.MaintenanceTypeId;
+    vc.typeName = _model.TypeName;
+    vc.address = _model.AddressPath;
+    vc.isPreview = NO;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -273,4 +325,16 @@
     [alertController addAction:cancelSheet];
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
+- (void)seeOrder {
+
+}
+
+- (void)audit {
+    MaintenanceAuditContentViewController *vc = [MaintenanceAuditContentViewController new];
+    vc.workOrderId = _model.ID;
+    vc.model = _model;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end
