@@ -103,7 +103,7 @@
         } else if (_model.nfcs.count > 0 && _model.photos.count == 0) {
             MaintenanceNFCListTableViewCell *cell = [MaintenanceNFCListTableViewCell cellWithTableView:tableView];
             cell.indexPath = indexPath;
-            cell.model = _model.nfcs[indexPath.section - 1];
+            cell.model = _model.nfcs[indexPath.section - 1]; 
             cell.rightButton.hidden = YES;
             return cell;
         } else {

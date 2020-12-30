@@ -1093,8 +1093,6 @@
 		388F212D23D039150063DDB7 /* WorkCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 388F212623D039150063DDB7 /* WorkCollectionView.m */; };
 		388F212E23D039150063DDB7 /* WorkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388F212723D039150063DDB7 /* WorkCollectionViewCell.xib */; };
 		3892D8E1228E88780056E4D8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3892D8E0228E88780056E4D8 /* BaseViewController.m */; };
-		389C99D02493671F00EB7507 /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C99CE2493671F00EB7507 /* MapTableViewCell.m */; };
-		389C99D12493671F00EB7507 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389C99CF2493671F00EB7507 /* MapTableViewCell.xib */; };
 		389C99D624937D1100EB7507 /* MaintenanceRefuseOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C99D424937D1100EB7507 /* MaintenanceRefuseOrderViewController.m */; };
 		389C99D724937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389C99D524937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib */; };
 		389C99E22497647700EB7507 /* MaintenanceOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C99DF2497647700EB7507 /* MaintenanceOrderDetailViewController.m */; };
@@ -3191,9 +3189,6 @@
 		388F212723D039150063DDB7 /* WorkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkCollectionViewCell.xib; sourceTree = "<group>"; };
 		3892D8DF228E88780056E4D8 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3892D8E0228E88780056E4D8 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		389C99CD2493671F00EB7507 /* MapTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
-		389C99CE2493671F00EB7507 /* MapTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
-		389C99CF2493671F00EB7507 /* MapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
 		389C99D324937D1100EB7507 /* MaintenanceRefuseOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceRefuseOrderViewController.h; sourceTree = "<group>"; };
 		389C99D424937D1100EB7507 /* MaintenanceRefuseOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceRefuseOrderViewController.m; sourceTree = "<group>"; };
 		389C99D524937D1100EB7507 /* MaintenanceRefuseOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceRefuseOrderViewController.xib; sourceTree = "<group>"; };
@@ -3208,6 +3203,9 @@
 		389D504F243EB1D700609103 /* SXTView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXTView.m; sourceTree = "<group>"; };
 		389D5051243EB1F300609103 /* SXTView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SXTView.xib; sourceTree = "<group>"; };
 		38D200B523C5C48E002636FA /* WebInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebInterface.h; sourceTree = "<group>"; };
+		38EA7AD124F4A2EA0087DCA6 /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
+		38EA7AD224F4A2EA0087DCA6 /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
+		38EA7AD324F4A2EA0087DCA6 /* MapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
 		38F0CCB12488D86A00E98FB9 /* MaintenanceCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaintenanceCalendarViewController.h; sourceTree = "<group>"; };
 		38F0CCB22488D86A00E98FB9 /* MaintenanceCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaintenanceCalendarViewController.m; sourceTree = "<group>"; };
 		38F0CCB32488D86A00E98FB9 /* MaintenanceCalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaintenanceCalendarViewController.xib; sourceTree = "<group>"; };
@@ -6688,9 +6686,9 @@
 		38432FDE249229BF00DE3437 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				389C99CD2493671F00EB7507 /* MapTableViewCell.h */,
-				389C99CE2493671F00EB7507 /* MapTableViewCell.m */,
-				389C99CF2493671F00EB7507 /* MapTableViewCell.xib */,
+				38EA7AD124F4A2EA0087DCA6 /* MapTableViewCell.h */,
+				38EA7AD224F4A2EA0087DCA6 /* MapTableViewCell.m */,
+				38EA7AD324F4A2EA0087DCA6 /* MapTableViewCell.xib */,
 				38F848B524AB1CA40080254A /* SignTableViewCell.h */,
 				38F848B624AB1CA40080254A /* SignTableViewCell.m */,
 				38F848B724AB1CA40080254A /* SignTableViewCell.xib */,
@@ -9739,7 +9737,6 @@
 				5C5176891D388E4600284AB1 /* leftmenu01.png in Resources */,
 				5C5176931D388E4600284AB1 /* leftmenu06.png in Resources */,
 				1D0891D81DDEDABC009B2F36 /* LiftBusinessViewController.xib in Resources */,
-				389C99D12493671F00EB7507 /* MapTableViewCell.xib in Resources */,
 				3873DEAD23CC032E00EC5220 /* Task_PartDetailTableViewCell.xib in Resources */,
 				1D34C6192125A05C00A800B1 /* NTESLoginViewController.xib in Resources */,
 				5C5176AD1D388E4600284AB1 /* rightmenu05.png in Resources */,
@@ -9988,6 +9985,7 @@
 				3873DED623CC032E00EC5220 /* Part_WorkListViewController.xib in Resources */,
 				1D5C60B91E97838400726D70 /* jygl_48dp.png in Resources */,
 				5CDDAF661D530C110093ACFB /* refreshAnimation_18.png in Resources */,
+				38EA7AD524F4A2EB0087DCA6 /* MapTableViewCell.xib in Resources */,
 				5C51768D1D388E4600284AB1 /* leftmenu03.png in Resources */,
 				1D34C2561D48B530001212E5 /* CourseDetailedViewController.xib in Resources */,
 				1D6F574E1FFC7ABA007D61CF /* complaint_wait.png in Resources */,
@@ -10707,6 +10705,7 @@
 				1D34C6AF2125A05D00A800B1 /* UIResponder+NTESFirstResponder.m in Sources */,
 				5C767B901D1CF96F002011D7 /* UITableViewCellEx.m in Sources */,
 				5C767BB21D1CF96F002011D7 /* UIGridView.m in Sources */,
+				38EA7AD424F4A2EB0087DCA6 /* MapTableViewCell.m in Sources */,
 				1D34C6622125A05C00A800B1 /* NIMInputMoreContainerView.m in Sources */,
 				1D34C6432125A05C00A800B1 /* NIMWebImageManager.m in Sources */,
 				1D34C6762125A05D00A800B1 /* NIMCardMemberItem.m in Sources */,
@@ -10780,7 +10779,6 @@
 				38F848C124ADB4BE0080254A /* MaintenanceNFCPartsModel.m in Sources */,
 				1D151FCA1D6AA9620074C6D9 /* signUpViewController.m in Sources */,
 				1D34C6522125A05C00A800B1 /* NIMAttributedLabelURL.m in Sources */,
-				389C99D02493671F00EB7507 /* MapTableViewCell.m in Sources */,
 				1D19582F20467DC3009F96AD /* UIView+Zirkfied.m in Sources */,
 				5CD474FE1D5DA14900AEAAC4 /* ClassIfication.m in Sources */,
 				1D34C6372125A05C00A800B1 /* DDContextFilterLogFormatter.m in Sources */,

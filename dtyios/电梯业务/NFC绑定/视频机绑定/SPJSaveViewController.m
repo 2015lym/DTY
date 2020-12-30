@@ -408,12 +408,15 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSMutableDictionary *dicHeader = [[NSMutableDictionary alloc]init];
-    [dicHeader setValue:_liftNum forKey:@"LiftNum"];
+    [dicHeader setValue:_liftNum forKey:@"EquipmentNumber"];
     [dicHeader setValue:tf.text forKey:@"CertificateNum"];
     [dicHeader setValue:self.app.userInfo.UserID forKey:@"UserId"];
+    [dicHeader setValue:@"" forKey:@"FloorArray"];
     [dicHeader setValue:[NSString stringWithFormat:@"%f", Longitude] forKey:@"Longitude"];
     [dicHeader setValue:[NSString stringWithFormat:@"%f",Latitude] forKey:@"Latitude"];
-    NSString *url=@"NFC/VideoLiftSign";
+//    NSString *url=@"NFC/VideoLiftSign";
+    NSString *url=@"NFC/VideoLiftBinding";
+    
     //url=[NSString stringWithFormat:@"%@?LiftNum=%@&CertificateNum=%@",url,_liftNum,tf.text];
     
     [XXNet PostURL:url header:nil parameters:dicHeader succeed:^(NSDictionary *data) {

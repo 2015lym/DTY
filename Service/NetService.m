@@ -130,7 +130,7 @@ parameters:(NSMutableDictionary*)parameters
     }
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData                                                        options:NSJSONReadingMutableContainers                                                          error:&error];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     if (error) {
         //        DNSLog(@"json解析失败：%@",error);
         return nil;

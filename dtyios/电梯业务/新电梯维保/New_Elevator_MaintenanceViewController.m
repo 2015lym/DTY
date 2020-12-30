@@ -65,10 +65,10 @@
     [NetRequest GET:@"NPMaintenanceApp/GetLiftMaintenanceStatusStatistics" params:dic callback:^(BaseModel *baseModel) {
         if (baseModel.success) {
             NewElevatorMaintenanceModel *model = [NewElevatorMaintenanceModel yy_modelWithJSON:baseModel.data];
-            self.todayMaintenanceLabel.text = [NSString stringWithFormat:@"（%ld）", model.MaintenanceToday];
-            self.overdueElevatorLabel.text = [NSString stringWithFormat:@"（%ld）", model.OverdueElevator];
-            self.pendingReviewLabel.text = [NSString stringWithFormat:@"（%ld）", model.PendingReview];
-            self.todayCompletedLabel.text = [NSString stringWithFormat:@"（%ld）", model.Completed];
+            self.todayMaintenanceLabel.text = [NSString stringWithFormat:@"（%zd）", model.MaintenanceToday];
+            self.overdueElevatorLabel.text = [NSString stringWithFormat:@"（%zd）", model.OverdueElevator];
+            self.pendingReviewLabel.text = [NSString stringWithFormat:@"（%zd）", model.PendingReview];
+            self.todayCompletedLabel.text = [NSString stringWithFormat:@"（%zd）", model.Completed];
         } else {
             [self showInfo:baseModel.Message];
         }

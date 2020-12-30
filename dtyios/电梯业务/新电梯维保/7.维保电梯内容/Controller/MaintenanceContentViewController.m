@@ -156,6 +156,7 @@
     }
     _model.itemArray[indexPath.section].photos = tempArray;
     [self.tableView reloadData];
+    
 }
 
 - (void)submit {
@@ -165,8 +166,6 @@
         if (item.ResultName && item.ResultId) {
             [itemArray addObject:item];
         } else {
-            item.ResultName = @"合格";
-            item.ResultId = 1;
             [itemArray addObject:item];
         }
     }
