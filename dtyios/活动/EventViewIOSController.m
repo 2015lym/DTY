@@ -596,10 +596,10 @@ BOOL enableCustomMap;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *WYID = [defaults objectForKey:@"WYID"];
-    NSString *currUrl=[NSString stringWithFormat:@"NeteaseMi/AppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@",WYID,sendArr.LiftId,_roomid];
+    NSString *currUrl=[NSString stringWithFormat:@"NeteaseMi/NewAppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@",WYID,sendArr.LiftId,_roomid];
     
     if (!_isMonitoring) {
-        currUrl=[NSString stringWithFormat:@"NeteaseMi/AppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@&isMonitoring=false",WYID,sendArr.LiftId,_roomid];
+        currUrl=[NSString stringWithFormat:@"NeteaseMi/NewAppSendVideoMachineMsg?fromAccid=%@&LiftID=%@&roomId=%@&isMonitoring=false",WYID,sendArr.LiftId,_roomid];
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
