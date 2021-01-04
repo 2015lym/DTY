@@ -174,7 +174,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSString *string = [@"Lift/GetLiftByLiftNum?liftNum=" stringByAppendingString:liftNum];
-//    string = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    string = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [[AFAppDotNetAPIClient sharedClient]
      GET:string
      
